@@ -55,12 +55,14 @@
               <div id="sf1" class="frm">
                 <fieldset>
                   <legend>Step 1 of 3</legend>
-                  <div class="form-group">
-                    <label class="col-lg-2 control-label" for="lastTimeDonated">Last time Donated: </label>
-                    <div class="col-lg-6">
-                      <input type="date" placeholder="Last time Donated" id="lastTimeDonated" name="lastTimeDonated" class="form-control" autocomplete="off">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label" for="lastTimeDonated">Last time Donated: </label>
+                      <div class="">
+                        <input type="date" placeholder="Last time Donated" id="lastTimeDonated" name="lastTimeDonated" class="form-control" autocomplete="off">
+                      </div>
                     </div>
-                  </div>
+                   </div> 
                   <div class="clearfix" style="height: 10px;clear: both;"></div>
                   <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
@@ -75,40 +77,40 @@
 
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="col-lg-2 control-label" for="uname">Name: </label>
-                      <div class="col-lg-6">
+                      <label class="control-label" for="uname">Name: </label>
+                      <div class="">
                         <input type="text" placeholder="Your Name" id="uname" name="uname" class="form-control" autocomplete="off">
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="col-lg-2 control-label" for="uaddress">Address: </label>
-                      <div class="col-lg-6">
+                      <label class="control-label" for="uaddress">Address: </label>
+                      <div class="">
                         <input type="text" placeholder="Your Address" id="uaddress" name="uaddress" class="form-control" autocomplete="off">
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="col-lg-2 control-label" for="uphone">Contact Number: </label>
-                      <div class="col-lg-6">
+                      <label class="control-label" for="uphone">Contact Number: </label>
+                      <div class="">
                         <input type="text" placeholder="Your Number" id="uphone" name="uphone" class="form-control" autocomplete="off">
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="col-lg-2 control-label" for="alternate_uphone">Alternate Number: </label>
-                      <div class="col-lg-6">
+                      <label class="control-label" for="alternate_uphone">Alternate Number: </label>
+                      <div class="">
                         <input type="text" placeholder="Alternate Number" id="alternate_uphone" name="alternate_uphone" class="form-control" autocomplete="off">
                       </div>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="col-lg-2 control-label" for="ubloodGroup">Blood Group: </label>
-                      <div class="col-lg-6">
+                      <label class="control-label" for="ubloodGroup">Blood Group: </label>
+                      <div class="">
                         <select class="form-control" id="ubloodGroup" name="ubloodGroup">
                           <option value="">Blood Group</option>
                           <option value="A Positive">A Positive</option>
@@ -126,8 +128,8 @@
                   </div>
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="col-lg-2 control-label" for="udistrict">Your District: </label>
-                      <div class="col-lg-6">
+                      <label class="control-label" for="udistrict">Your District: </label>
+                      <div class="">
                         <select class="form-control" id="udistrict" name="udistrict">
                           <option value="">Your District</option> 
                           <option value="Anantnag">Anantnag</option> 
@@ -169,8 +171,8 @@
 
                   <div class="col-md-6">
                     <div class="form-group">
-                      <label class="col-lg-2 control-label" for="unearbyhospital">Hospitals Nearby: </label>
-                      <div class="col-lg-6">
+                      <label class="control-label" for="unearbyhospital">Hospitals Nearby: </label>
+                      <div class="">
                         <select class="form-control" id="unearbyhospital" name="unearbyhospital">
                           <option value="">Hospitals Nearby</option> 
                           <option value="S.M.S.H Hospital">S.M.S.H Hospital</option> 
@@ -186,10 +188,10 @@
                   <div class="clearfix" style="height: 10px;clear: both;"></div>
 
                   <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
+                    <center>
                       <button class="btn btn-warning back2" type="button"><span class="fa fa-arrow-left"></span> Back</button> 
                       <button class="btn btn-primary open2" type="button">Next <span class="fa fa-arrow-right"></span></button> 
-                    </div>
+                    </center>
                   </div>
 
                 </fieldset>
@@ -198,13 +200,14 @@
               <div id="sf3" class="frm" style="display: none;">
                 <fieldset>
                   <legend>Step 3 of 3</legend>
-
-                  <div class="form-group">
-                    <label class="col-lg-2 control-label" for="uhowuknow">How you came to know about this form: </label>
-                    <div class="col-lg-6">
-                      <input type="text" placeholder="How you came to know about this form" id="uhowuknow" name="uhowuknow" class="form-control" autocomplete="off">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="control-label" for="uhowuknow">How you came to know about this form: </label>
+                      <div class="">
+                        <input type="text" placeholder="How you came to know about this form" id="uhowuknow" name="uhowuknow" class="form-control" autocomplete="off">
+                      </div>
                     </div>
-                  </div>
+                  </div>  
                   <div class="clearfix" style="height: 10px;clear: both;"></div>
 
                   <div class="form-group">
@@ -229,7 +232,7 @@
       <div class="navbar navbar-inverse footer">
         <div class="container-fluid">
           <div class="copyright">
-            <a href="" target="_blank">&copy; <?php echo date("Y"); ?> | All rights reserved</a>
+            <a href="" target="_blank">&copy; <?php echo date("Y"); ?> ehsas.in | All rights reserved</a>
           </div>
         </div>
       </div>
