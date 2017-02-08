@@ -42,26 +42,7 @@
         },
         unearbyhospital: {
           required: true
-        },
-
-
-        uemail: {
-          required: true,
-          minlength: 2,
-          email: true,
-          maxlength: 100,
-        },
-        upass1: {
-          required: true,
-          minlength: 6,
-          maxlength: 15,
-        },
-        upass2: {
-          required: true,
-          minlength: 6,
-          equalTo: "#upass1",
         }
-
       },
       errorElement: "span",
       errorClass: "help-inline-error",
@@ -84,9 +65,21 @@
     $(".open3").click(function() {
       if (v.form()) {
         $("#loader").show();
-         setTimeout(function(){
-           $("#basicform").html('<h2>Thanks for your time.</h2>');
-         }, 1000);
+          var data = $("#basicform").serializeArray();
+          var url = 'process_form.php';
+          console.log(data);
+          $.ajax({
+            method: 'post',
+            url: url,
+            data: data,
+            dataType: 'json',  
+            success: function(res){
+              console.log(res);
+            }
+          });
+
+          //$("#basicform").html('<h2>Thanks for your time.</h2>');
+        
         return false;
       }
     });

@@ -109,3 +109,8 @@ body{font-size: 14px; line-height: 18px;}
 .copyright{ color: #fff; text-align: center; }
 .copyright a{ color: #fff; }
 .marginr{ margin-right:3px;  }
+.subscribeFormPage{ 
+    background: #e91515;
+    /*background-size: cover; 
+    background-attachment: fixed; */
+}

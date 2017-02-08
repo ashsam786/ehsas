@@ -26,7 +26,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="bootstrap/js/jquery-1.11.1.min.js"></script>
   </head>
-  <body>
+  <body class="subscribeFormPage">
     <div class="container mainbody">
       <div class="page-header">
         <h1>ehsas ek zindagi bachane ka</h1>
@@ -228,7 +228,7 @@
       <div class="margin10"></div>
     </div>
 
-    <footer>
+    <!--footer>
       <div class="navbar navbar-inverse footer">
         <div class="container-fluid">
           <div class="copyright">
@@ -236,7 +236,7 @@
           </div>
         </div>
       </div>
-    </footer>
+    </footer-->
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
