@@ -26,7 +26,7 @@
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="bootstrap/js/jquery-1.11.1.min.js"></script>
   </head>
-  <body class="subscribeFormPage">
+  <body class="subscribeFormPage" style="background-image: url('images/bloodbg.jpg')">
     <div class="container mainbody">
       <div class="page-header">
         <h1>ehsas ek zindagi bachane ka</h1>
