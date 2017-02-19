@@ -26,8 +26,9 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['district_list'] = [1 => 'aa', 2 => 'bb']; 
-		$data['hospital_list'] = [1 => 'aa', 2 => 'bb']; 
+		$data['district_list'] = $this->home_model->get_district_list();
+		$data['hospital_list'] = $this->home_model->get_hospital_list();
+
 		$this->load->view('template/header', $data);
 		$this->load->view('home', $data);
 		$this->load->view('template/footer', $data);

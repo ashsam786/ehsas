@@ -29,11 +29,16 @@ class Admin extends CI_Controller {
 		die('admin index');
 	}
 
-	public function data(){
-		$data['donors'] = $this->admin_model->getDonorData();
-
+	public function view(){
+		//$data['donors'] = $this->admin_model->getDonorData();
+		$data['title'] = 'Ehsas | Donor list';
 		$this->load->view('template/header', $data);
 		$this->load->view('viewdata', $data);
 		$this->load->view('template/footer', $data);
 	}
+
+	function donor_list() {
+        $results = $this->admin_model->get_donor_list();
+        echo json_encode($results);
+  	}
 }

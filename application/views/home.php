@@ -87,7 +87,7 @@
                                     <select name="f1-district" class="f1-district form-control required" id="district" data-toggle="popover" data-placement="top" data-content="Your district">
                                           <option value="" disabled="disabled" selected>District...</option>
                                           <?php foreach($district_list as $i => $v){ ?>
-                                              <option value="<?php echo $i; ?>"><?php echo $v; ?></option>
+                                              <option value="<?php echo $v->district_name; ?>"><?php echo $v->district_name; ?></option>
                                           <?php } ?>
                                     </select>                                    
                                 </div>
@@ -108,7 +108,7 @@
                                     <select name="f1-hospital-nearby" class="f1-hospital-nearby form-control required" id="hospital-nearby" data-toggle="popover" data-placement="top" data-content="Select nearby hospital">
                                           <option value="" disabled="disabled" selected>Hospital Nearby...</option>
                                           <?php foreach($hospital_list as $i => $v){ ?>
-                                              <option value="<?php echo $i; ?>"><?php echo $v; ?></option>
+                                              <option value="<?php echo $v->hospital_name; ?>"><?php echo $v->hospital_name; ?></option>
                                           <?php } ?>
                                     </select>                                    
                                 </div>                                

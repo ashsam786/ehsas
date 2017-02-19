@@ -1,4 +1,9 @@
 
+/*
+* project : Ehsas | Ek zindagi bachane ka
+* Author: Amir Samad Hanga
+*/
+
 function scroll_to_class(element_class, removed_height) {
 	var scroll_to = $(element_class).offset().top - removed_height;
 	if($(window).scrollTop() != scroll_to) {

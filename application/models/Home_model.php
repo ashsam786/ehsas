@@ -4,12 +4,21 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class home_model extends CI_Model{
 	public function __construct(){
 		parent::__construct();
-		$this->load->database();
 	}
 	
 	public function rough(){
 		$qry = $this->db->get('donor_list');
 		return $qry->result();
+	}
+
+	public function get_district_list(){
+		$data =  $this->db->get('district_list');
+		return $data->result();
+	}
+
+	public function get_hospital_list(){
+		$data =  $this->db->get('hospital_list');
+		return $data->result();
 	}
 
 	public function save_donor_form(){
@@ -26,7 +35,8 @@ class home_model extends CI_Model{
 				'nearby_hospital'	=> $this->input->post('f1-hospital-nearby'),
 				'how_you_know_us'	=> $this->input->post('f1-how-know'),
 				'gender'			=> $this->input->post('f1-gender'),
-				'email'				=> $this->input->post('f1-email')
+				'email'				=> $this->input->post('f1-email'),
+				'pass'				=> $this->input->post('f1-password') ? md5($this->input->post('f1-password')) : ''
 			);
 
 			if($data['name'] == "" || $data['gender'] == "" || $data['last_time_donated'] == "" || $data['address'] == "" || $data['district'] == "" || $data['contact'] == "" || $data['nearby_hospital'] == "" || $data['how_you_know_us'] == "" || $data['pass'] == "" || $this->input->post('f1-email') == ""){
