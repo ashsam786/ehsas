@@ -72,6 +72,31 @@ jQuery(document).ready(function() {
     	$(this).removeClass('input-error');
     });
     
+    $("#f1-country").on('change', function(){
+        var c_id = $(this).val();
+        $.get(base_url+'/getStates', {'country_id': c_id}, function(res){
+            res = $.parseJSON(res);
+            $("#f1-state").html('<option value="" disabled="disabled" selected>State...</option>')
+            $.each(res, function(i,v){
+                $("#f1-state").append('<option value="'+v.id+'">'+v.state+'</option>');
+                $("#f1-state").removeAttr('disabled');
+            });          
+        });
+    });
+
+    $("#f1-state").on('change', function(){
+        var s_id = $(this).val();
+        $.get(base_url+'/getCities', {'state_id': s_id}, function(res){
+            res = $.parseJSON(res);
+            $("#f1-city").html('<option value="" disabled="disabled" selected>City...</option>')
+            $.each(res, function(i,v){
+                $("#f1-city").append('<option value="'+v.id+'">'+v.city+'</option>');
+                $("#f1-city").removeAttr('disabled');
+            });
+        });
+    });
+
+
     // next step
     $('.f1 .btn-next').on('click', function() {
     	var parent_fieldset = $(this).parents('fieldset');

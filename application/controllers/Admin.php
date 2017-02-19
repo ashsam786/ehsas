@@ -26,7 +26,35 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
-		die('admin index');
+/*		//$data = $this->db->get('cities1');
+		$data = $this->db->get('statelist');
+		$data = $data->result();
+
+		$list = [];
+		foreach($data  as $i => $v){
+			$s = trim($v->state);
+			$c = trim($v->city_name);
+
+			if(!isset($list[$s])){
+				$list[$s] = [];
+			}
+
+			$list[$s][] = $c;
+		}
+
+		foreach($list as $i => $v){
+			$d = ['country_id' => 1, 'state' => $i];
+			$this->db->insert('states', $d);
+			$state_id = $this->db->insert_id();
+			$cityList = [];	
+			foreach($v as $ind => $val){
+				$cityList[] = ['city' => $val, 'state_id' => $state_id];
+			}
+
+			$this->db->insert_batch('cities', $cityList);
+		}
+//echo '<pre>'; print_r($i); echo '</pre><br>';			 die;
+die('done!');*/
 	}
 
 	public function view(){
@@ -37,7 +65,7 @@ class Admin extends CI_Controller {
 		$this->load->view('template/footer', $data);
 	}
 
-	function donor_list() {
+	public function donor_list() {
         $results = $this->admin_model->get_donor_list();
         echo json_encode($results);
   	}

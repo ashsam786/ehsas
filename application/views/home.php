@@ -79,17 +79,29 @@
                             <fieldset>
                                 <h4>Contact Information:</h4>
                                 <div class="form-group">
-                                    <label class="sr-only" for="f1-address">Address</label>
-                                    <input type="text" name="f1-address" placeholder="Address..." class="f1-address form-control required" id="f1-address" data-toggle="popover" data-placement="top" data-content="Your address">
-                                </div>
-                                <div class="form-group">
-                                    <label class="sr-only" for="f1-district">District</label>
-                                    <select name="f1-district" class="f1-district form-control required" id="district" data-toggle="popover" data-placement="top" data-content="Your district">
-                                          <option value="" disabled="disabled" selected>District...</option>
-                                          <?php foreach($district_list as $i => $v){ ?>
-                                              <option value="<?php echo $v->district_name; ?>"><?php echo $v->district_name; ?></option>
+                                    <label class="sr-only" for="f1-country">Country</label>
+                                    <select name="f1-country" class="f1-country form-control required" id="f1-country" data-toggle="popover" data-placement="top" data-content="Your country">
+                                          <option value="" disabled="disabled" selected>Country...</option>
+                                          <?php foreach($country_list as $i => $v){ ?>
+                                              <option value="<?php echo $v->id; ?>"><?php echo $v->country; ?></option>
                                           <?php } ?>
                                     </select>                                    
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-state">State</label>
+                                    <select name="f1-state" class="f1-state form-control required" id="f1-state" data-toggle="popover" data-placement="top" data-content="Your state" disabled="disabled">
+                                          <option value="" disabled="disabled" selected>State...</option>
+                                    </select>                                    
+                                </div>                                
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-city">City</label>
+                                    <select name="f1-city" class="f1-city form-control required" id="f1-city" data-toggle="popover" data-placement="top" data-content="Your city" disabled="disabled">
+                                          <option value="" disabled="disabled" selected>City...</option>
+                                    </select>                                    
+                                </div>
+                                <div class="form-group">
+                                    <label class="sr-only" for="f1-address">Lane Address</label>
+                                    <input type="text" name="f1-address" placeholder="Lane Address..." class="f1-address form-control" id="f1-address" data-toggle="popover" data-placement="top" data-content="Your address">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-contact-number">Contact Number</label>
@@ -108,7 +120,7 @@
                                     <select name="f1-hospital-nearby" class="f1-hospital-nearby form-control required" id="hospital-nearby" data-toggle="popover" data-placement="top" data-content="Select nearby hospital">
                                           <option value="" disabled="disabled" selected>Hospital Nearby...</option>
                                           <?php foreach($hospital_list as $i => $v){ ?>
-                                              <option value="<?php echo $v->hospital_name; ?>"><?php echo $v->hospital_name; ?></option>
+                                              <option value="<?php echo $v->id; ?>"><?php echo $v->nearby_hospital; ?></option>
                                           <?php } ?>
                                     </select>                                    
                                 </div>                                
@@ -131,7 +143,7 @@
                                 <h4>How did you got us?:</h4>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-how-know">How you came to know about this form.</label>
-                                    <input type="text" name="f1-how-know" placeholder="How you came to know about this form...." class="f1-how-know form-control required" id="f1-how-know" data-toggle="popover" data-placement="top" data-content="How did you came to know about us?">
+                                    <input type="text" name="f1-how-know" placeholder="How you came to know about this form...." class="f1-how-know form-control required" id="f1-how-know">
                                 </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>

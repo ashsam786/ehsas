@@ -84,12 +84,16 @@ defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
-// custom
+// custom constants
+
+defined('BASE_URL')      	OR define('BASE_URL', 'http://localhost/ehsas.in');      // set your base url here
 defined('MAIN_TITLE')      OR define('MAIN_TITLE', 'Ehsas - ek zindagi bachane ka'); 
 defined('PAGE_TITLE')      OR define('PAGE_TITLE', 'Ehsas | Ehsas ek zindagi bachane ka'); 
 
-defined('FB_LINK')      	OR define('FB_LINK', '#'); 
+defined('FB_LINK')      	OR define('FB_LINK', 'https://www.facebook.com/ehsas.in/?fref=ts'); 
 defined('TWITTER_LINK')     OR define('TWITTER_LINK', '#'); 
 defined('GOOGLEPLUS_LINK') 	OR define('GOOGLEPLUS_LINK', '#'); 
 defined('FORM_THANKU_MSG') 	OR define('FORM_THANKU_MSG', 'Thank you for submitting your details you will be contacted when required. Please let them know that you are freely donating blood out of your own will'); 
+
+defined('UNFIT_DONOR_PERIOD') 	OR define('UNFIT_DONOR_PERIOD', 60); 
 

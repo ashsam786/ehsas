@@ -26,12 +26,22 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-		$data['district_list'] = $this->home_model->get_district_list();
+		$data['country_list'] = $this->home_model->get_country_list();
 		$data['hospital_list'] = $this->home_model->get_hospital_list();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('home', $data);
 		$this->load->view('template/footer', $data);
+	}
+
+	public function getStates(){
+		$data = $this->home_model->getStates();
+		echo json_encode($data);
+	}
+
+	public function getCities(){
+		$data = $this->home_model->getCities();
+		echo json_encode($data);
 	}
 
 	public function process_form(){

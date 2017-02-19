@@ -16,18 +16,37 @@ class Admin_model extends CI_Model{
 	public function get_donor_list(){
 		$aColumns = array(
 			//'id',
+			'days_passed',
 			'last_time_donated',
 			'name',
+			'blood_group',
 			'gender',
-			'address',
 			'contact',
 			'alternate_contact',
 			'email',
-			'blood_group',
-			'district',
 			'nearby_hospital',
+			'city',
+			'state',
+			'country',
+			'address',
 			'how_you_know_us'
         );
+
+		$sColumns = array(
+			'dl.last_time_donated',
+			'dl.name',
+			'dl.blood_group',
+			'dl.gender',
+			'dl.contact',
+			'dl.alternate_contact',
+			'dl.email',
+			'h.nearby_hospital',
+			'ci.city',
+			's.state',
+			'c.country',
+			'dl.address',
+			'dl.how_you_know_us'			
+		);
 
          $sIndexColumn = "id";
 
@@ -79,7 +98,7 @@ class Admin_model extends CI_Model{
         $sOrderDir = $arr['order[0][dir]'];
         $bSortable_ = $arr_columns['columns[' . $sOrderIndex . '][orderable]'];
         if ($bSortable_ == "true") {
-            $sOrder .= $aColumns[$sOrderIndex] .
+            $sOrder .= $sColumns[$sOrderIndex] .
                     ($sOrderDir === 'asc' ? ' asc' : ' desc');
         }
 
@@ -90,8 +109,8 @@ class Admin_model extends CI_Model{
         $sSearchVal = $arr['search[value]'];
         if (isset($sSearchVal) && $sSearchVal != '') {
             $sWhere = "WHERE (";
-            for ($i = 0; $i < count($aColumns); $i++) {
-                $sWhere .= $aColumns[$i] . " LIKE '%" . $this->db->escape_like_str($sSearchVal) . "%' OR ";
+            for ($i = 0; $i < count($sColumns); $i++) {
+                $sWhere .= $sColumns[$i] . " LIKE '%" . $this->db->escape_like_str($sSearchVal) . "%' OR ";
             }
             $sWhere = substr_replace($sWhere, "", -3);
             $sWhere .= ')';
@@ -99,7 +118,7 @@ class Admin_model extends CI_Model{
 
          /* Individual column filtering */
         $sSearchReg = $arr['search[regex]'];
-        for ($i = 0; $i < count($aColumns); $i++) {
+        for ($i = 0; $i < count($sColumns); $i++) {
             $bSearchable_ = $arr['columns[' . $i . '][searchable]'];
             if (isset($bSearchable_) && $bSearchable_ == "true" && $sSearchReg != 'false') {
                 $search_val = $arr['columns[' . $i . '][search][value]'];
@@ -108,19 +127,23 @@ class Admin_model extends CI_Model{
                 } else {
                     $sWhere .= " AND ";
                 }
-                $sWhere .= $aColumns[$i] . " LIKE '%" . $this->db->escape_like_str($search_val) . "%' ";
+                $sWhere .= $sColumns[$i] . " LIKE '%" . $this->db->escape_like_str($search_val) . "%' ";
             }
         }
 
-        $sQuery = "SELECT SQL_CALC_FOUND_ROWS " . str_replace(" , ", " ", implode(", ", $aColumns)) . "
-        FROM $this->table
+        $sQuery = "SELECT SQL_CALC_FOUND_ROWS " . str_replace(" , ", " ", implode(", ", $sColumns)) . "
+        FROM $this->table as dl 
+        LEFT OUTER JOIN cities as ci ON dl.city = ci.id 
+        LEFT OUTER JOIN states as s ON dl.state = s.id 
+        LEFT OUTER JOIN countries as c ON dl.country = c.id 
+        LEFT OUTER JOIN hospital_list as h ON dl.nearby_hospital = h.id
         $sWhere
         $sOrder
-        $sLimit
-        ";
+        $sLimit";
+
         $rResult = $this->db->query($sQuery);
  
- /* Data set length after filtering */
+		 /* Data set length after filtering */
         $sQuery = "SELECT FOUND_ROWS() AS length_count";
         $rResultFilterTotal = $this->db->query($sQuery);
         $aResultFilterTotal = $rResultFilterTotal->row();
@@ -141,8 +164,12 @@ class Admin_model extends CI_Model{
             $row = array();
             foreach ($aColumns as $col) {
             	if($col == 'last_time_donated'){
-            		$aRow[$col] .= ' ('. floor((time() - strtotime($aRow[$col])) / (60 * 60 * 24)) .')';
+            		$days = floor((time() - strtotime($aRow[$col])) / (60 * 60 * 24));
+            		$class = ($days > UNFIT_DONOR_PERIOD) ? 'fitDonor' : 'unFitDonor';
+            		$class .= ' daysPassed';
+            		$row[] = '<span class="'. $class .'">'. $days .'</span>';
             	}
+            	if($col == 'days_passed') continue;
             	$row[] = $aRow[$col];
             }
             $output['data'][] = $row;
