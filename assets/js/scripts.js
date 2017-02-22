@@ -68,7 +68,7 @@ jQuery(document).ready(function() {
     */
     $('.f1 fieldset:first').fadeIn('slow');
     
-    $('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea').on('focus', function() {
+    $('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea, selecct').on('focus', function() {
     	$(this).removeClass('input-error');
     });
     
@@ -97,7 +97,7 @@ jQuery(document).ready(function() {
     });
 
 
-    $('.f1').find('#f1-gender').on('blur', function(){
+    $('#donorRegister').find('#f1-gender').on('blur', function(){
         if($(this).val() == 'female'){
             $('.f1').find('#f1-gender').val('');
             $("#alertMessageModal").modal();
@@ -107,7 +107,7 @@ jQuery(document).ready(function() {
     });
 
     // next step
-    $('.f1 .btn-next').on('click', function() {
+    $('#donorRegister .btn-next').on('click', function() {
     	var parent_fieldset = $(this).parents('fieldset');
     	var next_step = true;
     	// navigation steps / progress steps
@@ -154,7 +154,7 @@ jQuery(document).ready(function() {
     });
     
     // submit
-    $('.f1').on('submit', function(e) {
+    $('#donorRegister').on('submit', function(e) {
         $('#form-errors').removeClass('alert alert-danger');
         $('#form-errors').html('');
     	e.preventDefault();
@@ -175,7 +175,7 @@ jQuery(document).ready(function() {
                 $('#form-errors').addClass('alert alert-danger');
                 $.each(res.msg, function(i, v){
                     if(i == 'required'){
-                        $('.f1').find('.required').addClass('input-error');
+                        $('#donorRegister').find('.required').addClass('input-error');
                     }
                     $('#form-errors').append('<p>'+v+'</p>');
                 });
@@ -185,6 +185,32 @@ jQuery(document).ready(function() {
     	return false;
     });
     
+    $("#loginForm").on('submit', function(e){
+        $('#form-errors').removeClass('alert alert-danger');
+        $('#form-errors').html('');
+        e.preventDefault();
+        // fields validation
+        var data = $(this).serializeArray();
+        var url = $(this).attr('action');
+
+        $.ajax({
+            method: 'post',
+            url: url,
+            data: data,
+            dataType: 'json',  
+            success: function(res){
+              if(res.result){
+                var html = '<div class="alert alert-success"><div><button class="center"><a href="home">HOME</a></button></div>'+ res.msg +'</div>';
+                $('form').closest('div').html(html);
+              } else{
+                $('#form-errors').addClass('alert alert-danger');
+                $('#form-errors').append('<p>'+res.msg+'</p>');
+              }
+            }
+        });
+        return false;        
+    });
+
     // enable tooltip
     $('[data-toggle="popover"]').popover();
 });

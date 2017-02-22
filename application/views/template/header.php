@@ -52,6 +52,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li>
 							<span class="li-social">
+								<a href="<?php echo base_url('donor/logout'); ?>" title="logout"><?php echo $this->session->donor_name; ?></a> 
 								<a href="<?php echo FB_LINK; ?>" target="_blank"><i class="fa fa-facebook"></i></a> 
 								<a href="<?php echo TWITTER_LINK; ?>" target="_blank"><i class="fa fa-twitter"></i></a> 
 								<a href="<?php echo GOOGLEPLUS_LINK; ?>" target="_blank"><i class="fa fa-google-plus"></i></a> 

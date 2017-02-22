@@ -26,6 +26,11 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		if(isset($this->session->donor_name) && $this->session->donor_name != ''){
+			$url = base_url("donor/view/".$this->session->donor_contact);
+			header('Location: '.$url);
+		}
+
 		$this->load->library('recaptcha');
 		$this->load->config('recaptcha');
 

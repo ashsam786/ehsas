@@ -3,20 +3,19 @@
         <div class="top-content">
             <div class="container">
                 
-                <!--div class="row">
+                <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 text">
-                        <h1>Volunteer Blood Donors</h1>
                         <div class="description">
                        	    <p>
-                                Donate blood, stay healthy and save life!
+                                Already registered? <a href="<?php echo base_url('donor/login'); ?>">Click</a> here to login.
                             </p>
                         </div>
                     </div>
-                </div-->
+                </div>
                 
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
-                    	<form role="form" action="" method="post" class="f1">
+                    	<form role="form" action="" method="post" class="f1" id="donorRegister">
                     		<h3>Volunteer Blood Donors</h3>
                     		<p>Donate blood, stay healthy and save life!</p>
                             <div id="form-errors"></div>
