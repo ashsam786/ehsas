@@ -26,8 +26,13 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->library('recaptcha');
+		$this->load->config('recaptcha');
+
 		$data['country_list'] = $this->home_model->get_country_list();
 		$data['hospital_list'] = $this->home_model->get_hospital_list();
+		$data['reCaptcha_html'] =  $this->recaptcha->getWidget(['data-type' => 'image']);
+		$data['reCaptcha_script_tag'] =  $this->recaptcha->getScriptTag();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('home', $data);
@@ -47,9 +52,18 @@ class Home extends CI_Controller {
 	public function process_form(){
 		if(!$this->input->post()){
 			show_404();
-		}	
+		}
+		
+		$this->load->library('recaptcha');
+		$recaptcha = $this->input->post('g-recaptcha-response');
+		$response = $this->recaptcha->verifyResponse($recaptcha);
 
-		$res = $this->home_model->save_donor_form();
+		if (isset($response['success']) and $response['success'] === true) {
+		    $res = $this->home_model->save_donor_form();
+		} else{
+			$res = ['result' => false, 'msg' => ['Incorrect Captcha']];
+		}
+
 		echo json_encode($res);
 	}
 }

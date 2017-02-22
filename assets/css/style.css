@@ -136,6 +136,10 @@ ul.navbar-nav {
 .fitDonor{ background: #f00; }
 .unFitDonor{ background: #008000; }
 
+button.btn.btn-orange,
+button.btn.btn-orange:focus,
+button.btn.btn-orange:active:focus, button.btn.btn-orange.active:focus { background: #f35b3f; }
+
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}

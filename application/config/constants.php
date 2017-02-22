@@ -96,4 +96,6 @@ defined('GOOGLEPLUS_LINK') 	OR define('GOOGLEPLUS_LINK', '#');
 defined('FORM_THANKU_MSG') 	OR define('FORM_THANKU_MSG', 'Thank you for submitting your details you will be contacted when required. Please let them know that you are freely donating blood out of your own will'); 
 
 defined('UNFIT_DONOR_PERIOD') 	OR define('UNFIT_DONOR_PERIOD', 60); 
+defined('FEMALE_ALERT_MESSAGE') 	OR define('FEMALE_ALERT_MESSAGE', "Dear Sister, We appreciate you enthusiasm! We don't want your personal details to be made public! We will Soon come up with different option. You still can be part of group, By creating awareness about our cause! Kindly Encourage your friends via social networkings site to participate."); 
+defined('FEMALE_ALERT_MESSAGE_TITLE') 	OR define('FEMALE_ALERT_MESSAGE_TITLE', "We Appreciate Your Enthusiasm - Jazakillahukhair."); 
 

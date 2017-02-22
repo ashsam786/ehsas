@@ -97,6 +97,15 @@ jQuery(document).ready(function() {
     });
 
 
+    $('.f1').find('#f1-gender').on('blur', function(){
+        if($(this).val() == 'female'){
+            $('.f1').find('#f1-gender').val('');
+            $("#alertMessageModal").modal();
+        } else{
+            $('.f1').find('.btn-next').attr('disabled', false);
+        }
+    });
+
     // next step
     $('.f1 .btn-next').on('click', function() {
     	var parent_fieldset = $(this).parents('fieldset');

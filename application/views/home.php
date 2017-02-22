@@ -145,6 +145,10 @@
                                     <label class="sr-only" for="f1-how-know">How you came to know about this form.</label>
                                     <input type="text" name="f1-how-know" placeholder="How you came to know about this form...." class="f1-how-know form-control required" id="f1-how-know">
                                 </div>
+                                <div class="form-group">
+                                    <?php echo $reCaptcha_html; ?>
+                                    <?php echo $reCaptcha_script_tag; ?>
+                                </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
                                     <button type="submit" class="btn btn-submit">Submit</button>
@@ -157,3 +161,20 @@
             </div>
         </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel"><?php echo FEMALE_ALERT_MESSAGE_TITLE; ?></h2>
+      </div>
+      <div class="modal-body">
+        <?php echo FEMALE_ALERT_MESSAGE; ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-orange" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
