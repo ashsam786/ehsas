@@ -24,32 +24,9 @@ class Home extends CI_Controller {
 		$this->load->model('home_model');
 	}
 
-	public function index()
-	{
-		$data['country_list'] = $this->home_model->get_country_list();
-		$data['hospital_list'] = $this->home_model->get_hospital_list();
-
-		$this->load->view('template/header', $data);
-		$this->load->view('home', $data);
-		$this->load->view('template/footer', $data);
-	}
-
-	public function getStates(){
-		$data = $this->home_model->getStates();
-		echo json_encode($data);
-	}
-
-	public function getCities(){
-		$data = $this->home_model->getCities();
-		echo json_encode($data);
-	}
-
-	public function process_form(){
-		if(!$this->input->post()){
-			show_404();
-		}	
-
-		$res = $this->home_model->save_donor_form();
-		echo json_encode($res);
+	function index(){
+		$this->load->view('template/header');
+		//$this->load->view('home');
+		$this->load->view('template/footer');
 	}
 }

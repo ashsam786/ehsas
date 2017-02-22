@@ -3,20 +3,19 @@
         <div class="top-content">
             <div class="container">
                 
-                <!--div class="row">
+                <div class="row">
                     <div class="col-sm-8 col-sm-offset-2 text">
-                        <h1>Volunteer Blood Donors</h1>
                         <div class="description">
                        	    <p>
-                                Donate blood, stay healthy and save life!
+                                Already registered? <a href="<?php echo base_url('donor/login'); ?>">Click</a> here to login.
                             </p>
                         </div>
                     </div>
-                </div-->
+                </div>
                 
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
-                    	<form role="form" action="" method="post" class="f1">
+                    	<form role="form" action="" method="post" class="f1" id="donorRegister">
                     		<h3>Volunteer Blood Donors</h3>
                     		<p>Donate blood, stay healthy and save life!</p>
                             <div id="form-errors"></div>
@@ -145,6 +144,10 @@
                                     <label class="sr-only" for="f1-how-know">How you came to know about this form.</label>
                                     <input type="text" name="f1-how-know" placeholder="How you came to know about this form...." class="f1-how-know form-control required" id="f1-how-know">
                                 </div>
+                                <div class="form-group">
+                                    <?php echo $reCaptcha_html; ?>
+                                    <?php echo $reCaptcha_script_tag; ?>
+                                </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
                                     <button type="submit" class="btn btn-submit">Submit</button>
@@ -157,3 +160,20 @@
             </div>
         </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="alertMessageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="exampleModalLabel"><?php echo FEMALE_ALERT_MESSAGE_TITLE; ?></h2>
+      </div>
+      <div class="modal-body">
+        <?php echo FEMALE_ALERT_MESSAGE; ?>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-orange" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

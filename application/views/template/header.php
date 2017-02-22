@@ -31,6 +31,7 @@
         <link rel="apple-touch-icon-precomposed" sizes="114x114" href="<?php echo base_url('assets/ico/apple-touch-icon-114-precomposed.png'); ?>">
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="<?php echo base_url('assets/ico/apple-touch-icon-72-precomposed.png'); ?>">
         <link rel="apple-touch-icon-precomposed" href="<?php echo base_url('assets/ico/apple-touch-icon-57-precomposed.png'); ?>">
+
     </head>
 
     <body>
@@ -51,6 +52,7 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li>
 							<span class="li-social">
+								<a href="<?php echo base_url('donor/logout'); ?>" title="logout"></a> 
 								<a href="<?php echo FB_LINK; ?>" target="_blank"><i class="fa fa-facebook"></i></a> 
 								<a href="<?php echo TWITTER_LINK; ?>" target="_blank"><i class="fa fa-twitter"></i></a> 
 								<a href="<?php echo GOOGLEPLUS_LINK; ?>" target="_blank"><i class="fa fa-google-plus"></i></a> 
@@ -60,3 +62,15 @@
 				</div>
 			</div>
 		</nav>	
+
+<div class="dropdown show">
+  <a class="btn btn-secondary dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <?php echo $this->session->donor_name; ?>
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="#">Profile</a>
+    <a class="dropdown-item" href="#">Edit</a>
+    <a class="dropdown-item" href="#">Logout</a>
+  </div>
+</div>									
