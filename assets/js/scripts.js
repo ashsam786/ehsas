@@ -160,7 +160,7 @@ jQuery(document).ready(function() {
     	e.preventDefault();
     	// fields validation
         var data = $(this).serializeArray();
-        var url = 'process_form';
+        var url = 'donor/process_form';
 
         $.ajax({
             method: 'post',
