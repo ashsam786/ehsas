@@ -140,6 +140,9 @@ button.btn.btn-orange,
 button.btn.btn-orange:focus,
 button.btn.btn-orange:active:focus, button.btn.btn-orange.active:focus { background: #f35b3f; }
 
+#top-navbar-1 li{border: 1px solid; padding: 3px; margin: 2px}
+.li-social span{display: block; font-size: 14px; margin-top: -9px;}
+.li-social a{display: inline-block!important;}
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {}

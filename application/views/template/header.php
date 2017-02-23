@@ -51,21 +51,25 @@
 				<div class="collapse navbar-collapse" id="top-navbar-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-					        <a class="nav-link" href="<?php echo base_url('home'); ?>">Home <span class="sr-only">(current)</span></a>
-					    </li>
-						<li>
-					        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-					    </li>
-						<li>
-					        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-					    </li>
-
+							<span class="li-social">
+								<a href="<?php echo base_url('home'); ?>" title="Home"><i class="fa fa-home"></i><span>Home</span></a> 
+								<?php if($this->session->has_userdata('donor_name')){ ?>
+									<a href="<?php echo base_url('donor/edit'); ?>" title="Edit Profile">
+										<i class="fa fa-pencil-square-o"></i>
+										<span>Edit</span>
+									</a> 
+									<a href="<?php echo base_url('donor/logout'); ?>" title="logout"><i class="fa fa-sign-out"></i><span>Logout</span></a>
+								<?php } else{ ?>
+									<a href="<?php echo base_url('donor/login'); ?>" title="Login"><i class="fa fa-sign-in" aria-hidden="true"></i><span>Login</span></a> 
+									<a href="<?php echo base_url('donor/register'); ?>" title="Register"><i class="fa fa-user-plus" aria-hidden="true"></i><span>Register</span></a>
+								<?php } ?>
+							</span>
+						</li>
 						<li>
 							<span class="li-social">
-								<a href="<?php echo base_url('donor/logout'); ?>" title="logout"></a> 
-								<a href="<?php echo FB_LINK; ?>" target="_blank"><i class="fa fa-facebook"></i></a> 
-								<a href="<?php echo TWITTER_LINK; ?>" target="_blank"><i class="fa fa-twitter"></i></a> 
-								<a href="<?php echo GOOGLEPLUS_LINK; ?>" target="_blank"><i class="fa fa-google-plus"></i></a> 
+								<a href="<?php echo FB_LINK; ?>" target="_blank"><i class="fa fa-facebook"></i><span>Facebook</span></a> 
+								<a href="<?php echo TWITTER_LINK; ?>" target="_blank"><i class="fa fa-twitter"></i><span>Twitter</span></a> 
+								<a href="<?php echo GOOGLEPLUS_LINK; ?>" target="_blank"><i class="fa fa-google-plus"></i><span>Google Plus</span></a> 
 							</span>
 						</li>
 					</ul>

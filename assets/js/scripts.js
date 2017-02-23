@@ -203,7 +203,7 @@ jQuery(document).ready(function() {
               if(res.result){
                 $('#form-errors').addClass('alert alert-success');
                 $('#form-errors').append('<p>'+res.msg+'</p>');
-                setTimeout(function(res){
+                setTimeout(function(){
                     var url = res.referal ? res.referal : base_url+'/donor/view/'+res.contact;
                     location.href = url;
                 }, 1000);
