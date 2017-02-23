@@ -15,7 +15,7 @@
                 
                 <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 form-box">
-                    	<form role="form" action="" method="post" class="f1" id="donorRegister">
+                    	<form role="form" action="<?php echo base_url('donor/registerProcess'); ?>" method="post" class="f1" id="donorRegister">
                     		<h3>Volunteer Blood Donors</h3>
                     		<p>Donate blood, stay healthy and save life!</p>
                             <div id="form-errors"></div>

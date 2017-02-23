@@ -11,15 +11,17 @@ class Donor extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('donor_model');
+		$this->load->helper('assets');
 	}
 
 	/*
 	* Donor register function
 	*/
 
-	public function index()
+	public function register()
 	{
-		if(isset($this->session->donor_name) && $this->session->donor_name != ''){
+		//if(isset($this->session->donor_name) && $this->session->donor_name != ''){
+		if($this->session->has_userdata('donor_name')){
 			$url = base_url("donor/view/".$this->session->donor_contact);
 			header('Location: '.$url);
 		}
@@ -37,17 +39,69 @@ class Donor extends CI_Controller {
 		$this->load->view('template/footer', $data);
 	}
 
-	public function getStates(){
-		$data = $this->donor_model->getStates();
-		echo json_encode($data);
+	public function login($errorArray = null){
+		if($this->session->has_userdata('donor_name')){
+			$url = base_url("donor/view/".$this->session->donor_contact);
+			header('Location: '.$url);
+		}
+
+		$data['title'] = 'Ehsas | User login';
+
+		$this->load->view('template/header', $data);
+		$this->load->view('login', $data);
+		$this->load->view('template/footer', $data);
 	}
 
-	public function getCities(){
-		$data = $this->donor_model->getCities();
-		echo json_encode($data);
+	public function logout(){
+		$this->session->unset_userdata('donor_id');
+		$this->session->unset_userdata('donor_contact');
+		$this->session->unset_userdata('donor_name');
+		
+		header('Location: '.base_url('home'));
 	}
 
-	public function process_form(){
+	public function view()
+	{
+		if(!$this->session->has_userdata('donor_name') && !$this->session->has_userdata('admin_name')){
+			$url = base_url('donor/login');
+			$this->session->referal_url = getCurrentUrl();
+			header('Location: '.$url);
+		}
+
+		$data['title'] = 'Ehsas | '.$this->session->donor_name.' profile';
+		$contact = $this->uri->segment(3);
+		$data['donor'] = $this->donor_model->getDonorByContact($contact);
+
+		$data['donor']->days_passed = $data['donor']->last_time_donated ? getDaysFromToday($data['donor']->last_time_donated) : '';
+	
+		$this->load->view('template/header', $data);
+		$this->load->view('donor/view', $data);
+		$this->load->view('template/footer', $data);
+
+	}
+
+	public function edit()
+	{
+		if(!$this->session->has_userdata('donor_name') && !$this->session->has_userdata('admin_name')){
+			$url = base_url('donor/login');
+			$this->session->referal_url = getCurrentUrl();
+			header('Location: '.$url);
+		}
+
+		$data['title'] = 'Ehsas | '.$this->session->donor_name.' profile';
+		$contact = $this->uri->segment(3);
+		$data['donor'] = $this->donor_model->getDonorByContact($contact);
+
+		$data['donor']->days_passed = $data['donor']->last_time_donated ? getDaysFromToday($data['donor']->last_time_donated) : '';
+	
+		$this->load->view('template/header', $data);
+		$this->load->view('donor/edit', $data);
+		$this->load->view('template/footer', $data);
+
+	}
+
+
+	public function registerProcess(){
 		if(!$this->input->post()){
 			show_404();
 		}
@@ -65,45 +119,21 @@ class Donor extends CI_Controller {
 		echo json_encode($res);
 	}
 
-
-
-	public function login($errorArray = null){
-		if($this->session->has_userdata('donor_name')){
-			$url = base_url("donor/view/".$this->session->donor_contact);
-			header('Location: '.$url);
-		}
-
-		$data['title'] = 'Ehsas | User login';
-
-		$this->load->view('template/header', $data);
-		$this->load->view('login', $data);
-		$this->load->view('template/footer', $data);
-	}
-
-
-	public function view()
-	{
-		$data['title'] = 'Ehsas | '.$this->session->donor_name.' profile';
-		$contact = $this->uri->segment(3);
-		$data['donorDetail'] = $this->donor_model->getDonorByContact($contact);
-		
-		$this->load->view('template/header', $data);
-		$this->load->view('donor/view', $data);
-		$this->load->view('template/footer', $data);
-
-	}
-
-
 	public function loginProcess(){
 		$res = $this->donor_model->login();
+		if($this->session->has_userdata('referal_url') && $res['result']){
+			$res['referal'] = $this->session->referal_url; 
+		}
 		echo json_encode($res);
 	}
 
-	public function logout(){
-		$this->session->unset_userdata('donor_id');
-		$this->session->unset_userdata('donor_contact');
-		$this->session->unset_userdata('donor_name');
-		
-		header('Location: '.base_url('home'));
+	public function getStates(){
+		$data = $this->donor_model->getStates();
+		echo json_encode($data);
 	}
+
+	public function getCities(){
+		$data = $this->donor_model->getCities();
+		echo json_encode($data);
+	}	
 }

@@ -133,8 +133,8 @@ ul.navbar-nav {
 .f1 .input-error { border-color: #f35b3f; }
 
 .daysPassed{ color: #fff; padding: 5px; }
-.fitDonor{ background: #f00; }
-.unFitDonor{ background: #008000; }
+.fitDonor{ background: #008000; }
+.unFitDonor{ background: #f00; }
 
 button.btn.btn-orange,
 button.btn.btn-orange:focus,

@@ -160,7 +160,7 @@ jQuery(document).ready(function() {
     	e.preventDefault();
     	// fields validation
         var data = $(this).serializeArray();
-        var url = 'donor/process_form';
+        var url = $(this).attr('action');
 
         $.ajax({
             method: 'post',
@@ -169,7 +169,7 @@ jQuery(document).ready(function() {
             dataType: 'json',  
             success: function(res){
               if(res.result){
-                var html = '<div class="alert alert-success"><div><button class="center"><a href="home">HOME</a></button></div>'+ res.msg +'</div>';
+                var html = '<div class="alert alert-success"><div><button class="center"><a href="'+base_url+'/donor/login">Login</a></button></div>'+ res.msg +'</div>';
                 $('form').closest('div').html(html);
               } else{
                 $('#form-errors').addClass('alert alert-danger');
@@ -180,6 +180,7 @@ jQuery(document).ready(function() {
                     $('#form-errors').append('<p>'+v+'</p>');
                 });
               }
+              grecaptcha.reset();  // reset Google captcha
             }
         });
     	return false;
@@ -200,8 +201,12 @@ jQuery(document).ready(function() {
             dataType: 'json',  
             success: function(res){
               if(res.result){
-                var html = '<div class="alert alert-success"><div><button class="center"><a href="home">HOME</a></button></div>'+ res.msg +'</div>';
-                $('form').closest('div').html(html);
+                $('#form-errors').addClass('alert alert-success');
+                $('#form-errors').append('<p>'+res.msg+'</p>');
+                setTimeout(function(res){
+                    var url = res.referal ? res.referal : base_url+'/donor/view/'+res.contact;
+                    location.href = url;
+                }, 1000);
               } else{
                 $('#form-errors').addClass('alert alert-danger');
                 $('#form-errors').append('<p>'+res.msg+'</p>');

@@ -14,7 +14,6 @@ class donor_model extends CI_Model{
 			if($qry->num_rows() != 1){
 				throw new Exception('Invalid contact');
 			}
-
 			return $qry->row();
 		} catch(Exception $e){
 			return false;
@@ -47,7 +46,7 @@ class donor_model extends CI_Model{
 			$this->session->donor_contact = $dbData->contact;
 			$this->session->donor_name = $dbData->name;
 
-			$data = ['result' => true, 'msg' => 'Login successful'];
+			$data = ['result' => true, 'msg' => 'Login successful', 'contact' => $dbData->contact];
 
 		} catch(Exception $e){
 			$data = ['result' => false, 'msg' => $e->getMessage()];
@@ -135,9 +134,6 @@ class donor_model extends CI_Model{
 			}
 
 			$data = ['result' => true, 'msg' => FORM_THANKU_MSG];
-			$this->session->donor_id = $dbData->id;
-			$this->session->donor_contact = $dbData->contact;
-			$this->session->donor_name = $dbData->name;			
 		} catch(Exception $e){
 			$data = ['result' => false, 'msg' => [$e->getMessage()]];
 		}
