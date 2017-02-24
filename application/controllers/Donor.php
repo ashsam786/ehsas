@@ -92,6 +92,16 @@ class Donor extends CI_Controller {
 		$contact = $this->uri->segment(3);
 		$data['donor'] = $this->donor_model->getDonorByContact($contact);
 
+		$data['stateList'] = [];
+		$data['cityList'] = [];
+		if(!empty($data['donor']->country)){
+			$data['stateList'] = json_decode(file_get_contents("http://localhost/ehsas.in/getStates?country_id={$data['donor']->country}"));
+		}
+
+		if(!empty($data['donor']->state)){
+			$data['cityList'] = json_decode(file_get_contents("http://localhost/ehsas.in/getCities?state_id={$data['donor']->state}"));
+		}
+
 		$data['donor']->days_passed = $data['donor']->last_time_donated ? getDaysFromToday($data['donor']->last_time_donated) : '';
 	
 		$this->load->view('template/header', $data);
@@ -99,7 +109,6 @@ class Donor extends CI_Controller {
 		$this->load->view('template/footer', $data);
 
 	}
-
 
 	public function registerProcess(){
 		if(!$this->input->post()){
@@ -116,6 +125,15 @@ class Donor extends CI_Controller {
 			$res = ['result' => false, 'msg' => ['Incorrect Captcha']];
 		}
 
+		echo json_encode($res);
+	}
+
+	public function updateDonor(){
+		if(!$this->input->post()){
+			show_404();
+		}
+
+		$res = $this->donor_model->save_donor_form();
 		echo json_encode($res);
 	}
 

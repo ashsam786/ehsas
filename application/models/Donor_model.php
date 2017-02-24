@@ -102,13 +102,17 @@ class donor_model extends CI_Model{
 				'pass'				=> $this->input->post('f1-password') ? md5($this->input->post('f1-password')) : ''
 			);
 
+			if(isset($this->input->post('donor')) && !empty($this->input->post('donor'))){
+				$id = base64_decode($this->input->post('donor'));
+			}
+
 			if($data['name'] == "" || $data['gender'] == "" || $data['last_time_donated'] == "" || $data['country'] == "" || $data['state'] == "" || $data['city'] == "" || $data['contact'] == "" || $data['nearby_hospital'] == "" || $data['how_you_know_us'] == "" || $data['pass'] == "" || $this->input->post('f1-email') == ""){
 				$errors['required'] = 'Please fill all the required fields';
 			}
 
-			if($this->input->post('f1-repeat-password') != $this->input->post('f1-password')){
+/*			if($this->input->post('f1-repeat-password') != $this->input->post('f1-password')){
 				$errors['f1-password'] = 'Password and confirm password must be same';
-			}
+			}*/
 
 			if(!preg_match('/^(\+91-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/', $data['contact'])){
 				$errors['f1-contact-number'] = 'Please enter a valid mobile number';
