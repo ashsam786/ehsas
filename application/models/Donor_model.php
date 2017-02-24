@@ -102,8 +102,11 @@ class donor_model extends CI_Model{
 				'pass'				=> $this->input->post('f1-password') ? md5($this->input->post('f1-password')) : ''
 			);
 
-			if(isset($this->input->post('donor')) && !empty($this->input->post('donor'))){
+			if(null !== $this->input->post('donor') && !empty($this->input->post('donor'))){
 				$id = base64_decode($this->input->post('donor'));
+				if($id != $this->session->donor_id){
+					throw new Exception('Unauthorised access');
+				}
 			}
 
 			if($data['name'] == "" || $data['gender'] == "" || $data['last_time_donated'] == "" || $data['country'] == "" || $data['state'] == "" || $data['city'] == "" || $data['contact'] == "" || $data['nearby_hospital'] == "" || $data['how_you_know_us'] == "" || $data['pass'] == "" || $this->input->post('f1-email') == ""){
@@ -133,8 +136,15 @@ class donor_model extends CI_Model{
 				return ['result' => false, 'msg' => $errors];
 			}
 
-			if(!$this->db->insert($this->table, $data)){
-				throw new Exception('Error occured. Please try after some time');
+			if(isset($id)){
+				$this->db->where('id', $id);
+				if(!$this->db->update($this->table, $data)){
+					throw new Exception('Error occured. Please try after some time');
+				}
+			} else {
+				if(!$this->db->insert($this->table, $data)){
+					throw new Exception('Error occured. Please try after some time');
+				}
 			}
 
 			$data = ['result' => true, 'msg' => FORM_THANKU_MSG];
