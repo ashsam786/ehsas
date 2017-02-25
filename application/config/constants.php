@@ -85,17 +85,24 @@ defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automat
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 
 // custom constants
-
+// configurations 
 defined('BASE_URL')      	OR define('BASE_URL', 'http://localhost/ehsas.in');      // set your base url here
-defined('MAIN_TITLE')      OR define('MAIN_TITLE', 'Ehsas - ek zindagi bachane ka'); 
-defined('PAGE_TITLE')      OR define('PAGE_TITLE', 'Ehsas | Ehsas ek zindagi bachane ka'); 
+defined('MYSQL_HOST')      	OR define('MYSQL_HOST', 'localhost');      // set your base url here
+defined('MYSQL_DTATBASE')      	OR define('MYSQL_DTATBASE', 'ehsas');      // set your base url here
+defined('MYSQL_USER')      	OR define('MYSQL_USER', 'root');      // set your base url here
+defined('MYSQL_PASSWORD')      	OR define('MYSQL_PASSWORD', '');      // set your base url here
 //defined('MOBILE_REGEX')      OR define('MOBILE_REGEX', '/^(\+91-?|0?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?\d{3}-?\d{4}$/'); 
 
+// links
 defined('FB_LINK')      	OR define('FB_LINK', 'https://www.facebook.com/ehsas.in/?fref=ts'); 
 defined('TWITTER_LINK')     OR define('TWITTER_LINK', '#'); 
 defined('GOOGLEPLUS_LINK') 	OR define('GOOGLEPLUS_LINK', '#'); 
 
+//constants
 defined('UNFIT_DONOR_PERIOD') 	OR define('UNFIT_DONOR_PERIOD', 60); 
+
+defined('MAIN_TITLE')      OR define('MAIN_TITLE', 'Ehsas - ek zindagi bachane ka'); 
+defined('PAGE_TITLE')      OR define('PAGE_TITLE', 'Ehsas | Ehsas ek zindagi bachane ka');
 defined('FEMALE_ALERT_MESSAGE') 	OR define('FEMALE_ALERT_MESSAGE', "Dear Sister, We appreciate you enthusiasm! We don't want your personal details to be made public! We will Soon come up with different option. You still can be part of group, By creating awareness about our cause! Kindly Encourage your friends via social networkings site to participate."); 
 defined('FEMALE_ALERT_MESSAGE_TITLE') 	OR define('FEMALE_ALERT_MESSAGE_TITLE', "We Appreciate Your Enthusiasm - Jazakillahukhair."); 
 
