@@ -18,3 +18,7 @@ $lang['error_incomplete_form'] = 'Please fill all the required fields';
 $lang['error_password'] = 'Password and confirm password cannot be empty and must be same';
 $lang['error_invalid_mobile'] = 'Please enter a valid mobile number';
 $lang['error_invalid_alternate_mobile'] = 'Please enter a valid mobile number';
+$lang['error_profile_update_success'] = 'Profile updated successfully';
+
+// non form
+$lang['error_unauthorised_access'] = 'Sorry you are not authorised to access this resource';

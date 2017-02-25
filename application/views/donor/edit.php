@@ -9,6 +9,7 @@
 				<div class="description">
 					<h3>
 						Update Your Profile.
+						<button class="btn btn-orange pull-right pull-right"><a href="<?php echo base_url("donor/view/{$this->session->userid}"); ?>">Profile</i></a></button>
 					</h3>
 				</div>
 			</div>

@@ -54,7 +54,7 @@
 							<span class="li-social">
 								<a href="<?php echo base_url('home'); ?>" title="Home"><i class="fa fa-home"></i><span>Home</span></a> 
 								<?php if($this->session->has_userdata('donor_name')){ ?>
-									<a href="<?php echo base_url('donor/edit'); ?>" title="Edit Profile">
+									<a href="<?php echo base_url("donor/edit/{$this->session->userid}"); ?>" title="Edit Profile">
 										<i class="fa fa-pencil-square-o"></i>
 										<span>Edit</span>
 									</a> 

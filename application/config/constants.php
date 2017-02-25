@@ -89,6 +89,7 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 defined('BASE_URL')      	OR define('BASE_URL', 'http://localhost/ehsas.in');      // set your base url here
 defined('MAIN_TITLE')      OR define('MAIN_TITLE', 'Ehsas - ek zindagi bachane ka'); 
 defined('PAGE_TITLE')      OR define('PAGE_TITLE', 'Ehsas | Ehsas ek zindagi bachane ka'); 
+//defined('MOBILE_REGEX')      OR define('MOBILE_REGEX', '/^(\+91-?|0?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?\d{3}-?\d{4}$/'); 
 
 defined('FB_LINK')      	OR define('FB_LINK', 'https://www.facebook.com/ehsas.in/?fref=ts'); 
 defined('TWITTER_LINK')     OR define('TWITTER_LINK', '#'); 

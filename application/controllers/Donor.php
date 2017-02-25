@@ -13,14 +13,13 @@ class Donor extends CI_Controller {
 		$this->load->helper('assets');
 		$this->lang->load('form_errors', 'english');
 	}
-
 	/*
 	* Donor register function
 	*/
 	public function register(){
 		//if(isset($this->session->donor_name) && $this->session->donor_name != ''){
 		if($this->session->has_userdata('donor_name')){
-			$url = base_url("donor/view/".$this->session->donor_contact);
+			$url = base_url("donor/view/".$this->session->userid);
 			header('Location: '.$url);
 		}
 
@@ -39,7 +38,7 @@ class Donor extends CI_Controller {
 
 	public function login($errorArray = null){
 		if($this->session->has_userdata('donor_name')){
-			$url = base_url("donor/view/".$this->session->donor_contact);
+			$url = base_url("donor/view/".$this->session->userid);
 			header('Location: '.$url);
 		}
 
@@ -54,6 +53,7 @@ class Donor extends CI_Controller {
 		$this->session->unset_userdata('donor_id');
 		$this->session->unset_userdata('donor_contact');
 		$this->session->unset_userdata('donor_name');
+		$this->session->unset_userdata('userid');
 		
 		header('Location: '.base_url('home'));
 	}
@@ -64,17 +64,28 @@ class Donor extends CI_Controller {
 			$this->session->referal_url = getCurrentUrl();
 			header('Location: '.$url);
 		}
-
+			
 		$data['title'] = 'Ehsas | '.$this->session->donor_name.' profile';
 		$contact = $this->uri->segment(3);
-		$data['donor'] = $this->donor_model->getDonorByContact($contact);
 
-		$data['donor']->days_passed = $data['donor']->last_time_donated ? getDaysFromToday($data['donor']->last_time_donated) : '';
-	
+		if(!$contact){
+			show_404();
+		}		
+		
+		if($contact != $this->session->userid){
+			$data['donor'] = 'unauthorised';
+		} else{
+			$data['donor'] = $this->donor_model->getDonorByContact($contact);
+			$data['donor']->days_passed = $data['donor']->last_time_donated ? getDaysFromToday($data['donor']->last_time_donated) : '';			
+		}
+
 		$this->load->view('template/header', $data);
-		$this->load->view('donor/view', $data);
+		if($data['donor'] == 'unauthorised'){
+			$this->load->view('errors/unauthorised', $data);
+		} else{
+			$this->load->view('donor/view', $data);
+		}
 		$this->load->view('template/footer', $data);
-
 	}
 
 	public function edit(){
@@ -89,25 +100,34 @@ class Donor extends CI_Controller {
 		if(!$contact){
 			show_404();
 		}
-		$data['donor'] = $this->donor_model->getDonorByContact($contact);
-		$data['hospital_list'] = $this->donor_model->get_hospital_list();
-		$data['country_list'] = $this->donor_model->get_country_list();
 		
-		$data['stateList'] = [];
-		$data['cityList'] = [];
-		if($data['donor'] && !empty($data['donor']->country)){
-			$data['stateList'] = json_decode(file_get_contents("http://localhost/ehsas.in/getStates?country_id={$data['donor']->country}"));
-		}
+		if($contact != $this->session->userid){
+			$data['donor'] = 'unauthorised';
+		} else{
+			$data['donor'] = $this->donor_model->getDonorByContact($contact);
+			$data['hospital_list'] = $this->donor_model->get_hospital_list();
+			$data['country_list'] = $this->donor_model->get_country_list();
+			
+			$data['stateList'] = [];
+			$data['cityList'] = [];
+			if($data['donor'] && !empty($data['donor']->country)){
+				$data['stateList'] = json_decode(file_get_contents("http://localhost/ehsas.in/getStates?country_id={$data['donor']->country}"));
+			}
 
-		if($data['donor'] && !empty($data['donor']->state)){
-			$data['cityList'] = json_decode(file_get_contents("http://localhost/ehsas.in/getCities?state_id={$data['donor']->state}"));
-		}
+			if($data['donor'] && !empty($data['donor']->state)){
+				$data['cityList'] = json_decode(file_get_contents("http://localhost/ehsas.in/getCities?state_id={$data['donor']->state}"));
+			}
 
-		$data['donor']->days_passed = $data['donor']->last_time_donated ? getDaysFromToday($data['donor']->last_time_donated) : '';
+			$data['donor']->days_passed = $data['donor']->last_time_donated ? getDaysFromToday($data['donor']->last_time_donated) : '';
+		}
 	
 		$this->load->view('template/header', $data);
-		$this->load->view('donor/edit', $data);
-		$this->load->view('template/footer', $data);
+		if($data['donor'] == 'unauthorised'){
+			$this->load->view('errors/unauthorised', $data);
+		} else{
+			$this->load->view('donor/edit', $data);
+		}
+		$this->load->view('template/footer', $data);		
 
 	}
 

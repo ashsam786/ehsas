@@ -36,7 +36,6 @@ class donor_model extends CI_Model{
 			$where = ['contact' => $userId, 'pass' => md5($password)];
 
 			$qry = $this->db->get_where('donor_list', $where);
-
 			if($qry->num_rows() != 1){
 				throw new Exception($this->lang->line('error_login_credientials'));
 			}
@@ -45,6 +44,8 @@ class donor_model extends CI_Model{
 			$this->session->donor_id = $dbData->id;
 			$this->session->donor_contact = $dbData->contact;
 			$this->session->donor_name = $dbData->name;
+			$this->session->userid = $dbData->contact;
+			
 			$data = ['result' => true, 'msg' => $this->lang->line('error_login_successful'), 'contact' => $dbData->contact];
 
 		} catch(Exception $e){
@@ -97,8 +98,7 @@ class donor_model extends CI_Model{
 				'nearby_hospital'	=> $this->input->post('f1-hospital-nearby'),
 				'how_you_know_us'	=> $this->input->post('f1-how-know'),
 				'gender'			=> $this->input->post('f1-gender'),
-				'email'				=> $this->input->post('f1-email'),
-				'pass'				=> $this->input->post('f1-password') ? md5($this->input->post('f1-password')) : ''
+				'email'				=> $this->input->post('f1-email')
 			);
 
 			if(null !== $this->input->post('donor') && !empty($this->input->post('donor'))){
@@ -135,19 +135,22 @@ class donor_model extends CI_Model{
 			if(!empty($errors)){
 				return ['result' => false, 'msg' => $errors];
 			}
-
+			
 			if(isset($id)){
+				unset($data['pass']);
 				$this->db->where('id', $id);
 				if(!$this->db->update($this->table, $data)){
 					throw new Exception($this->lang->line('error_general'));
 				}
+				$data = ['result' => true, 'msg' => [$this->lang->line('error_profile_update_success')]];
 			} else {
 				if(!$this->db->insert($this->table, $data)){
 					throw new Exception($this->lang->line('error_general'));
 				}
+				$data = ['result' => true, 'msg' => [$this->lang->line('error_form_thanku_msg')]];
 			}
 
-			$data = ['result' => true, 'msg' => [$this->lang->line('error_form_thanku_msg')]];
+			
 		} catch(Exception $e){ 
 			$data = ['result' => false, 'msg' => [$e->getMessage()]];
 		}
