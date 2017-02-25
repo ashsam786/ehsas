@@ -7,19 +7,17 @@ class Donor extends CI_Controller {
 	 * Donor controller
 	 * Author Amir Samad Hanga
 	 */
-
 	function __construct(){
 		parent::__construct();
 		$this->load->model('donor_model');
 		$this->load->helper('assets');
+		$this->lang->load('form_errors', 'english');
 	}
 
 	/*
 	* Donor register function
 	*/
-
-	public function register()
-	{
+	public function register(){
 		//if(isset($this->session->donor_name) && $this->session->donor_name != ''){
 		if($this->session->has_userdata('donor_name')){
 			$url = base_url("donor/view/".$this->session->donor_contact);
@@ -60,8 +58,7 @@ class Donor extends CI_Controller {
 		header('Location: '.base_url('home'));
 	}
 
-	public function view()
-	{
+	public function view(){
 		if(!$this->session->has_userdata('donor_name') && !$this->session->has_userdata('admin_name')){
 			$url = base_url('donor/login');
 			$this->session->referal_url = getCurrentUrl();
@@ -80,8 +77,7 @@ class Donor extends CI_Controller {
 
 	}
 
-	public function edit()
-	{
+	public function edit(){
 		if(!$this->session->has_userdata('donor_name') && !$this->session->has_userdata('admin_name')){
 			$url = base_url('donor/login');
 			$this->session->referal_url = getCurrentUrl();
@@ -90,15 +86,20 @@ class Donor extends CI_Controller {
 
 		$data['title'] = 'Ehsas | '.$this->session->donor_name.' profile';
 		$contact = $this->uri->segment(3);
+		if(!$contact){
+			show_404();
+		}
 		$data['donor'] = $this->donor_model->getDonorByContact($contact);
-
+		$data['hospital_list'] = $this->donor_model->get_hospital_list();
+		$data['country_list'] = $this->donor_model->get_country_list();
+		
 		$data['stateList'] = [];
 		$data['cityList'] = [];
-		if(!empty($data['donor']->country)){
+		if($data['donor'] && !empty($data['donor']->country)){
 			$data['stateList'] = json_decode(file_get_contents("http://localhost/ehsas.in/getStates?country_id={$data['donor']->country}"));
 		}
 
-		if(!empty($data['donor']->state)){
+		if($data['donor'] && !empty($data['donor']->state)){
 			$data['cityList'] = json_decode(file_get_contents("http://localhost/ehsas.in/getCities?state_id={$data['donor']->state}"));
 		}
 
@@ -134,7 +135,14 @@ class Donor extends CI_Controller {
 		}
 
 		$res = $this->donor_model->save_donor_form();
-		echo json_encode($res);
+		$class = $res['result'] ? 'alert-success' : 'alert-danger';
+		$alert_message = '';
+		foreach($res['msg'] as $i => $v){
+			$alert_message .= '<div class="alert '. $class .'">'. $v .'</div>';
+		}
+		
+		$this->session->set_flashdata('alert-message', $alert_message);
+		redirect(base_url('donor/edit/'.$this->input->post('f1-contact-number')), 'refresh');
 	}
 
 	public function loginProcess(){

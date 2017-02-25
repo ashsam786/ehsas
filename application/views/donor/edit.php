@@ -13,7 +13,9 @@
 				</div>
 			</div>
 		</div>
-		
+		<?php if($this->session->flashdata('alert-message')){ ?>
+			<div class="row"><?php echo $this->session->flashdata('alert-message'); ?></div>
+		<?php } ?>
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 form-box">
 				<form role="form" action="<?php echo base_url('donor/updateDonor'); ?>" method="post" class="f1" id="updateDonor">
