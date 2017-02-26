@@ -197,11 +197,15 @@ class donor_model extends CI_Model{
 			$this->db->where('email', $email);
 			if($this->db->update($this->table, ['hash' => $hash])){
 				$userId = $this->db->get_where($this->table, ['email' => $email]);
-				$userId = $userId->row();
-				$userId = $userId->contact;
-	$url = base_url("donor/updatepassword/{$hash}/{$userId}");
-				//return '<div class="alert alert-success">Please check your email for password reset linkx.</div>';
-				ddd($url);
+				
+				if($userId->num_rows == 1){
+					$userId = $userId->row();	
+					$userId = $userId->contact;
+		$url = base_url("donor/updatepassword/{$hash}/{$userId}");
+					//return '<div class="alert alert-success">Please check your email for password reset linkx.</div>';
+					ddd($url);					
+				}
+	
 			} else{
 				throw new Exception('<div class="alert alert-danger">Error occured. Please try after some time.</div>');	
 			}
