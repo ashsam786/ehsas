@@ -31,7 +31,7 @@ function validateFormData(self, next_step) {
         next_step = false;
     } else if(self.name == 'f1-contact-number' || self.name =='f1-alternate-number'){
         //if(!/\d{10}/.test($(self).val()) && $(self).val() != ''){
-        if(!/^(\+91-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/.test($(self).val()) && $(self).val() != ''){
+        if(!/^(\+91-?|0?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?\d{3}-?\d{4}$/.test($(self).val()) && $(self).val() != ''){
             $(self).addClass('input-error');
             next_step = false;            
         }
@@ -48,7 +48,12 @@ function validateFormData(self, next_step) {
 }
 
 jQuery(document).ready(function() {
-	var base_dir = 'ehsas.in';
+	if(location.host == "ehsas.in"){
+        var base_dir = 'demo';    
+    } else if(location.host == 'localhost'){
+        var base_dir = 'ehsas.in';
+    }
+    
     var base_url = location.protocol+'//'+location.host+'/'+base_dir;
     /*
         Fullscreen background
@@ -160,7 +165,7 @@ jQuery(document).ready(function() {
     	e.preventDefault();
     	// fields validation
         var data = $(this).serializeArray();
-        var url = 'donor/process_form';
+        var url = $(this).attr('action');
 
         $.ajax({
             method: 'post',
@@ -169,7 +174,7 @@ jQuery(document).ready(function() {
             dataType: 'json',  
             success: function(res){
               if(res.result){
-                var html = '<div class="alert alert-success"><div><button class="center"><a href="home">HOME</a></button></div>'+ res.msg +'</div>';
+                var html = '<div class="alert alert-success"><div><button class="center"><a href="'+base_url+'/donor/login">Login</a></button></div>'+ res.msg +'</div>';
                 $('form').closest('div').html(html);
               } else{
                 $('#form-errors').addClass('alert alert-danger');
@@ -180,6 +185,7 @@ jQuery(document).ready(function() {
                     $('#form-errors').append('<p>'+v+'</p>');
                 });
               }
+              grecaptcha.reset();  // reset Google captcha
             }
         });
     	return false;
@@ -200,8 +206,12 @@ jQuery(document).ready(function() {
             dataType: 'json',  
             success: function(res){
               if(res.result){
-                var html = '<div class="alert alert-success"><div><button class="center"><a href="home">HOME</a></button></div>'+ res.msg +'</div>';
-                $('form').closest('div').html(html);
+                $('#form-errors').addClass('alert alert-success');
+                $('#form-errors').append('<p>'+res.msg+'</p>');
+                setTimeout(function(){
+                    var url = res.referal ? res.referal : base_url+'/donor/view/'+res.contact;
+                    location.href = url;
+                }, 1000);
               } else{
                 $('#form-errors').addClass('alert alert-danger');
                 $('#form-errors').append('<p>'+res.msg+'</p>');

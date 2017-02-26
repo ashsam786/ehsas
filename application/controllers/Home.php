@@ -25,6 +25,10 @@ class Home extends CI_Controller {
 	}
 
 	function index(){
+		if(!$this->session->has_userdata('donor_name')){
+			$url = base_url("donor/register");
+			header('Location: '.$url);
+		}
 		$this->load->view('template/header');
 		//$this->load->view('home');
 		$this->load->view('template/footer');
