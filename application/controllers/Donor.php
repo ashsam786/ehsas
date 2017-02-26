@@ -49,6 +49,36 @@ class Donor extends CI_Controller {
 		$this->load->view('template/footer', $data);
 	}
 
+	public function passwordreset($errorArray = null){
+		if($this->session->has_userdata('donor_name')){
+			$url = base_url("donor/view/".$this->session->userid);
+			header('Location: '.$url);
+		}
+
+		$data['title'] = 'Ehsas | Password reset';
+
+		$this->load->view('template/header', $data);
+		$this->load->view('donor/passwordreset', $data);
+		$this->load->view('template/footer', $data);
+	}
+
+	public function updatepassword(){
+		$data['title'] = 'Ehsas | Password reset';
+		$data['link'] = $this->donor_model->checkUrlValidity();
+		$data['hash'] = $this->uri->segment(3);
+		$data['userId'] = $this->uri->segment(4);
+
+		$this->load->view('template/header', $data);
+		$this->load->view('donor/updatepassword', $data);
+		$this->load->view('template/footer', $data);
+	}
+
+	public function updatepassword_process(){
+		$data['title'] = 'Ehsas | Password reset';
+		$data['message'] = $this->donor_model->updatepassword();
+		echo json_encode($data['message']);
+	}
+
 	public function logout(){
 		$this->session->unset_userdata('donor_id');
 		$this->session->unset_userdata('donor_contact');
@@ -171,6 +201,13 @@ class Donor extends CI_Controller {
 			$res['referal'] = $this->session->referal_url; 
 		}
 		echo json_encode($res);
+	}
+
+	public function resetpassword_process(){
+		$res = $this->donor_model->resetpassword();
+
+		$this->session->set_flashdata('alert-message', $res);
+		redirect(base_url('donor/passwordreset'), 'refresh');			
 	}
 
 	public function getStates(){

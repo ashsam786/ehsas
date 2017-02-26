@@ -31,6 +31,7 @@
                                 <div class="f1-buttons">
                                     <button type="submit" class="btn btn-next">Login</button>
                                 </div>
+                                <a href="<?php echo base_url('donor/passwordreset'); ?>">Forgot password</a>                                
                             </fieldset>
                     	</form>
                     </div>

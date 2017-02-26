@@ -221,6 +221,34 @@ jQuery(document).ready(function() {
         return false;        
     });
 
+    $("#updatepassword").on('submit', function(e){
+        $('#form-errors').removeClass('alert alert-danger');
+        $('#form-errors').html('');
+        e.preventDefault();
+        // fields validation
+        var data = $(this).serializeArray();
+        var url = $(this).attr('action');
+
+        $.ajax({
+            method: 'post',
+            url: url,
+            data: data,
+            dataType: 'json',  
+            success: function(res){
+              if(res.result){
+                $("#updatepassword").closest('div').html('<div class="alert alert-success">'+res.message+'</div>');
+              } else{
+                if(res.link == 'norefresh'){
+                    $('#updatepassword').prepend('<div class="alert alert-danger">'+res.message+'</div>');
+                } else{
+                    $("#updatepassword").closest('div').html('<div class="alert alert-danger">'+res.message+'</div>');
+                }
+              }
+            }
+        });
+        return false;        
+    });
+
     // enable tooltip
     $('[data-toggle="popover"]').popover();
 });

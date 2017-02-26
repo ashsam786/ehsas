@@ -185,5 +185,71 @@ class donor_model extends CI_Model{
 		return $data;
 	}
 
+	public function resetpassword(){
+		try{
+			$email = $this->input->post('f1-email');
+			$hash = md5(uniqid());
+
+			if(!$email){
+				throw new Exception('<div class="alert alert-danger">Error occured. Please try after some time.</div>');
+			}
+
+			$this->db->where('email', $email);
+			if($this->db->update($this->table, ['hash' => $hash])){
+				$userId = $this->db->get_where($this->table, ['email' => $email]);
+				$userId = $userId->row();
+				$userId = $userId->contact;
+	$url = base_url("donor/updatepassword/{$hash}/{$userId}");
+				//return '<div class="alert alert-success">Please check your email for password reset linkx.</div>';
+				ddd($url);
+			} else{
+				throw new Exception('<div class="alert alert-danger">Error occured. Please try after some time.</div>');	
+			}
+		} catch(Exception $e){
+			return $e->getMessage();
+		}
+	
+	}	
+
+	public function updatepassword(){
+		$pass = $this->input->post('f1-password');
+		$pass1 = $this->input->post('f1-cpassword');
+		$userId = $this->input->post('f1-userId');
+		$hash = $this->input->post('f1-hash');
+
+		if($pass == '' || $pass != $pass1){
+			return ['result' => false, 'link' => 'norefresh', 'message' => 'Password and confirm password cannot be empty and must be same'];
+		}
+
+		$ver = $this->db->get_where($this->table, ['contact' => $userId, 'hash' => $hash]);
+		$ver = $ver->num_rows();
+
+		if($ver != 1){
+			return ['result' => false, 'message' => 'Invalid or expired link used.'];
+		}
+
+		$this->db->where('hash', $hash);
+		$this->db->where('contact', $userId);
+		if($this->db->update($this->table, ['hash' => '', 'pass' => md5($pass)])){
+			return ['result' => true, 'message' => 'Password updated successfully. <a href="'.base_url('donor/login').'">Click</a> here to login'];
+		} else{
+			return ['result' => false, 'message' => 'Password update error. Please try again.'];
+		}
+	}	
+
+	public function checkUrlValidity(){
+		$hash = $this->uri->segment(3);
+		$contact = $this->uri->segment(4);
+		if(!$contact || !$hash){
+			return false;
+		}
+
+		$ver = $this->db->get_where($this->table, ['contact' => $contact, 'hash' => $hash]);
+		$ver = $ver->num_rows();
+		if($ver == 1){
+			return true;
+		}
+		return false;
+	}
 }
 // end of file
