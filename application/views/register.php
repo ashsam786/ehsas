@@ -112,7 +112,7 @@
                                 </div>                                
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-email">Email</label>
-                                    <input type="text" name="f1-email" placeholder="Email..." class="f1-email form-control" id="f1-email" data-toggle="popover" data-placement="top" data-content="Your email">
+                                    <input type="text" name="f1-email" placeholder="Email..." class="f1-email form-control required" id="f1-email" data-toggle="popover" data-placement="top" data-content="Your email">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-hospital-nearby">Hospital Nearby</label>

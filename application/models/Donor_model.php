@@ -103,12 +103,41 @@ class donor_model extends CI_Model{
 				'pass'				=> $this->input->post('f1-password') ? md5($this->input->post('f1-password')) : ''
 			);
 
-			if($data['name'] == "" || $data['gender'] == "" || $data['last_time_donated'] == "" || $data['country'] == "" || $data['state'] == "" || $data['city'] == "" || $data['contact'] == "" || $data['nearby_hospital'] == "" || $data['how_you_know_us'] == "" || $data['pass'] == "" || $this->input->post('f1-email') == ""){
-				$errors['required'] = 'Please fill all the required fields';
+			$sessionId = $this->session->donor_id;
+
+			$contactCount = $this->db->get_where($this->table, ['contact' => $data['contact']]);
+			$contactdata = $contactCount->row();
+			$contactCount = $contactCount->num_rows();
+
+			$emailCount = $this->db->get_where($this->table, ['email' => $data['email']]);
+			$emaildata = $emailCount->row();
+			$emailCount = $emailCount->num_rows();
+
+			if(null !== $this->input->post('donor') && !empty($this->input->post('donor'))){
+				$id = base64_decode($this->input->post('donor'));
+				if($id != $sessionId){
+					throw new Exception($this->lang->line('error_unauthorised_access'));
+				} else{
+					if($contactCount && $contactCount > 0 && $contactdata->id !== $sessionId){
+						$errors['f1-contact-number'] = $this->lang->line('error_duplicate_mobile');
+					}
+
+					if($emailCount && $emailCount > 0 && $emaildata->id !== $sessionId){
+						$errors['f1-contact-number'] = $this->lang->line('error_duplicate_email');
+					}
+				}
+			} else{
+				if($contactCount && $contactCount > 0){
+					$errors['f1-contact-number'] = $this->lang->line('error_duplicate_mobile');
+				}
+
+				if($emailCount && $emailCount > 0){
+					$errors['f1-contact-number'] = $this->lang->line('error_duplicate_email');
+				}
 			}
 
-			if($this->input->post('f1-repeat-password') != $this->input->post('f1-password')){
-				$errors['f1-password'] = 'Password and confirm password must be same';
+			if($data['name'] == "" || $data['email'] == "" || $data['gender'] == "" || $data['last_time_donated'] == "" || $data['country'] == "" || $data['state'] == "" || $data['city'] == "" || $data['contact'] == "" || $data['nearby_hospital'] == "" || $data['how_you_know_us'] == "" || $this->input->post('f1-email') == ""){
+				$errors['required'] = $this->lang->line('error_incomplete_form');
 			}
 
 			if(!preg_match('/^(\+91-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/', $data['contact'])){
@@ -129,9 +158,24 @@ class donor_model extends CI_Model{
 			if(!empty($errors)){
 				return ['result' => false, 'msg' => $errors];
 			}
+			
+			if(isset($id)){
+				unset($data['pass']);
+				$this->db->where('id', $id);
+				if(!$this->db->update($this->table, $data)){
+					throw new Exception($this->lang->line('error_general'));
+				}
+				$data = ['result' => true, 'msg' => [$this->lang->line('error_profile_update_success')]];
+			} else {
+				if($this->input->post('f1-password') == "" || $this->input->post('f1-repeat-password') != $this->input->post('f1-password')){
+					throw new Exception($this->lang->line('error_password'));
+				}
 
-			if(!$this->db->insert($this->table, $data)){
-				throw new Exception('Error occured. Please try after some time');
+				$data['pass'] = md5($this->input->post('f1-password'));
+				if(!$this->db->insert($this->table, $data)){
+					throw new Exception($this->lang->line('error_general'));
+				}
+				$data = ['result' => true, 'msg' => [$this->lang->line('error_form_thanku_msg')]];
 			}
 
 			$data = ['result' => true, 'msg' => FORM_THANKU_MSG];
