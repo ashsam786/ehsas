@@ -72,13 +72,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'default';
 $query_builder = TRUE;
-
 $db['default'] = array(
-	'dsn'	=> 'mysql:host=localhost; dbname=ehsas; charset=utf8;',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
-	'database' => 'ehsas',
+	'dsn'	=> 'mysql:host='.MYSQL_HOST.'; dbname='.MYSQL_DTATBASE.'; charset=utf8;',
+	'hostname' => MYSQL_HOST,
+	'username' => MYSQL_USER,
+	'password' => MYSQL_PASSWORD,
+	'database' => MYSQL_DTATBASE,
 	'dbdriver' => 'pdo',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
