@@ -14,7 +14,7 @@
 			</div>
 		</div>
 		<?php if($this->session->flashdata('alert-message')){ ?>
-			<div class="row"><?php echo $this->session->flashdata('alert-message'); ?></div>
+			<div class="row"><div class="alert alert-<?php echo $this->session->flashdata('alert-message')['result']? 'success': 'danger'; ?>"><?php echo $this->session->flashdata('alert-message')['msg']; ?></div></div>
 		<?php } ?>
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2 form-box">

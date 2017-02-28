@@ -142,10 +142,6 @@ class donor_model extends CI_Model{
 				$errors['f1-contact-number'] = 'Please enter a valid mobile number';
 			}
 
-/*			if($this->input->post('f1-password') == "" || $this->input->post('f1-repeat-password') != $this->input->post('f1-password')){
-				$errors['f1-password'] = $this->lang->line('error_password');
-			}*/
-
 			if(!preg_match('/^(\+91-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/', $data['contact'])){
 				$errors['f1-contact-number'] = $this->lang->line('error_invalid_mobile');
 			}
@@ -159,7 +155,6 @@ class donor_model extends CI_Model{
 			}
 			
 			if(isset($id)){
-				unset($data['pass']);
 				$this->db->where('id', $id);
 				if(!$this->db->update($this->table, $data)){
 					throw new Exception($this->lang->line('error_general'));
@@ -191,26 +186,27 @@ class donor_model extends CI_Model{
 			$hash = md5(uniqid());
 
 			if(!$email){
-				throw new Exception('<div class="alert alert-danger">Error occured. Please try after some time.</div>');
+				throw new Exception($this->lang->line('error_no_email_provided'));
 			}
 
 			$this->db->where('email', $email);
 			if($this->db->update($this->table, ['hash' => $hash])){
-				$userId = $this->db->get_where($this->table, ['email' => $email]);
-				
-				if($userId->num_rows == 1){
-					$userId = $userId->row();	
-					$userId = $userId->contact;
-		$url = base_url("donor/updatepassword/{$hash}/{$userId}");
-					//return '<div class="alert alert-success">Please check your email for password reset linkx.</div>';
-					ddd($url);					
+				$user = $this->db->get_where($this->table, ['email' => $email]);
+				if($user->num_rows() == 1){
+					$user = $user->row();	
+					$userId = $user->contact;
+					$data['url'] = base_url("donor/updatepassword/{$user->hash}/{$userId}");
+					$data['user'] = $user;
+					$msg = $this->lang->line('error_check_mail_pass_recovery');
+					return ['result' => true, 'msg' => $msg, 'data' => $data];
+				}else{
+					throw new Exception($this->lang->line('error_no_email_provided'));		
 				}
-	
 			} else{
-				throw new Exception('<div class="alert alert-danger">Error occured. Please try after some time.</div>');	
+				throw new Exception($this->lang->line('error_general'));	
 			}
 		} catch(Exception $e){
-			return $e->getMessage();
+			return ['result' => false, 'msg' => $e->getMessage()];
 		}
 	
 	}	

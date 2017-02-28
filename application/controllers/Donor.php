@@ -12,6 +12,7 @@ class Donor extends CI_Controller {
 		$this->load->model('donor_model');
 		$this->load->helper('assets');
 		$this->lang->load('form_errors', 'english');
+		$this->load->library('email');
 	}
 	/*
 	* Donor register function
@@ -171,6 +172,31 @@ class Donor extends CI_Controller {
 		$response = $this->recaptcha->verifyResponse($recaptcha);
 
 		if (isset($response['success']) and $response['success'] === true) {
+/*			$sub = 'Information successfully updated';
+			$message = 'Thank you for getting in touch. Your information has successsfully been updated.';
+
+			$this->email->from(NOREPLY_EMAIL, 'Ehsas Registration');
+			$this->email->to($this->input->post('f1-email'));
+			$this->email->cc(REGISTRATION_ADMIN_EMAIL);
+			//$this->email->bcc('them@their-example.com');
+			$this->email->subject($sub);
+			$this->email->message($message);
+			$this->email->send();	*/
+
+
+			$sub = 'Information successfully updated';
+			$message = 'Thank you for getting in touch. Your information has successsfully been updated.';
+			$message = $this->load->view('emails/register', [], true);
+
+			$this->email->from('noreply@ehsas.in', 'Ehsas Registration');
+			$this->email->to($this->input->post('f1-email'));
+			$this->email->cc('info@ehsas.in');
+			//$this->email->bcc('them@their-example.com');
+			$this->email->subject($sub);
+			$this->email->message($message);
+			$this->email->send();							
+
+
 		    $res = $this->donor_model->save_donor_form();
 		} else{
 			$res = ['result' => false, 'msg' => ['Incorrect Captcha']];
@@ -205,6 +231,24 @@ class Donor extends CI_Controller {
 
 	public function resetpassword_process(){
 		$res = $this->donor_model->resetpassword();
+
+		if($res['result']){
+			$sub = 'Password recovery link';
+			$message = $this->load->view('emails/passwordreset', ['name' =>, 'pass_recovery_link' => ], true);
+			$config['mailtype'] = 'html';
+			$config['wordwrap'] = TRUE;
+
+			$this->email->initialize($config);
+
+
+			$this->email->from(NOREPLY_EMAIL, 'Ehsas Registration');
+			$this->email->to($this->input->post('f1-email'));
+			$this->email->cc(REGISTRATION_ADMIN_EMAIL);
+			//$this->email->bcc('them@their-example.com');
+			$this->email->subject($sub);
+			$this->email->message($message);
+			$this->email->send();			
+		}
 
 		$this->session->set_flashdata('alert-message', $res);
 		redirect(base_url('donor/passwordreset'), 'refresh');			
