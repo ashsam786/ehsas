@@ -234,7 +234,9 @@ class Donor extends CI_Controller {
 
 		if($res['result']){
 			$sub = 'Password recovery link';
-			$message = $this->load->view('emails/passwordreset', ['name' =>, 'pass_recovery_link' => ], true);
+			$url = $res['data']['url'];
+			$name = $res['data']['user']->name;
+			$message = $this->load->view('emails/passwordreset', ['name' =>$name, 'pass_recovery_link' => $url], true);
 			$config['mailtype'] = 'html';
 			$config['wordwrap'] = TRUE;
 
