@@ -172,8 +172,20 @@ class Donor extends CI_Controller {
 		$response = $this->recaptcha->verifyResponse($recaptcha);
 
 		if (isset($response['success']) and $response['success'] === true) {
-/*			$sub = 'Information successfully updated';
-			$message = 'Thank you for getting in touch. Your information has successsfully been updated.';
+		    $res = $this->donor_model->save_donor_form();
+		} else{
+			$res = ['result' => false, 'msg' => ['Incorrect Captcha']];
+		}
+
+		if($res['result']){
+			$sub = $this->lang->line('register_confirm_male_subject');
+			$name = $this->post->input('f1-name');
+			$message = $this->load->view('emails/registration', ['name' =>$name], true);
+			$config['mailtype'] = 'html';
+			$config['wordwrap'] = TRUE;
+
+			$this->email->initialize($config);
+
 
 			$this->email->from(NOREPLY_EMAIL, 'Ehsas Registration');
 			$this->email->to($this->input->post('f1-email'));
@@ -181,27 +193,9 @@ class Donor extends CI_Controller {
 			//$this->email->bcc('them@their-example.com');
 			$this->email->subject($sub);
 			$this->email->message($message);
-			$this->email->send();	*/
-
-
-			$sub = 'Information successfully updated';
-			$message = 'Thank you for getting in touch. Your information has successsfully been updated.';
-			$message = $this->load->view('emails/register', [], true);
-
-			$this->email->from('noreply@ehsas.in', 'Ehsas Registration');
-			$this->email->to($this->input->post('f1-email'));
-			$this->email->cc('info@ehsas.in');
-			//$this->email->bcc('them@their-example.com');
-			$this->email->subject($sub);
-			$this->email->message($message);
-			$this->email->send();							
-
-
-		    $res = $this->donor_model->save_donor_form();
-		} else{
-			$res = ['result' => false, 'msg' => ['Incorrect Captcha']];
+			$this->email->send();			
 		}
-
+		
 		echo json_encode($res);
 	}
 
