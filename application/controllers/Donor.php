@@ -142,7 +142,7 @@ class Donor extends CI_Controller {
 			$data['stateList'] = [];
 			$data['cityList'] = [];
 			if($data['donor'] && !empty($data['donor']->country)){
-				$data['stateList'] = json_decode(file_get_contents("http://localhost/ehsas.in/getStates?country_id={$data['donor']->country}"));
+				$data['stateList'] = json_decode(file_get_contents(base_url("getStates?country_id={$data['donor']->country}")));
 			}
 
 			if($data['donor'] && !empty($data['donor']->state)){
