@@ -179,7 +179,7 @@ class Donor extends CI_Controller {
 
 		if($res['result']){
 			$sub = $this->lang->line('register_confirm_male_subject');
-			$name = $this->post->input('f1-name');
+			$name = $this->input->post('f1-name');
 			$message = $this->load->view('emails/registration', ['name' =>$name], true);
 			$config['mailtype'] = 'html';
 			$config['wordwrap'] = TRUE;
