@@ -2,6 +2,7 @@
 
         <!-- Javascript -->
         <script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js'); ?>"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/js/dataTables.bootstrap.min.js'); ?>"></script>

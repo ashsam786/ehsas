@@ -81,6 +81,19 @@ class donor_model extends CI_Model{
 		$data =  $this->db->get('hospital_list');
 		return $data->result();
 	}
+	
+	public function get_hospital_list_array(){
+		$this->db->select('nearby_hospital');
+		$data = $this->db->get('hospital_list');
+		$data = $data->result_array();
+		
+		$hospital_array = [];
+		foreach($data as $i => $v){
+			$hospital_array[] = $v['nearby_hospital'];
+		}
+		
+		return $hospital_array;
+	}
 
 	public function save_donor_form(){
 		try{

@@ -100,12 +100,7 @@
 						</div>
 						<div class="form-group">
 							<label class="" for="f1-hospital-nearby">Hospital Nearby</label>
-							<select name="f1-hospital-nearby" class="f1-hospital-nearby form-control required" id="hospital-nearby">
-								  <option value="" disabled="disabled" selected>Hospital Nearby...</option>
-								  <?php foreach($hospital_list as $i => $v){ ?>
-									  <option value="<?php echo $v->id; ?>" <?php echo $donor->nearby_hospital == $v->id ? "selected":''; ?>><?php echo $v->nearby_hospital; ?></option>
-								  <?php } ?>
-							</select>                                    
+							<input type="text" name="f1-hospital-nearby" placeholder="Hospital Nearby..." class="f1-hospital-nearby form-control required" id="hospital-nearby" value="<?php echo $donor->nearby_hospital; ?>">
 						</div>
 					</div>
 					<div class="col-md-12 col-sm-12">	
@@ -124,3 +119,12 @@
 		</div>
     </div>
 </div>    
+<script>
+window.onload = function(){
+	//var availableHospitals = ['aa', 'bb', 'ff']
+	var availableHospitals = <?php echo json_encode($hospital_list); ?>;
+	$( "#hospital-nearby" ).autocomplete({
+		  source: availableHospitals
+    });	
+}
+</script>

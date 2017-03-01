@@ -22,3 +22,7 @@ INSERT INTO `ehsas`.`cities` (`id`, `city`, `state_id`) VALUES
 (NULL, 'Srinagar', '14'),
 (NULL, 'Udhampur', '14'),
 (NULL, 'Not Availble', '14');
+
+
+
+ALTER TABLE `donor_list` CHANGE `nearby_hospital` `nearby_hospital` VARCHAR(200) NOT NULL;

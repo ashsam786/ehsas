@@ -116,12 +116,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-hospital-nearby">Hospital Nearby</label>
-                                    <select name="f1-hospital-nearby" class="f1-hospital-nearby form-control required" id="hospital-nearby" data-toggle="popover" data-placement="top" data-content="Select nearby hospital">
-                                          <option value="" disabled="disabled" selected>Hospital Nearby...</option>
-                                          <?php foreach($hospital_list as $i => $v){ ?>
-                                              <option value="<?php echo $v->id; ?>"><?php echo $v->nearby_hospital; ?></option>
-                                          <?php } ?>
-                                    </select>                                    
+									<input type="text" name="f1-hospital-nearby" placeholder="Hospital Nearby..." class="f1-hospital-nearby form-control required" id="hospital-nearby" data-toggle="popover" data-placement="top" data-content="Select nearby hospital">                      
                                 </div>                                
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-password">Password</label>
@@ -177,3 +172,12 @@
     </div>
   </div>
 </div>
+<script>
+window.onload = function(){
+	//var availableHospitals = ['aa', 'bb', 'ff']
+	var availableHospitals = <?php echo json_encode($hospital_list); ?>;
+	$( "#hospital-nearby" ).autocomplete({
+		  source: availableHospitals
+    });	
+}
+</script>

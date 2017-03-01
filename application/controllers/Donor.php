@@ -28,7 +28,7 @@ class Donor extends CI_Controller {
 		$this->load->config('recaptcha');
 
 		$data['country_list'] = $this->donor_model->get_country_list();
-		$data['hospital_list'] = $this->donor_model->get_hospital_list();
+		$data['hospital_list'] = $this->donor_model->get_hospital_list_array();
 		$data['reCaptcha_html'] =  $this->recaptcha->getWidget(['data-type' => 'image']);
 		$data['reCaptcha_script_tag'] =  $this->recaptcha->getScriptTag();
 
@@ -136,7 +136,7 @@ class Donor extends CI_Controller {
 			$data['donor'] = 'unauthorised';
 		} else{
 			$data['donor'] = $this->donor_model->getDonorByContact($contact);
-			$data['hospital_list'] = $this->donor_model->get_hospital_list();
+			$data['hospital_list'] = $this->donor_model->get_hospital_list_array();
 			$data['country_list'] = $this->donor_model->get_country_list();
 			
 			$data['stateList'] = [];
