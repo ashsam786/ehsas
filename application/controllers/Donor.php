@@ -146,7 +146,7 @@ class Donor extends CI_Controller {
 			}
 
 			if($data['donor'] && !empty($data['donor']->state)){
-				$data['cityList'] = json_decode(file_get_contents("http://localhost/ehsas.in/getCities?state_id={$data['donor']->state}"));
+				$data['cityList'] = json_decode(file_get_contents(base_url("getCities?state_id={$data['donor']->state}")));
 			}
 
 			$data['donor']->days_passed = $data['donor']->last_time_donated ? getDaysFromToday($data['donor']->last_time_donated) : '';
