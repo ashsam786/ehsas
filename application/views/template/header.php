@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="Author" content="amir samad hanga">
-        <title><?php echo PAGE_TITLE; ?></title>
+        <title><?php echo isset($title)? $title : PAGE_TITLE; ?></title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -45,7 +45,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.html"><?php echo MAIN_TITLE ?></a>
+					<a class="navbar-brand" href="<?php echo base_url('home'); ?>"><?php echo MAIN_TITLE ?></a>
 				</div>
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="top-navbar-1">
