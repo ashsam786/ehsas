@@ -121,7 +121,6 @@
 </div>    
 <script>
 window.onload = function(){
-	//var availableHospitals = ['aa', 'bb', 'ff']
 	var availableHospitals = <?php echo json_encode($hospital_list); ?>;
 	$( "#hospital-nearby" ).autocomplete({
 		  source: availableHospitals

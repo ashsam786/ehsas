@@ -48,15 +48,15 @@
                 <tr>
                 </tr>    
                     <td>City</td>
-                    <td><?php echo $donor->city; ?></td>
+                    <td><?php echo $donor->city_name; ?></td>
                 <tr>
                 </tr>    
                     <td>State</td>
-                    <td><?php echo $donor->state; ?></td>
+                    <td><?php echo $donor->state_name; ?></td>
                 <tr>
                 </tr>    
                     <td>Country</td>
-                    <td><?php echo $donor->country; ?></td>
+                    <td><?php echo $donor->country_name; ?></td>
                 <tr>
                 </tr>    
                     <td>Address</td>
