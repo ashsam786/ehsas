@@ -50,7 +50,7 @@
 						</div>
 						<div class="form-group">
 							<label class="" for="f1-contact-number">Contact Number</label>
-							<input type="text" name="f1-contact-number" placeholder="Contact Number..." class="f1-contact-number form-control required" id="f1-contact-number"  value="<?php echo $donor->contact; ?>"">
+							<input type="text" name="f1-contact-number" placeholder="Contact Number(10 digits)..." class="f1-contact-number form-control required" id="f1-contact-number"  value="<?php echo $donor->contact; ?>"" maxlength="10" disabled>
 						</div>
 						<div class="form-group">
 							<label class="" for="f1-email">Email</label>
@@ -96,7 +96,7 @@
 						</div>
 						<div class="form-group">
 							<label class="" for="f1-alternate-number">Alternate Number</label>
-							<input type="text" name="f1-alternate-number" placeholder="Alternate Number..." class="f1-alternate-number form-control" id="f1-alternate-number"  value="<?php echo $donor->alternate_contact; ?>">
+							<input type="text" name="f1-alternate-number" placeholder="Alternate Number (10 digits)..." class="f1-alternate-number form-control" id="f1-alternate-number"  value="<?php echo $donor->alternate_contact; ?>"  maxlength="10">
 						</div>
 						<div class="form-group">
 							<label class="" for="f1-hospital-nearby">Hospital Nearby</label>

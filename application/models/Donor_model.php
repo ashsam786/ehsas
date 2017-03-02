@@ -120,7 +120,15 @@ class donor_model extends CI_Model{
 			);
 
 			$sessionId = $this->session->donor_id;
-
+			
+			if(!preg_match('/^\d{10}$/', $data['contact'])){
+				throw new Exception($this->lang->line('error_unauthorised_access'));
+			}
+			
+			if(!preg_match('/^\d{10}$/', $data['alternate_contact']) && strlen($data['alternate_contact']) != 0){
+				throw new Exception($this->lang->line('error_unauthorised_access'));
+			}
+			
 			$contactCount = $this->db->get_where($this->table, ['contact' => $data['contact']]);
 			$contactdata = $contactCount->row();
 			$contactCount = $contactCount->num_rows();
