@@ -48,11 +48,7 @@ function validateFormData(self, next_step) {
 }
 
 jQuery(document).ready(function() {
-	if(location.host == "ehsas.in"){
-        var base_dir = 'demo';    
-    } else if(location.host == 'ehsas.local'){
-        var base_dir = '';
-    }
+	var base_dir = '';
     
     var base_url = location.protocol+'//'+location.host+'/'+base_dir;
     /*
