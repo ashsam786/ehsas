@@ -113,6 +113,9 @@ jQuery(document).ready(function() {
 
     // next step
     $('#donorRegister .btn-next').on('click', function() {
+		$('#form-errors').removeClass('alert alert-danger');
+		$('#form-errors').html('');
+		
     	var parent_fieldset = $(this).parents('fieldset');
     	var next_step = true;
     	// navigation steps / progress steps
@@ -185,7 +188,7 @@ jQuery(document).ready(function() {
                     $('#form-errors').append('<p>'+v+'</p>');
                 });
               }
-              grecaptcha.reset();  // reset Google captcha
+              //grecaptcha.reset();  // reset Google captcha
             }
         });
     	return false;

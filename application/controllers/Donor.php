@@ -24,13 +24,14 @@ class Donor extends CI_Controller {
 			header('Location: '.$url);
 		}
 
-		$this->load->library('recaptcha');
-		$this->load->config('recaptcha');
+		//$this->load->library('recaptcha');
+		//$this->load->config('recaptcha');
+		
 
 		$data['country_list'] = $this->donor_model->get_country_list();
 		$data['hospital_list'] = $this->donor_model->get_hospital_list_array();
-		$data['reCaptcha_html'] =  $this->recaptcha->getWidget(['data-type' => 'image']);
-		$data['reCaptcha_script_tag'] =  $this->recaptcha->getScriptTag();
+		//$data['reCaptcha_html'] =  $this->recaptcha->getWidget(['data-type' => 'image']);
+		//$data['reCaptcha_script_tag'] =  $this->recaptcha->getScriptTag();
 
 		$this->load->view('template/header', $data);
 		$this->load->view('register', $data);
@@ -167,15 +168,15 @@ class Donor extends CI_Controller {
 			show_404();
 		}
 		
-		$this->load->library('recaptcha');
-		$recaptcha = $this->input->post('g-recaptcha-response');
-		$response = $this->recaptcha->verifyResponse($recaptcha);
+		//$this->load->library('recaptcha');
+		//$recaptcha = $this->input->post('g-recaptcha-response');
+		//$response = $this->recaptcha->verifyResponse($recaptcha);
 
-		if (isset($response['success']) and $response['success'] === true) {
+		//if (isset($response['success']) and $response['success'] === true) {
 		    $res = $this->donor_model->save_donor_form();
-		} else{
-			$res = ['result' => false, 'msg' => ['Incorrect Captcha']];
-		}
+		//} else{
+		//	$res = ['result' => false, 'msg' => ['Incorrect Captcha']];
+		//}
 
 		if($res['result']){
 			$sub = $this->lang->line('register_confirm_male_subject');

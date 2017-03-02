@@ -38,7 +38,7 @@
                     		</div>
                     		
                     		<fieldset>
-                    		    <h4>Tell us who you are:</h4>
+                    		    <h4>Tell us who you are:</h4>                              
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-first-name">Name</label>
                                     <input type="text" name="f1-first-name" placeholder="Name..." class="f1-first-name form-control required" id="f1-first-name" data-toggle="popover" data-placement="top" data-content="Enter your name">
@@ -140,8 +140,8 @@
                                     <input type="text" name="f1-how-know" placeholder="How you came to know about this form...." class="f1-how-know form-control required" id="f1-how-know">
                                 </div>
                                 <div class="form-group">
-                                    <?php echo $reCaptcha_html; ?>
-                                    <?php echo $reCaptcha_script_tag; ?>
+                                    <?php //echo $reCaptcha_html; ?>
+                                    <?php //echo $reCaptcha_script_tag; ?>
                                 </div>
                                 <div class="f1-buttons">
                                     <button type="button" class="btn btn-previous">Previous</button>
