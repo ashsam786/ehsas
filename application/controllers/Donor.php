@@ -108,7 +108,7 @@ class Donor extends CI_Controller {
 			$data['donor'] = 'unauthorised';
 		} else{
 			$data['donor'] = $this->donor_model->getDonorByContact($contact);
-			$data['donor']->days_passed = $data['donor']->last_time_donated ? getDaysFromToday($data['donor']->last_time_donated) : '';			
+			$data['donor']->days_passed = ($data['donor'] && $data['donor']->last_time_donated) ? getDaysFromToday($data['donor']->last_time_donated) : '';			
 		}
 
 		$this->load->view('template/header', $data);
