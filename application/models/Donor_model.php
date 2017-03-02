@@ -160,7 +160,8 @@ class donor_model extends CI_Model{
 				$errors['f1-contact-number'] = 'Please enter a valid mobile number';
 			}
 
-			if(!preg_match('/^(\+91-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/', $data['contact'])){
+			//if(!preg_match('/^(\+91-?|0?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/', $data['contact'])){
+			if(!preg_match('/^(\+91-?|0?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?\d{3}-?\d{4}$/', $data['contact'])){
 				$errors['f1-contact-number'] = $this->lang->line('error_invalid_mobile');
 			}
 
