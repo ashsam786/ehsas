@@ -11,9 +11,9 @@ class donor_model extends CI_Model{
 	public function getDonorByContact($contact){
 		try{
 			$this->db->select('donor_list.*, countries.country as country_name, states.state as state_name, cities.city as city_name');
-			$this->db->join('countries', 'donor_list.country = countries.id');
-			$this->db->join('states', 'donor_list.state = states.id');
-			$this->db->join('cities', 'donor_list.city = cities.id');
+			$this->db->join('countries', 'donor_list.country = countries.id', 'left');
+			$this->db->join('states', 'donor_list.state = states.id' 'left');
+			$this->db->join('cities', 'donor_list.city = cities.id' 'left');
 			$qry = $this->db->get_where($this->table, ['contact' => $contact]);
 
 			if($qry->num_rows() != 1){
