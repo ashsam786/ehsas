@@ -22,7 +22,7 @@
                     		<fieldset>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-userId">Mobile Number</label>
-                                    <input type="text" name="f1-userId" placeholder="Mobile Number" class="f1-userId form-control required" id="f1-userId" data-toggle="popover" data-placement="top" data-content="Login with registered mobile number">
+                                    <input type="text" name="f1-userId" placeholder="Mobile Number" class="f1-userId form-control required" id="f1-userId" data-toggle="popover" data-placement="top" data-content="Login with registered mobile number" maxlength="10">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-password">Password</label>

@@ -18,15 +18,10 @@ class Donor extends CI_Controller {
 	* Donor register function
 	*/
 	public function register(){
-		//if(isset($this->session->donor_name) && $this->session->donor_name != ''){
 		if($this->session->has_userdata('donor_name')){
 			$url = base_url("donor/view/".$this->session->userid);
 			header('Location: '.$url);
 		}
-
-		//$this->load->library('recaptcha');
-		//$this->load->config('recaptcha');
-		
 
 		$data['country_list'] = $this->donor_model->get_country_list();
 		$data['hospital_list'] = $this->donor_model->get_hospital_list_array();
@@ -34,7 +29,7 @@ class Donor extends CI_Controller {
 		//$data['reCaptcha_script_tag'] =  $this->recaptcha->getScriptTag();
 
 		$this->load->view('template/header', $data);
-		$this->load->view('register', $data);
+		$this->load->view('donor/register', $data);
 		$this->load->view('template/footer', $data);
 	}
 
@@ -47,7 +42,7 @@ class Donor extends CI_Controller {
 		$data['title'] = 'Ehsas | User login';
 
 		$this->load->view('template/header', $data);
-		$this->load->view('login', $data);
+		$this->load->view('donor/login', $data);
 		$this->load->view('template/footer', $data);
 	}
 
@@ -187,7 +182,6 @@ class Donor extends CI_Controller {
 
 			$this->email->initialize($config);
 
-
 			$this->email->from(NOREPLY_EMAIL, 'Ehsas Registration');
 			$this->email->to($this->input->post('f1-email'));
 			$this->email->cc(REGISTRATION_ADMIN_EMAIL);
@@ -209,11 +203,11 @@ class Donor extends CI_Controller {
 		$class = $res['result'] ? 'alert-success' : 'alert-danger';
 		$alert_message = '';
 		foreach($res['msg'] as $i => $v){
-			$alert_message .= '<div class="alert '. $class .'">'. $v .'</div>';
+			$alert_message .= '<p>'. $v .'</p>';
 		}
-		
+		$alert_message = '<div class="alert '. $class .'">'. $v .'</div>';
 		$this->session->set_flashdata('alert-message', $alert_message);
-		redirect(base_url('donor/edit/'.$this->input->post('f1-contact-number')), 'refresh');
+		redirect(base_url('donor/edit/'.$this->session->userid), 'refresh');
 	}
 
 	public function loginProcess(){

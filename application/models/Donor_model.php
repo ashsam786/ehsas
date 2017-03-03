@@ -119,7 +119,7 @@ class donor_model extends CI_Model{
 				'email'				=> $this->input->post('f1-email')
 			);
 
-			$sessionId = $this->session->donor_id;
+			$sessionId = $this->session->donor_id?$this->session->donor_id:'';
 
 			$contactCount = $this->db->get_where($this->table, ['contact' => $data['contact']]);
 			$contactdata = $contactCount->row();
@@ -135,11 +135,11 @@ class donor_model extends CI_Model{
 					throw new Exception($this->lang->line('error_unauthorised_access'));
 				} else{
 					if($contactCount && $contactCount > 0 && $contactdata->id !== $sessionId){
-						$errors['f1-contact-number'] = $this->lang->line('error_duplicate_mobile');
+						throw new Exception($this->lang->line('error_duplicate_mobile'));
 					}
 
 					if($emailCount && $emailCount > 0 && $emaildata->id !== $sessionId){
-						$errors['f1-contact-number'] = $this->lang->line('error_duplicate_email');
+						throw new Exception($this->lang->line('error_duplicate_email'));
 					}
 				}
 			} else{
@@ -149,6 +149,7 @@ class donor_model extends CI_Model{
 
 				if($emailCount && $emailCount > 0){
 					$errors['f1-contact-number'] = $this->lang->line('error_duplicate_email');
+					$errors['f1-contact-number'] = 'rough';
 				}
 			}
 
@@ -156,16 +157,12 @@ class donor_model extends CI_Model{
 				$errors['required'] = $this->lang->line('error_incomplete_form');
 			}
 
-			if(!preg_match('/^(\+91-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/', $data['contact'])){
-				$errors['f1-contact-number'] = 'Please enter a valid mobile number';
-			}
-
 			//if(!preg_match('/^(\+91-?|0?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/', $data['contact'])){
-			if(!preg_match('/^(\+91-?|0?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?\d{3}-?\d{4}$/', $data['contact'])){
+			if(!preg_match(MOBILE_NUMBER_REGEX, $data['contact'])){
 				$errors['f1-contact-number'] = $this->lang->line('error_invalid_mobile');
 			}
 
-			if($data['alternate_contact'] != "" && preg_match('/^(\+91-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/', $data['contact'])){
+			if($data['alternate_contact'] != "" && preg_match(MOBILE_NUMBER_REGEX, $data['alternate_contact'])){
 				$errors['f1-alternate-number'] = $this->lang->line('error_invalid_alternate_mobile');
 			}
 
@@ -178,6 +175,11 @@ class donor_model extends CI_Model{
 				if(!$this->db->update($this->table, $data)){
 					throw new Exception($this->lang->line('error_general'));
 				}
+
+				$this->session->donor_contact = $data['contact'];
+				$this->session->donor_name = $data['name'];
+				$this->session->userid = $data['contact'];
+
 				$data = ['result' => true, 'msg' => [$this->lang->line('error_profile_update_success')]];
 			} else {
 				if($this->input->post('f1-password') == "" || $this->input->post('f1-repeat-password') != $this->input->post('f1-password')){
@@ -190,8 +192,6 @@ class donor_model extends CI_Model{
 				}
 				$data = ['result' => true, 'msg' => [$this->lang->line('error_form_thanku_msg')]];
 			}
-
-			
 		} catch(Exception $e){ 
 			$data = ['result' => false, 'msg' => [$e->getMessage()]];
 		}
