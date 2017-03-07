@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class Admin extends MY_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -26,6 +26,11 @@ class Admin extends CI_Controller {
 
 	public function index()
 	{
+		if($this->require_role('admin')){
+			ddd('Admin');
+		} else{
+			ddd('NOt authorised');
+		}
 /*		//$data = $this->db->get('cities1');
 		$data = $this->db->get('statelist');
 		$data = $data->result();
@@ -58,11 +63,14 @@ die('done!');*/
 	}
 
 	public function view(){
-		//$data['donors'] = $this->admin_model->getDonorData();
-		$data['title'] = 'Ehsas | Donor list';
-		$this->load->view('template/header', $data);
-		$this->load->view('viewdata', $data);
-		$this->load->view('template/footer', $data);
+		if($this->require_role('admin')){
+			//$data['donors'] = $this->admin_model->getDonorData();
+			$data['title'] = 'Ehsas | Donor list';
+			$this->load->view('template/header', $data);
+			$this->load->view('viewdata', $data);
+			$this->load->view('template/footer', $data);
+		}
+	
 	}
 
 	public function donor_list() {
