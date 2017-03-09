@@ -104,11 +104,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-contact-number">Contact Number</label>
-                                    <input type="text" name="f1-contact-number" placeholder="Contact Number..." class="f1-contact-number form-control required" id="f1-contact-number" data-toggle="popover" data-placement="top" data-content="Your valid contact number">
+                                    <input type="text" name="f1-contact-number" placeholder="Contact Number (10 digits)..." class="f1-contact-number form-control required" id="f1-contact-number" data-toggle="popover" data-placement="top" data-content="Your valid 10 digit contact number" maxlength="10">
                                 </div>
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-alternate-number">Alternate Number</label>
-                                    <input type="text" name="f1-alternate-number" placeholder="Alternate Number..." class="f1-alternate-number form-control" id="f1-alternate-number" data-toggle="popover" data-placement="top" data-content="Your valid contact number">
+                                    <input type="text" name="f1-alternate-number" placeholder="Alternate Number (10 digits)..." class="f1-alternate-number form-control" id="f1-alternate-number" data-toggle="popover" data-placement="top" data-content="Your valid 10 contact number" maxlength="10">
                                 </div>                                
                                 <div class="form-group">
                                     <label class="sr-only" for="f1-email">Email</label>

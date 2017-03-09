@@ -30,8 +30,8 @@ function validateFormData(self, next_step) {
         $(self).addClass('input-error');
         next_step = false;
     } else if(self.name == 'f1-contact-number' || self.name =='f1-alternate-number'){
-        //if(!/\d{10}/.test($(self).val()) && $(self).val() != ''){
-        if(!/^(\+91-?|0?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?\d{3}-?\d{4}$/.test($(self).val()) && $(self).val() != ''){
+        //if(!/^(\+91-?|0?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?\d{3}-?\d{4}$/.test($(self).val()) && $(self).val() != ''){
+        if(!/\d{10}$/.test($(self).val()) && $(self).val() != ''){
             $(self).addClass('input-error');
             next_step = false;            
         }

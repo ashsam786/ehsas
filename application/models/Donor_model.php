@@ -162,7 +162,7 @@ class donor_model extends CI_Model{
 				$errors['f1-contact-number'] = $this->lang->line('error_invalid_mobile');
 			}
 
-			if($data['alternate_contact'] != "" && preg_match(MOBILE_NUMBER_REGEX, $data['alternate_contact'])){
+			if($data['alternate_contact'] != "" && !preg_match(MOBILE_NUMBER_REGEX, $data['alternate_contact'])){
 				$errors['f1-alternate-number'] = $this->lang->line('error_invalid_alternate_mobile');
 			}
 
