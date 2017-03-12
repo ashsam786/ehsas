@@ -1,0 +1,78 @@
+
+.tim-row {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.whiteText{
+	color:#fff;
+}
+
+.logo-container .brand {
+    width: inherit;
+}
+
+.index-page .brand h1 {
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+.index-page .brand h3 {
+    letter-spacing: 5px;
+}
+
+.logoName {
+    font-weight: bold;
+    font-size: 3rem;
+    margin-bottom: 4px;
+}
+
+p.logoTagName {
+    font-size: 1.5rem;
+}
+
+.pageSectionTitle{
+	margin-bottom:30px;
+}
+
+.bgFixedBacground{
+    background-image: url(../img/bg1.jpg);
+    background-size: cover;
+    background-attachment: fixed;	
+}
+
+#text-carousel{
+    background: rgba(101, 47, 142, 0.64);
+}
+.bloodRequirementTable{
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+.topMenuSocial a{
+	display:inline-block!important;
+}
+
+.pageSectionTitle h3{
+	display: inline-block;
+    padding: 1rem 4rem;
+    border-bottom: 3px solid #f44336;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.carousel-content {
+    color:black;
+    display:flex;
+    align-items:center;
+}
+
+#text-carousel {
+  width: 100%;
+  height: auto;
+  padding: 50px;
+}
+
+#text-carousel .carousel-control{
+	width:20%!important;
+}

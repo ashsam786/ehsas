@@ -22,15 +22,16 @@ class Home extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('home_model');
+		$this->lang->load('home', 'english');
 	}
 
 	function index(){
-		if(!$this->session->has_userdata('donor_name')){
+/*		if(!$this->session->has_userdata('donor_name')){
 			$url = base_url("donor/register");
 			header('Location: '.$url);
-		}
-		$this->load->view('template/header');
-		//$this->load->view('home');
-		$this->load->view('template/footer');
+		}*/
+		$this->load->view('template/header_main');
+		$this->load->view('home');
+		$this->load->view('template/footer_main');
 	}
 }

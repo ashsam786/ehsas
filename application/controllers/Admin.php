@@ -69,6 +69,8 @@ die('done!');*/
 			$this->load->view('template/header', $data);
 			$this->load->view('viewdata', $data);
 			$this->load->view('template/footer', $data);
+		} else{
+			die('Sorry you are not authorised!');
 		}
 	
 	}
