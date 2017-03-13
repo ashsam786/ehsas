@@ -8,6 +8,9 @@
 	color:#fff;
 }
 
+.noMargin{
+	margin:0;
+}
 .logo-container .brand {
     width: inherit;
 }
@@ -44,10 +47,6 @@ p.logoTagName {
 #text-carousel{
     background: rgba(101, 47, 142, 0.64);
 }
-.bloodRequirementTable{
-	max-height: 400px;
-	overflow-y: auto;
-}
 
 .topMenuSocial a{
 	display:inline-block!important;
@@ -79,4 +78,15 @@ p.logoTagName {
 
 #searchDonorSection{
     margin-top: 7rem;
+}
+
+.sliderImgBg{
+    background-image: url(../img/slider.png);
+    background-attachment: fixed;
+    background-size: cover;
+    color: #fff;	
+}
+
+.otherInitiativesList{
+	background: rgba(0, 0, 0, .5)	
 }

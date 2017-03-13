@@ -80,6 +80,7 @@ ul.navbar-nav {
 	width: 162px;
 	background: url(../img/logo.png) left center no-repeat;
 	text-indent: -99999px;
+	background-size: contain;
 }
 
 

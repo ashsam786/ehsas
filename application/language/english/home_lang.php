@@ -6,9 +6,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 $lang['register_as_donor']					= 'Register As Donor';
-$lang['register_as_donor_text']				= 'Register today to give your share.';
-$lang['post_your_requirements']				= 'Post Your Requirements';
-$lang['post_your_requirements']				= 'Post Your Requirements';
+$lang['register_as_donor_text']				= 'If you’re a blood donor, you’re a hero to someone, somewhere, who received your gracious gift of life.';
+$lang['post_your_requirements_heading']		= 'Post Your Requirements';
+$lang['post_your_requirements']				= 'Post us Your blood requirements and we will do our best to cater your need';
 $lang['recent_donors_list']					= 'Recent Dononrs.';
 $lang['top_register_today_button_title']	= 'Register Today';
 $lang['post_your_requirements_button_title']= 'Send Requiments';

@@ -1,6 +1,4 @@
 <?php if (!defined('BASEPATH'))    exit('No direct script access allowed'); ?>
-
-
 <!-- Navbar -->
 <nav class="navbar navbar-danger navbar-transparent navbar-fixed-top navbar-color-on-scroll">
 	<div class="container">
@@ -27,7 +25,7 @@
 	    <div class="collapse navbar-collapse" id="navigation-index">
 	    	<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="<?php echo base_url('home'); ?>" target="_blank">
+					<a href="<?php echo base_url('home'); ?>">
 						Home
 					</a>
 				</li>
@@ -74,7 +72,7 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<div class="brand">
-						<h1>SOMEONE IS NEEDING BLOOD SOME WHERE</h1>
+						<h1>SOMEONE IS NEEDING BLOOD SOMEWHERE</h1>
 						<h3>Donate Blood</h3>
 						<button class="btn btn-danger anchor" data-target="<?php echo base_url('donor/register'); ?>"><?php echo $this->lang->line('top_register_today_button_title'); ?></button>
 					</div>
@@ -83,19 +81,87 @@
 
 		</div>
 	</div>
-
-
-	<div class="main main-raised">
-		<div class="section section-basic">
-jhlkjhk jhk hl jlkj lhkj lkjh lkjh lkjh
-	</div>
-	</div>
-
-
-
 	<div class="main main-raised">
 		<div class="section section-basic">
 	    	<div class="container">
+
+
+
+			
+			
+			
+				<div class="row">
+					<form class="form" method="get" action="#">
+						<div class="header header-danger text-center">
+							<h4>Search For Dononrs</h4>
+						</div>
+						<div class="content">
+							<div class="col-md-3">
+								<div class="form-group is-empty">
+									<label class="sr-only" for="f1-country">Country</label>
+									<select name="f1-country" class="f1-country form-control required" id="f1-country">
+										  <option value="" disabled="disabled" selected>Country...</option>
+										  <?php foreach($country_list as $i => $v){ ?>
+											  <option value="<?php echo $v->id; ?>"><?php echo $v->country; ?></option>
+										  <?php } ?>
+									</select>
+									<span class="material-input"></span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group is-empty">
+									<label class="sr-only" for="f1-state">State</label>
+									<select name="f1-state" class="f1-state form-control" id="f1-state">
+										  <option value="" disabled="disabled" selected>State...</option>
+									</select>
+									<span class="material-input"></span>
+								</div>
+							</div>
+							<div class="col-md-3">
+								<div class="form-group is-empty">
+									<label class="sr-only" for="f1-city">City</label>
+									<select name="f1-city" class="f1-city form-control" id="f1-city">
+										  <option value="" disabled="disabled" selected>City...</option>
+									</select>						
+									<span class="material-input"></span>
+								</div>
+							</div>	
+							<div class="col-md-3">
+								<div class="form-group is-empty col-xs-10">
+									<label class="sr-only" for="f1-blood-group">Blood Group</label>
+									<select name="f1-blood-group" class="f1-blood-group form-control" id="f1-blood-group">
+										  <option value="" disabled="disabled" selected>Blood Group...</option>
+                                          <option value="A Positive">A Positive</option>
+                                          <option value="A Negative">A Negative</option>
+                                          <option value="B Positive">B Positive</option>
+                                          <option value="B Negative">B Negative</option>
+                                          <option value="O Positive">O Positive</option>
+                                          <option value="O Negative">O Negative</option>
+                                          <option value="AB Positive">AB Positive</option>
+                                          <option value="AB Negative">AB Negative</option>
+                                          <option value="NA">NA</option>										  
+									</select>						
+									<span class="material-input"></span>
+								</div>
+								<div class="form-group is-empty col-xs-2">
+									<button type="submit" class="btn btn-danger btn-just-icon">
+										<i class="fa fa-search" aria-hidden="true"></i>
+									</button>
+								</div>
+							</div>	
+						</div>
+					</form>
+				</div>
+
+
+
+
+
+
+
+
+
+			
 	    		<div class="row">
 					<div class="col-md-4">
 						<!-- Tabs with icons on Card -->
@@ -170,7 +236,7 @@ jhlkjhk jhk hl jlkj lhkj lkjh lkjh lkjh
 										<ul class="nav nav-tabs" data-tabs="tabs">
 											<li class="active">
 												<a onclick="return false;">
-													<?php echo $this->lang->line('post_your_requirements'); ?>
+													<?php echo $this->lang->line('post_your_requirements_heading'); ?>
 												</a>
 											</li>
 										</ul>
@@ -190,77 +256,7 @@ jhlkjhk jhk hl jlkj lhkj lkjh lkjh lkjh
 					</div>
 	    		</div>
 
-
-
-
-
-
-
-
-
-
-<div class="row" id="searchDonorSection">
-	<div class="col-md-4">
-		<div class="card card-signup">
-			<form class="form" method="get" action="#">
-				<div class="header header-danger text-center">
-					<h4>Search For Dononrs</h4>
-				</div>
-				<div class="content">
-					<div class="form-group is-empty">
-						<label class="sr-only" for="f1-country">Country</label>
-						<select name="f1-country" class="f1-country form-control required" id="f1-country">
-							  <option value="" disabled="disabled" selected>Country...</option>
-							  <?php foreach($country_list as $i => $v){ ?>
-								  <option value="<?php echo $v->id; ?>"><?php echo $v->country; ?></option>
-							  <?php } ?>
-						</select>
-						<span class="material-input"></span>
-					</div>	
-					<div class="form-group is-empty">
-						<label class="sr-only" for="f1-state">State</label>
-						<select name="f1-state" class="f1-state form-control required" id="f1-state">
-							  <option value="" disabled="disabled" selected>State...</option>
-						</select>
-						<span class="material-input"></span>
-					</div>	
-					<div class="form-group is-empty">
-						<label class="sr-only" for="f1-city">City</label>
-						<select name="f1-city" class="f1-city form-control required" id="f1-city">
-							  <option value="" disabled="disabled" selected>City...</option>
-						</select>						
-						<span class="material-input"></span>
-					</div>
-				</div>
-				<div class="footer text-center">
-					<a class="btn btn-simple btn-primary btn-lg">Get Started<div class="ripple-container"></div></a>
-				</div>
-			</form>
-		</div>
-
-	</div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	    		<div class="tim-row" id="currentRequimentsTable">
+				<div class="tim-row" id="currentRequimentsTable">
 					<div class="title pageSectionTitle text-center">
 		                <h3>Current Blood Requirements</h3>
 		            </div>
@@ -279,7 +275,7 @@ jhlkjhk jhk hl jlkj lhkj lkjh lkjh lkjh
 						        </tr>
 						    </thead>
 						    <tbody>
-						    	<?php for($i=1;$i<12;$i++){ ?>
+						    	<?php for($i=1;$i<6;$i++){ ?>
 							        <tr>
 							            <td class="text-center"><?php echo $i; ?></td>
 							            <td>Jammu &amp; Kashmir</td>
@@ -297,60 +293,61 @@ jhlkjhk jhk hl jlkj lhkj lkjh lkjh lkjh
 						    	<?php } ?>
 						    </tbody>
 						</table>
-		            </div>	            
+		            </div>
+					<div class="row text-center">
+						<button class="btn btn-danger anchor text-center" data-value="<?php echo base_url('blood/requirement'); ?>">
+							Show more
+	                    <div class="ripple-container"></div></button>					
+					</div>
 	    		</div>
 	    		<div class="tim-row" id="testimonail">
 					<div class="title pageSectionTitle text-center">
 		                <h3>What People Say About Us?</h3>
 		            </div>
-		            <div class="row testimonailBox bgFixedBacground">
-
-						<div class="row">
-
-							<div id="text-carousel" class="carousel slide" data-ride="carousel">
-							    <!-- Wrapper for slides -->
-							    <div class="row">
-							        <div class="col-xs-offset-2 col-xs-8">
-							            <div class="carousel-inner">
-							                <div class="item active">
-							                    <div class="carousel-content">
-							                        <div>
-									                    <p class="whiteText">Noble mission means noble...this state needs a target mission like Late Abdul Satar Eidhi did for Islamic Republic of Pakistan...Like for others what U like for urself...Alhadith.....Survival for self is not any bravery or achievement but survival for others is a brave n satisfaction step...Live n let live n Charity has a permanent taste of real life....</p>
-														<p class="text-right whiteText"><cite>Er Malik Manzoor Ul-Haq</cite><br>Project Manager Civil</p>
-							                        </div>
-							                    </div>
-							                </div>
-							                <div class="item">
-							                    <div class="carousel-content">
-							                        <div>
-									                    <p class="whiteText">Noble mission means noble...this state needs a target mission like Late Abdul Satar Eidhi did for Islamic Republic of Pakistan...Like for others what U like for urself...Alhadith.....Survival for self is not any bravery or achievement but survival for others is a brave n satisfaction step...Live n let live n Charity has a permanent taste of real life....</p>
-														<p class="text-right whiteText"><cite>Er Malik Manzoor Ul-Haq</cite><br>Project Manager Civil</p>
-							                        </div>
-							                    </div>
-							                </div>
-							                <div class="item">
-							                    <div class="carousel-content">
-							                        <div>
-									                    <p class="whiteText">Noble mission means noble...this state needs a target mission like Late Abdul Satar Eidhi did for Islamic Republic of Pakistan...Like for others what U like for urself...Alhadith.....Survival for self is not any bravery or achievement but survival for others is a brave n satisfaction step...Live n let live n Charity has a permanent taste of real life....</p>
-														<p class="text-right whiteText"><cite>Er Malik Manzoor Ul-Haq</cite><br>Project Manager Civil</p>
-							                        </div>
-							                    </div>
-							                </div>
-							                
-							            </div>
-							        </div>
-							    </div>
-							    <!-- Controls --> <a class="left carousel-control" href="#text-carousel" data-slide="prev">
-							    <span class="glyphicon glyphicon-chevron-left"></span>
-							  </a>
-							 <a class="right carousel-control" href="#text-carousel" data-slide="next">
-							    <span class="glyphicon glyphicon-chevron-right"></span>
-							  </a>
+		            <div class="testimonailBox bgFixedBacground">
+						<div id="text-carousel" class="carousel slide" data-ride="carousel">
+							<!-- Wrapper for slides -->
+							<div class="row">
+								<div class="col-xs-offset-2 col-xs-8">
+									<div class="carousel-inner">
+										<div class="item active">
+											<div class="carousel-content">
+												<div>
+													<p class="whiteText">Noble mission means noble...this state needs a target mission like Late Abdul Satar Eidhi did for Islamic Republic of Pakistan...Like for others what U like for urself...Alhadith.....Survival for self is not any bravery or achievement but survival for others is a brave n satisfaction step...Live n let live n Charity has a permanent taste of real life....</p>
+													<p class="text-right whiteText"><cite>Er Malik Manzoor Ul-Haq</cite><br>Project Manager Civil</p>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="carousel-content">
+												<div>
+													<p class="whiteText">Noble mission means noble...this state needs a target mission like Late Abdul Satar Eidhi did for Islamic Republic of Pakistan...Like for others what U like for urself...Alhadith.....Survival for self is not any bravery or achievement but survival for others is a brave n satisfaction step...Live n let live n Charity has a permanent taste of real life....</p>
+													<p class="text-right whiteText"><cite>Er Malik Manzoor Ul-Haq</cite><br>Project Manager Civil</p>
+												</div>
+											</div>
+										</div>
+										<div class="item">
+											<div class="carousel-content">
+												<div>
+													<p class="whiteText">Noble mission means noble...this state needs a target mission like Late Abdul Satar Eidhi did for Islamic Republic of Pakistan...Like for others what U like for urself...Alhadith.....Survival for self is not any bravery or achievement but survival for others is a brave n satisfaction step...Live n let live n Charity has a permanent taste of real life....</p>
+													<p class="text-right whiteText"><cite>Er Malik Manzoor Ul-Haq</cite><br>Project Manager Civil</p>
+												</div>
+											</div>
+										</div>
+										
+									</div>
+								</div>
 							</div>
-			            </div>
+							<!-- Controls --> <a class="left carousel-control" href="#text-carousel" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+						  </a>
+						 <a class="right carousel-control" href="#text-carousel" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						  </a>
+						</div>
 		            </div>	            
 	    		</div>	
-	    		<div class="tim-row" id="currentRequimentsTable">
+	    		<div class="tim-row" id="recentDonorsTable">
 					<div class="title pageSectionTitle text-center">
 		                <h3><?php echo $this->lang->line('recent_donors_list'); ?></h3>
 		            </div>
@@ -368,7 +365,7 @@ jhlkjhk jhk hl jlkj lhkj lkjh lkjh lkjh
 						        </tr>
 						    </thead>
 						    <tbody>
-						    	<?php for($i=1;$i<12;$i++){ ?>
+						    	<?php for($i=1;$i<6;$i++){ ?>
 							        <tr>
 							            <td class="text-center"><?php echo $i; ?></td>
 							            <td>Yasir Rasool</td>
@@ -382,14 +379,36 @@ jhlkjhk jhk hl jlkj lhkj lkjh lkjh lkjh
 						    </tbody>
 						</table>
 		            </div>	            
-	    		</div>	    		    		
-	    	</div>
+					<div class="row text-center">
+						<button class="btn btn-danger anchor text-center" data-value="<?php echo base_url('recentdonors'); ?>">
+							Show more
+	                    <div class="ripple-container"></div></button>					
+					</div>					
+				</div>	    		    		
+				<div class="tim-row sliderImgBg" id="otherInitiatives">
+					<div class="title pageSectionTitle text-center">
+		                <h3 class="whiteText">Other Initiatives</h3>
+		            </div>
+		            <div class="row otherInitiativesList">
+						<div class="col-sm-6 text-center">
+							<h5><a class="whiteText" href="#">Cancer sociaty of kashmir</a></h5>
+							<h5><a class="whiteText" href="#">Humanvalues.in</a></h5>
+							<h5><a class="whiteText" href="#">Cancer sociaty of kashmir</a></h5>
+							<h5><a class="whiteText" href="#">Humanvalues.in</a></h5>
+						</div>
+						<div class="col-sm-6 text-center">
+							<h5><a class="whiteText" href="#">Cancer sociaty of kashmir</a></h5>
+							<h5><a class="whiteText" href="#">Humanvalues.in</a></h5>
+							<h5><a class="whiteText" href="#">Cancer sociaty of kashmir</a></h5>
+							<h5><a class="whiteText" href="#">Humanvalues.in</a></h5>
+						</div>
+					</div>	            
+	    		</div>
+			</div>
 	    </div>
-
-
 	    <div class="section section-download">
 	        <div class="container">
-	            <div class="row sharing-area text-center">
+	            <div class="row sharing-area text-center noMargin">
 	                    <h3>Support us!</h3>
 	                    <a href="#" class="btn btn-twitter">
 	                        <i class="fa fa-twitter"></i>
@@ -406,63 +425,34 @@ jhlkjhk jhk hl jlkj lhkj lkjh lkjh lkjh
 	            </div>
 	        </div>
 	    </div>
-
 	</div>
     <footer class="footer">
 	    <div class="container">
 	        <nav class="pull-left">
 	            <ul>
 					<li>
-						<a href="http://www.creative-tim.com">
-							Creative Tim
+						<a href="<?php echo base_url('contactus'); ?>">
+							Contact Us
 						</a>
 					</li>
 					<li>
-						<a href="http://presentation.creative-tim.com">
+						<a href="<?php echo base_url('aboutus'); ?>">
 						   About Us
 						</a>
 					</li>
 					<li>
-						<a href="http://blog.creative-tim.com">
+						<a href="<?php echo base_url('blog'); ?>">
 						   Blog
-						</a>
-					</li>
-					<li>
-						<a href="http://www.creative-tim.com/license">
-							Licenses
 						</a>
 					</li>
 	            </ul>
 	        </nav>
 	        <div class="copyright pull-right">
-	            &copy; 2016, made with <i class="material-icons">favorite</i> by Creative Tim for a better web.
+	            &copy; <?php echo date('Y'); ?>, <a href="<?php echo base_url('home'); ?>"><?php echo MAIN_TITLE; ?></a> All rights reserved.
 	        </div>
 	    </div>
 	</footer>
 </div>
-
-<!-- Sart Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-					<i class="material-icons">clear</i>
-				</button>
-				<h4 class="modal-title">Modal title</h4>
-			</div>
-			<div class="modal-body">
-				<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
-				</p>
-			</div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default btn-simple">Nice Button</button>
-				<button type="button" class="btn btn-danger btn-simple" data-dismiss="modal">Close</button>
-			</div>
-		</div>
-	</div>
-</div>
-<!--  End Modal -->
 
 <script>
 window.onload = function(){
@@ -472,5 +462,4 @@ window.onload = function(){
 
 	setInterval(function(){ $('.carousel').find('.glyphicon-chevron-right').click(); }, 5000);	
 }
-
 </script>
