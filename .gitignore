@@ -1,2 +1,3 @@
 application/config/constants.php
 user_guide
+application/logs/*
