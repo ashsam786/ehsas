@@ -1906,3 +1906,20 @@ DEBUG - 2017-03-13 17:54:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\app
 DEBUG - 2017-03-13 17:54:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
 DEBUG - 2017-03-13 17:54:24 --> Encryption: Auto-configured driver 'openssl'.
 DEBUG - 2017-03-13 17:54:24 --> Total execution time: 0.5967
+DEBUG - 2017-03-13 18:38:57 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 18:38:57 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2017-03-13 18:38:57 --> 404 Page Not Found: Contact/blood
+DEBUG - 2017-03-13 18:38:58 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 18:38:58 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 18:38:58 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 18:38:58 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 18:38:58 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 18:38:58 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 18:38:58 --> Total execution time: 0.0840
+DEBUG - 2017-03-13 18:39:45 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 18:39:45 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 18:39:45 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 18:39:45 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 18:39:45 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 18:39:45 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 18:39:45 --> Total execution time: 0.0904

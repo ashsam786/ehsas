@@ -500,7 +500,7 @@
 	    </div>
 	</footer>
 </div>
-
+<a href="http://info.flagcounter.com/fgoU"><img src="http://s10.flagcounter.com/mini/fgoU/bg_FFFFFF/txt_000000/border_CCCCCC/flags_0/" alt="Free counters!" border="0"></a>
 <script>
 window.onload = function(){
 	$('body').on('click', 'button.anchor', function(){
