@@ -8,6 +8,11 @@
 	color:#fff;
 }
 
+.fullWidthImage{
+    margin: 0;
+    width: 100%;	
+}
+
 .noMargin{
 	margin:0;
 }
@@ -16,7 +21,7 @@
 }
 
 .index-page .brand h1 {
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 600;
 }
 
@@ -87,6 +92,7 @@ p.logoTagName {
     color: #fff;	
 }
 
-.otherInitiativesList{
-	background: rgba(0, 0, 0, .5)	
+#otherInitiatives .carousel .carousel-control{
+    width: inherit;
+    color: #f44336;	
 }

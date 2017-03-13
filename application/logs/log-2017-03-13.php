@@ -1579,6 +1579,7 @@ DEBUG - 2017-03-13 14:32:32 --> Config file loaded: C:\xampp\htdocs\ehsas.in\app
 DEBUG - 2017-03-13 14:32:32 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
 DEBUG - 2017-03-13 14:32:32 --> Encryption: Auto-configured driver 'openssl'.
 DEBUG - 2017-03-13 14:32:32 --> Total execution time: 0.2066
+<<<<<<< Updated upstream
 DEBUG - 2017-03-13 15:39:58 --> UTF-8 Support Enabled
 DEBUG - 2017-03-13 15:39:58 --> No URI present. Default controller set.
 DEBUG - 2017-03-13 15:39:58 --> Global POST, GET and COOKIE data sanitized
@@ -1593,3 +1594,315 @@ DEBUG - 2017-03-13 15:40:42 --> Config file loaded: C:\xampp\htdocs\ehsas.in\app
 DEBUG - 2017-03-13 15:40:42 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
 DEBUG - 2017-03-13 15:40:42 --> Encryption: Auto-configured driver 'openssl'.
 DEBUG - 2017-03-13 15:40:42 --> Total execution time: 0.0789
+=======
+DEBUG - 2017-03-13 15:28:11 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:28:11 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:28:11 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:28:11 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:28:11 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:28:11 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:28:11 --> Total execution time: 0.0769
+DEBUG - 2017-03-13 15:38:52 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:38:52 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:38:52 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:38:52 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:38:52 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:38:52 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:38:52 --> Total execution time: 0.0778
+DEBUG - 2017-03-13 15:39:06 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:39:06 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:39:06 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:39:06 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:39:06 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:39:06 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:39:06 --> Total execution time: 0.0853
+DEBUG - 2017-03-13 15:39:17 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:39:17 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:39:17 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:39:17 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:39:17 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:39:17 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:39:17 --> Total execution time: 0.0889
+DEBUG - 2017-03-13 15:39:26 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:39:26 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:39:26 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:39:26 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:39:27 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:39:27 --> Total execution time: 0.0933
+DEBUG - 2017-03-13 15:39:29 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:39:29 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:39:29 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:39:29 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:39:29 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:39:29 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:39:29 --> Total execution time: 0.0793
+DEBUG - 2017-03-13 15:39:31 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:39:31 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2017-03-13 15:39:31 --> 404 Page Not Found: Contact/blood
+DEBUG - 2017-03-13 15:39:33 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:39:33 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:39:33 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:39:33 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:39:33 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:39:33 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:39:33 --> Total execution time: 0.0773
+>>>>>>> Stashed changes
+DEBUG - 2017-03-13 15:45:05 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:45:05 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:45:05 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:45:05 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:45:05 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:45:05 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:45:05 --> Total execution time: 0.0773
+DEBUG - 2017-03-13 15:46:27 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:46:27 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:46:27 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:46:27 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:46:27 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:46:27 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:46:27 --> Total execution time: 0.0851
+DEBUG - 2017-03-13 15:47:25 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:47:25 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:47:25 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:47:25 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:47:25 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:47:25 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:47:25 --> Total execution time: 0.0804
+DEBUG - 2017-03-13 15:50:23 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:50:23 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:50:23 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:50:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:50:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:50:23 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:50:23 --> Total execution time: 0.0862
+DEBUG - 2017-03-13 15:50:32 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:50:32 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:50:32 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:50:32 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:50:32 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:50:32 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:50:32 --> Total execution time: 0.0772
+DEBUG - 2017-03-13 15:51:28 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:51:28 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:51:28 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:51:28 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:51:28 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:51:28 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:51:28 --> Total execution time: 0.0767
+DEBUG - 2017-03-13 15:53:39 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:53:39 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:53:39 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:53:39 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:53:39 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:53:39 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:53:39 --> Total execution time: 0.0771
+DEBUG - 2017-03-13 15:54:04 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 15:54:04 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 15:54:04 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 15:54:04 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 15:54:04 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 15:54:04 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 15:54:04 --> Total execution time: 0.1302
+DEBUG - 2017-03-13 17:22:02 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:22:02 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:22:02 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:22:02 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:22:02 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:22:02 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:22:02 --> Total execution time: 0.1019
+DEBUG - 2017-03-13 17:23:58 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:23:58 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:23:58 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:23:58 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:23:58 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:23:58 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:23:58 --> Total execution time: 0.0892
+DEBUG - 2017-03-13 17:25:13 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:25:13 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:25:13 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:25:13 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:25:13 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:25:13 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:25:13 --> Total execution time: 0.0862
+DEBUG - 2017-03-13 17:26:36 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:26:36 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:26:36 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:26:36 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:26:36 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:26:36 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:26:36 --> Total execution time: 0.1440
+DEBUG - 2017-03-13 17:27:21 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:27:21 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:27:21 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:27:21 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:27:21 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:27:21 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:27:21 --> Total execution time: 0.0904
+DEBUG - 2017-03-13 17:31:12 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:31:12 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:31:12 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:31:12 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:31:12 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:31:12 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:31:12 --> Total execution time: 0.0850
+DEBUG - 2017-03-13 17:32:03 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:32:03 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:32:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:32:03 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:32:03 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:32:03 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:32:03 --> Total execution time: 0.0795
+DEBUG - 2017-03-13 17:32:18 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:32:18 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:32:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:32:18 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:32:18 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:32:18 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:32:18 --> Total execution time: 0.0934
+DEBUG - 2017-03-13 17:32:48 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:32:48 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:32:48 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:32:48 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:32:48 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:32:48 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:32:48 --> Total execution time: 0.0906
+DEBUG - 2017-03-13 17:33:31 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:33:31 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:33:31 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:33:31 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:33:31 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:33:31 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:33:31 --> Total execution time: 0.0894
+DEBUG - 2017-03-13 17:36:00 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:36:00 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:36:00 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:36:00 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:36:00 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:36:00 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:36:00 --> Total execution time: 0.0801
+DEBUG - 2017-03-13 17:36:40 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:36:40 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:36:40 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:36:40 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:36:40 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:36:40 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:36:40 --> Total execution time: 0.0874
+DEBUG - 2017-03-13 17:37:04 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:37:04 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:37:04 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:37:04 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:37:04 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:37:04 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:37:04 --> Total execution time: 0.0929
+DEBUG - 2017-03-13 17:37:43 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:37:43 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:37:43 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:37:43 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:37:43 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:37:44 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:37:44 --> Total execution time: 0.1077
+DEBUG - 2017-03-13 17:38:15 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:38:15 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:38:16 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:38:16 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:38:16 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:38:16 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:38:16 --> Total execution time: 0.4567
+DEBUG - 2017-03-13 17:39:12 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:39:12 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:39:12 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:39:12 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:39:12 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:39:12 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:39:12 --> Total execution time: 0.0898
+DEBUG - 2017-03-13 17:40:48 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:40:48 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:40:48 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:40:48 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:40:48 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:40:48 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:40:48 --> Total execution time: 0.0773
+DEBUG - 2017-03-13 17:40:56 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:40:56 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:40:56 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:40:56 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:40:56 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:40:56 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:40:56 --> Total execution time: 0.1003
+DEBUG - 2017-03-13 17:41:10 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:41:10 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:41:10 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:41:10 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:41:10 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:41:10 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:41:10 --> Total execution time: 0.0930
+DEBUG - 2017-03-13 17:43:16 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:43:16 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:43:16 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:43:16 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:43:16 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:43:16 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:43:16 --> Total execution time: 0.0901
+DEBUG - 2017-03-13 17:46:56 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:46:56 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:46:56 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:46:56 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:46:56 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:46:56 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:46:56 --> Total execution time: 0.0775
+DEBUG - 2017-03-13 17:48:13 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:48:13 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:48:13 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:48:13 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:48:13 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:48:13 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:48:13 --> Total execution time: 0.0891
+DEBUG - 2017-03-13 17:48:38 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:48:38 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:48:38 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:48:38 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:48:38 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:48:38 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:48:38 --> Total execution time: 0.1036
+DEBUG - 2017-03-13 17:53:27 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:53:27 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:53:27 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:53:27 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:53:27 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:53:27 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:53:27 --> Total execution time: 0.0820
+DEBUG - 2017-03-13 17:54:22 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:54:22 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:54:22 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:54:22 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:54:22 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:54:22 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:54:22 --> Total execution time: 0.0803
+DEBUG - 2017-03-13 17:54:23 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:54:23 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:54:23 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:54:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:54:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:54:23 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:54:23 --> Total execution time: 0.0951
+DEBUG - 2017-03-13 17:54:23 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:54:23 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:54:23 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:54:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:54:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:54:23 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:54:23 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:54:23 --> Total execution time: 0.1646
+DEBUG - 2017-03-13 17:54:23 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:54:23 --> UTF-8 Support Enabled
+DEBUG - 2017-03-13 17:54:23 --> No URI present. Default controller set.
+DEBUG - 2017-03-13 17:54:23 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:54:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:54:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:54:23 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2017-03-13 17:54:23 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:54:23 --> Total execution time: 0.2673
+DEBUG - 2017-03-13 17:54:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/db_tables.php
+DEBUG - 2017-03-13 17:54:23 --> Config file loaded: C:\xampp\htdocs\ehsas.in\application\third_party/community_auth/config/authentication.php
+DEBUG - 2017-03-13 17:54:24 --> Encryption: Auto-configured driver 'openssl'.
+DEBUG - 2017-03-13 17:54:24 --> Total execution time: 0.5967

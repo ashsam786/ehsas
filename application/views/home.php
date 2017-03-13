@@ -72,9 +72,10 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
 					<div class="brand">
-						<h1>SOMEONE IS NEEDING BLOOD SOMEWHERE</h1>
+						<h1>BRIDGING THE GAP BETWEEN NEEDY AND VOLUNTEER</h1>
 						<h3>Donate Blood</h3>
 						<button class="btn btn-danger anchor" data-target="<?php echo base_url('donor/register'); ?>"><?php echo $this->lang->line('top_register_today_button_title'); ?></button>
+						<button class="btn btn-danger anchor" data-target="<?php echo base_url('contact/blood'); ?>"><?php echo $this->lang->line('post_your_requirements_heading'); ?></button>
 					</div>
 				</div>
 			</div>
@@ -84,12 +85,6 @@
 	<div class="main main-raised">
 		<div class="section section-basic">
 	    	<div class="container">
-
-
-
-			
-			
-			
 				<div class="row">
 					<form class="form" method="get" action="#">
 						<div class="header header-danger text-center">
@@ -152,110 +147,6 @@
 						</div>
 					</form>
 				</div>
-
-
-
-
-
-
-
-
-
-			
-	    		<div class="row">
-					<div class="col-md-4">
-						<!-- Tabs with icons on Card -->
-						<div class="card card-nav-tabs">
-							<div class="header header-danger">
-								<!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
-								<div class="nav-tabs-navigation">
-									<div class="nav-tabs-wrapper">
-										<ul class="nav nav-tabs" data-tabs="tabs">
-											<li class="active">
-												<a href="#aboutusTop" data-toggle="tab">
-													About Us
-												</a>
-											</li>
-											<li>
-												<a href="#whatwedoTop" data-toggle="tab">
-													Our Aim
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="content">
-								<div class="tab-content text-center">
-									<div class="tab-pane active" id="aboutusTop">
-										<p><?php echo $this->lang->line('short_aboutus_text'); ?></p>
-									</div>
-									<div class="tab-pane" id="whatwedoTop">
-										<p><?php echo $this->lang->line('short_what_we_do_text'); ?></p>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Tabs with icons on Card -->
-
-					</div>
-					<div class="col-md-4">
-						<!-- Tabs with icons on Card -->
-						<div class="card card-nav-tabs">
-							<div class="header header-danger">
-								<div class="nav-tabs-navigation">
-									<div class="nav-tabs-wrapper">
-										<ul class="nav nav-tabs" data-tabs="tabs">
-											<li class="active">
-												<a onclick="return false;">
-													<?php echo $this->lang->line('register_as_donor'); ?>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="content">
-								<div class="tab-content text-center">
-									<div class="tab-pane active" id="aboutusTop">
-										<p><?php echo $this->lang->line('register_as_donor_text'); ?></p>
-										<button class="btn btn-danger anchor" data-target="<?php echo base_url('donor/register'); ?>"><?php echo $this->lang->line('top_register_today_button_title'); ?></button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Tabs with icons on Card -->
-
-					</div>
-					<div class="col-md-4">
-						<!-- Tabs with icons on Card -->
-						<div class="card card-nav-tabs">
-							<div class="header header-danger">
-								<div class="nav-tabs-navigation">
-									<div class="nav-tabs-wrapper">
-										<ul class="nav nav-tabs" data-tabs="tabs">
-											<li class="active">
-												<a onclick="return false;">
-													<?php echo $this->lang->line('post_your_requirements_heading'); ?>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="content">
-								<div class="tab-content text-center">
-									<div class="tab-pane active" id="aboutusTop">
-										<p><?php echo $this->lang->line('post_your_requirements'); ?></p>
-										<button class="btn btn-danger anchor" data-target="<?php echo base_url('contact/blood'); ?>"><?php echo $this->lang->line('post_your_requirements_button_title'); ?></button>
-									</div>
-								</div>
-							</div>
-						</div>
-						<!-- End Tabs with icons on Card -->
-					</div>
-	    		</div>
-
 				<div class="tim-row" id="currentRequimentsTable">
 					<div class="title pageSectionTitle text-center">
 		                <h3>Current Blood Requirements</h3>
@@ -384,8 +275,8 @@
 							Show more
 	                    <div class="ripple-container"></div></button>					
 					</div>					
-				</div>	    		    		
-				<div class="tim-row sliderImgBg" id="otherInitiatives">
+				</div>
+				<!--div class="tim-row sliderImgBg" id="otherInitiatives">
 					<div class="title pageSectionTitle text-center">
 		                <h3 class="whiteText">Other Initiatives</h3>
 		            </div>
@@ -403,7 +294,163 @@
 							<h5><a class="whiteText" href="#">Humanvalues.in</a></h5>
 						</div>
 					</div>	            
-	    		</div>
+	    		</div-->
+
+				<!--div class="row sliderImgBg" id="otherInitiatives">
+					<div class="title pageSectionTitle text-center">
+		                <h3 class="whiteText">Other Initiatives</h3>
+		            </div>
+					<div class="col-sm-6 col-md-3">
+						<div class="thumbnail">
+							<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
+							<div class="caption">
+								<h3>Cancer sociaty of kashmir</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<div class="thumbnail">
+							<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
+							<div class="caption">
+								<h3>Cancer sociaty of kashmir</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<div class="thumbnail">
+							<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
+							<div class="caption">
+								<h3>Cancer sociaty of kashmir</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
+							</div>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-3">
+						<div class="thumbnail">
+							<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
+							<div class="caption">
+								<h3>Cancer sociaty of kashmir</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
+							</div>
+						</div>
+					</div>
+	    		</div-->
+				
+				
+				
+
+
+
+
+
+
+
+
+
+
+				<div class="row sliderImgBg" id="otherInitiatives">
+					<div class="title pageSectionTitle text-center">
+		                <h3 class="whiteText">Other Initiatives</h3>
+		            </div>
+					<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+						<!-- Indicators -->
+						<ol class="carousel-indicators">
+							<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="1"></li>
+							<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+						</ol>
+
+						<!-- Wrapper for slides -->
+						<div class="carousel-inner" role="listbox">
+							<div class="item active">
+								<div class="col-sm-6 col-md-3">
+									<div class="thumbnail">
+										<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
+										<div class="caption">
+											<h3>Cancer sociaty of kashmir</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-3">
+									<div class="thumbnail">
+										<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
+										<div class="caption">
+											<h3>Cancer sociaty of kashmir</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-3">
+									<div class="thumbnail">
+										<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
+										<div class="caption">
+											<h3>Cancer sociaty of kashmir</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-3">
+									<div class="thumbnail">
+										<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
+										<div class="caption">
+											<h3>Cancer sociaty of kashmir</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="item">
+								<div class="col-sm-6 col-md-3">
+									<div class="thumbnail">
+										<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
+										<div class="caption">
+											<h3>Cancer sociaty of kashmir</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-6 col-md-3">
+									<div class="thumbnail">
+										<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
+										<div class="caption">
+											<h3>Cancer sociaty of kashmir</h3>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<!-- Controls -->
+						<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+							<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+							<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+	    		</div>				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
 			</div>
 	    </div>
 	    <div class="section section-download">
