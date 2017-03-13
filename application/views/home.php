@@ -84,6 +84,15 @@
 		</div>
 	</div>
 
+
+	<div class="main main-raised">
+		<div class="section section-basic">
+jhlkjhk jhk hl jlkj lhkj lkjh lkjh lkjh
+	</div>
+	</div>
+
+
+
 	<div class="main main-raised">
 		<div class="section section-basic">
 	    	<div class="container">
@@ -132,7 +141,7 @@
 									<div class="nav-tabs-wrapper">
 										<ul class="nav nav-tabs" data-tabs="tabs">
 											<li class="active">
-												<a href="">
+												<a onclick="return false;">
 													<?php echo $this->lang->line('register_as_donor'); ?>
 												</a>
 											</li>
@@ -160,7 +169,7 @@
 									<div class="nav-tabs-wrapper">
 										<ul class="nav nav-tabs" data-tabs="tabs">
 											<li class="active">
-												<a href="">
+												<a onclick="return false;">
 													<?php echo $this->lang->line('post_your_requirements'); ?>
 												</a>
 											</li>
@@ -180,6 +189,77 @@
 						<!-- End Tabs with icons on Card -->
 					</div>
 	    		</div>
+
+
+
+
+
+
+
+
+
+
+<div class="row" id="searchDonorSection">
+	<div class="col-md-4">
+		<div class="card card-signup">
+			<form class="form" method="get" action="#">
+				<div class="header header-danger text-center">
+					<h4>Search For Dononrs</h4>
+				</div>
+				<div class="content">
+					<div class="form-group is-empty">
+						<label class="sr-only" for="f1-country">Country</label>
+						<select name="f1-country" class="f1-country form-control required" id="f1-country">
+							  <option value="" disabled="disabled" selected>Country...</option>
+							  <?php foreach($country_list as $i => $v){ ?>
+								  <option value="<?php echo $v->id; ?>"><?php echo $v->country; ?></option>
+							  <?php } ?>
+						</select>
+						<span class="material-input"></span>
+					</div>	
+					<div class="form-group is-empty">
+						<label class="sr-only" for="f1-state">State</label>
+						<select name="f1-state" class="f1-state form-control required" id="f1-state">
+							  <option value="" disabled="disabled" selected>State...</option>
+						</select>
+						<span class="material-input"></span>
+					</div>	
+					<div class="form-group is-empty">
+						<label class="sr-only" for="f1-city">City</label>
+						<select name="f1-city" class="f1-city form-control required" id="f1-city">
+							  <option value="" disabled="disabled" selected>City...</option>
+						</select>						
+						<span class="material-input"></span>
+					</div>
+				</div>
+				<div class="footer text-center">
+					<a class="btn btn-simple btn-primary btn-lg">Get Started<div class="ripple-container"></div></a>
+				</div>
+			</form>
+		</div>
+
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	    		<div class="tim-row" id="currentRequimentsTable">
 					<div class="title pageSectionTitle text-center">
 		                <h3>Current Blood Requirements</h3>
@@ -219,12 +299,6 @@
 						</table>
 		            </div>	            
 	    		</div>
-
-
-
-
-
-	
 	    		<div class="tim-row" id="testimonail">
 					<div class="title pageSectionTitle text-center">
 		                <h3>What People Say About Us?</h3>
@@ -275,7 +349,40 @@
 							</div>
 			            </div>
 		            </div>	            
-	    		</div>	    		
+	    		</div>	
+	    		<div class="tim-row" id="currentRequimentsTable">
+					<div class="title pageSectionTitle text-center">
+		                <h3><?php echo $this->lang->line('recent_donors_list'); ?></h3>
+		            </div>
+		            <div class="row bloodRequirementTable">
+						<table class="table">
+						    <thead>
+						        <tr>
+						            <th class="text-center">#</th>
+						            <th>Name</th>
+						            <th>Blood Group</th>
+						            <th>State</th>
+						            <th>City</th>
+						            <th>Donated On</th>
+						            <th>Joined On</th>
+						        </tr>
+						    </thead>
+						    <tbody>
+						    	<?php for($i=1;$i<12;$i++){ ?>
+							        <tr>
+							            <td class="text-center"><?php echo $i; ?></td>
+							            <td>Yasir Rasool</td>
+							            <td>B POSITIVE</td>
+							            <td>Jammu and Kashmir</td>
+							            <td>Srinagar</td>
+							            <td>09/03/2017</td>
+							            <td>09/03/2017</td>
+							        </tr>
+						    	<?php } ?>
+						    </tbody>
+						</table>
+		            </div>	            
+	    		</div>	    		    		
 	    	</div>
 	    </div>
 
@@ -283,7 +390,7 @@
 	    <div class="section section-download">
 	        <div class="container">
 	            <div class="row sharing-area text-center">
-	                    <h3>Supporting us!</h3>
+	                    <h3>Support us!</h3>
 	                    <a href="#" class="btn btn-twitter">
 	                        <i class="fa fa-twitter"></i>
 	                        Tweet
@@ -363,6 +470,7 @@ window.onload = function(){
 		location.href = $(this).data('target');
 	});
 
-	setInterval(function(){ $('.carousel').find('.glyphicon-chevron-right').click(); }, 5000);
+	setInterval(function(){ $('.carousel').find('.glyphicon-chevron-right').click(); }, 5000);	
 }
+
 </script>

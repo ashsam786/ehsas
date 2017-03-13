@@ -22,6 +22,7 @@ class Home extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('home_model');
+		$this->load->model('donor_model');
 		$this->lang->load('home', 'english');
 	}
 
@@ -30,8 +31,11 @@ class Home extends CI_Controller {
 			$url = base_url("donor/register");
 			header('Location: '.$url);
 		}*/
-		$this->load->view('template/header_main');
-		$this->load->view('home');
-		$this->load->view('template/footer_main');
+		$data['title'] = MAIN_TITLE;
+		$data['country_list'] = $this->donor_model->get_country_list();
+
+		$this->load->view('template/header_main', $data);
+		$this->load->view('home', $data);
+		$this->load->view('template/footer_main', $data);
 	}
 }

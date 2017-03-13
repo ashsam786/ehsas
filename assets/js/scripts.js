@@ -47,6 +47,33 @@ function validateFormData(self, next_step) {
     return next_step;
 }
 
+/*function getAvailableDononrState(countryId){
+    var base_url = location.protocol+'//'+location.host;
+    $.get(base_url+'/getStates', {'country_id': countryId}, function(res){
+        res = $.parseJSON(res);
+        var li = '';
+        $.each(res, function(i,v){
+            li += "<li data-value='"+v.id+"'><a onClick = getAvailableDononrCity('"+v.id+"')>"+v.state+"</a></li>";             
+            $("#availableDonorsStateList").find('.dropdown-menu').removeAttr('disabled');
+        });          
+        $("#availableDonorsStateList").find('.dropdown-menu').html(li);
+    });
+}
+
+function getAvailableDononrCity(stateId){
+    var base_url = location.protocol+'//'+location.host;
+
+    $.get(base_url+'/getCities', {'state_id': stateId}, function(res){
+        res = $.parseJSON(res);
+        var li = '';
+        $.each(res, function(i,v){
+            li += "<li data-value='"+v.id+"'><a>"+v.city+"</a></li>";             
+            $("#availableDonorsCityList").find('.dropdown-menu').removeAttr('disabled');
+        });          
+        $("#availableDonorsCityList").find('.dropdown-menu').html(li);
+    });    
+}*/
+
 jQuery(document).ready(function() {
 	var base_dir = '';
     
@@ -55,7 +82,7 @@ jQuery(document).ready(function() {
         Fullscreen background
     */
     var backstretchImg = base_url+"/assets/img/backgrounds/1.jpg";
-    $.backstretch(backstretchImg);
+    $.backstretch ? $.backstretch(backstretchImg) : '';
     
     $('#top-navbar-1').on('shown.bs.collapse', function(){
     	$.backstretch("resize");
@@ -72,12 +99,13 @@ jQuery(document).ready(function() {
     $('.f1 input[type="text"], .f1 input[type="password"], .f1 textarea, selecct').on('focus', function() {
     	$(this).removeClass('input-error');
     });
-    
+
     $("#f1-country").on('change', function(){
         var c_id = $(this).val();
         $.get(base_url+'/getStates', {'country_id': c_id}, function(res){
             res = $.parseJSON(res);
             $("#f1-state").html('<option value="" disabled="disabled" selected>State...</option>')
+            $("#f1-city").html('<option value="" disabled="disabled" selected>City...</option>')
             $.each(res, function(i,v){
                 $("#f1-state").append('<option value="'+v.id+'">'+v.state+'</option>');
                 $("#f1-state").removeAttr('disabled');
