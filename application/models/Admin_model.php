@@ -110,7 +110,9 @@ class Admin_model extends CI_Model{
         if (isset($sSearchVal) && $sSearchVal != '') {
             $sWhere = "WHERE (";
             for ($i = 0; $i < count($sColumns); $i++) {
-                $sWhere .= $sColumns[$i] . " LIKE '%" . $this->db->escape_like_str($sSearchVal) . "%' OR ";
+                $searchQry = $this->db->escape_like_str($sSearchVal);
+                $searchQry = str_replace('+', ' ', $searchQry);
+                $sWhere .= $sColumns[$i] . " LIKE '%" . $searchQry . "%' OR ";
             }
             $sWhere = substr_replace($sWhere, "", -3);
             $sWhere .= ')';
