@@ -12,6 +12,29 @@ function getDaysFromToday($date){
 	return floor((time() - strtotime($date)) / (60 * 60 * 24));
 }
 
+
+function get_country_list(){
+	$CI =& get_instance();
+	$data =  $CI->db->get('countries');
+	return $data->result();
+}
+
+
+function get_hospital_list_array(){
+	$CI =& get_instance();	
+	$CI->db->select('nearby_hospital');
+	$data = $CI->db->get('hospital_list');
+	$data = $data->result_array();
+	
+	$hospital_array = [];
+	foreach($data as $i => $v){
+		$hospital_array[] = $v['nearby_hospital'];
+	}
+	
+	return $hospital_array;
+}
+
+
 function ddd($data){
 	echo '<pre>';
 	print_r($data); 

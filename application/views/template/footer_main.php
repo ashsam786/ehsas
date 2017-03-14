@@ -1,5 +1,34 @@
-     <?php if (!defined('BASEPATH'))    exit('No direct script access allowed'); ?>  
-
+    <?php if (!defined('BASEPATH'))    exit('No direct script access allowed'); ?>  
+    <footer class="footer">
+	    <div class="container">
+	        <nav class="pull-left">
+	            <ul>
+					<li>
+						<a href="<?php echo base_url('contactus'); ?>">
+							Contact Us
+						</a>
+					</li>
+					<li>
+						<a href="<?php echo base_url('aboutus'); ?>">
+						   About Us
+						</a>
+					</li>
+					<li>
+						<a href="<?php echo base_url('blog'); ?>">
+						   Blog
+						</a>
+					</li>
+	            </ul>
+	        </nav>
+	        <div class="copyright pull-right">
+	            &copy; <?php echo date('Y'); ?>, <a href="<?php echo base_url('home'); ?>"><?php echo MAIN_TITLE; ?></a> All rights reserved.
+	        </div>
+	    </div>
+	</footer>
+</div>
+<a href="http://info.flagcounter.com/fgoU"><img src="http://s10.flagcounter.com/mini/fgoU/bg_FFFFFF/txt_000000/border_CCCCCC/flags_0/" alt="Free counters!" border="0"></a>
+	 
+	 
 		<!--   Core JS Files   -->
 <!--script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

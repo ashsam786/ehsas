@@ -278,4 +278,10 @@ jQuery(document).ready(function() {
 
     // enable tooltip
     $('[data-toggle="popover"]').popover();
+	//make button function like anchor tags
+	$('body').on('click', 'button.anchor', function(){
+		location.href = $(this).data('target');
+	});
+	//enable carousels
+	setInterval(function(){ $('.carousel').find('.glyphicon-chevron-right').click(); }, 5000);		
 });
