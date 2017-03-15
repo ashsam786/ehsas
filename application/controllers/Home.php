@@ -27,6 +27,7 @@ class Home extends CI_Controller {
 	}
 
 	function index(){
+		$data['pageHeaderType'] = 'index-page';
 /*		if(!$this->session->has_userdata('donor_name')){
 			$url = base_url("donor/register");
 			header('Location: '.$url);

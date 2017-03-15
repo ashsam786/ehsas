@@ -17,15 +17,14 @@
 	margin:0;
 }
 
-.smallHeader{height: 40vh!important;}
-
 .logo-container .brand {
     width: inherit;
 }
 
-.index-page .brand h1 {
+.index-page .brand h1, .topheaderTitle {
     font-size: 3rem;
     font-weight: 600;
+    letter-spacing: 2px;
 }
 
 .index-page .brand h3 {

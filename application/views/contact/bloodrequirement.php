@@ -1,14 +1,11 @@
 <?php if (!defined('BASEPATH'))    exit('No direct script access allowed'); ?>
 
-<div class="header header-filter smallHeader" style="background-image: url('<?php echo base_url('assets/img/bg.jpg'); ?>');">
+<div class="header header-filter" style="background-image: url('<?php echo base_url('assets/img/bg.jpg'); ?>');">
 	<div class="container">
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="brand">
-					<h1>BRIDGING THE GAP BETWEEN NEEDY AND VOLUNTEER</h1>
-					<h3>Donate Blood</h3>
-					<button class="btn btn-danger anchor" data-target="<?php echo base_url('donor/register'); ?>"><?php echo $this->lang->line('top_register_today_button_title'); ?></button>
-					<button class="btn btn-danger anchor" data-target="<?php echo base_url('contact/blood'); ?>"><?php echo $this->lang->line('post_your_requirements_heading'); ?></button>
+					<h1 class="title text-center topheaderTitle">POST YOUR BLOOD REQUIREMENTS</h1>
 				</div>
 			</div>
 		</div>
@@ -18,13 +15,14 @@
 <div class="main main-raised">
 	<div class="section section-basic">
 		<div class="container">
-			<div class="row">
+			<div class="tim-row" id="currentRequimentsTable">
 				<form class="form" method="get" action="#">
-					<div class="header header-danger text-center">
-						<h4>Search For Dononrs</h4>
-					</div>
 					<div class="content">
-						<div class="col-md-3">
+					<div class="formRow1 row">
+						<div class="header header-danger">
+							<h4>Requirement</h4>
+						</div>
+						<div class="col-md-4">
 							<div class="form-group is-empty">
 								<label class="sr-only" for="f1-country">Country</label>
 								<select name="f1-country" class="f1-country form-control required" id="f1-country">
@@ -36,7 +34,7 @@
 								<span class="material-input"></span>
 							</div>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-4">
 							<div class="form-group is-empty">
 								<label class="sr-only" for="f1-state">State</label>
 								<select name="f1-state" class="f1-state form-control" id="f1-state">
@@ -45,7 +43,7 @@
 								<span class="material-input"></span>
 							</div>
 						</div>
-						<div class="col-md-3">
+						<div class="col-md-4">
 							<div class="form-group is-empty">
 								<label class="sr-only" for="f1-city">City</label>
 								<select name="f1-city" class="f1-city form-control" id="f1-city">
@@ -54,8 +52,8 @@
 								<span class="material-input"></span>
 							</div>
 						</div>	
-						<div class="col-md-3">
-							<div class="form-group is-empty col-xs-10">
+						<div class="col-md-4">
+							<div class="form-group is-empty">
 								<label class="sr-only" for="f1-blood-group">Blood Group</label>
 								<select name="f1-blood-group" class="f1-blood-group form-control" id="f1-blood-group">
 									  <option value="" disabled="disabled" selected>Blood Group...</option>
@@ -71,7 +69,75 @@
 								</select>						
 								<span class="material-input"></span>
 							</div>
-							<div class="form-group is-empty col-xs-2">
+						</div>	
+						<div class="col-md-4">
+							<div class="form-group label-floating">
+								<label class="control-label" for="numberOfUnitsRequired">Number of units required</label>
+								<input type="text" class="form-control" name="numberOfUnitsRequired" id="numberOfUnitsRequired">
+								<span class="material-input"></span>
+							</div>
+						</div>	
+						<div class="col-md-4">
+							<div class="form-group label-floating">
+								<label class="control-label" for="reason">Reason for requirement</label>
+								<input type="text" class="form-control" name="reason" id="reason">
+								<span class="material-input"></span>
+							</div>
+						</div>	
+						<div class="col-md-4">
+							<div class="form-group label-floating">
+								<label class="control-label" for="hospital">Hospital name</label>
+								<input type="text" class="form-control" name="hospital" id="hospital">
+								<span class="material-input"></span>
+							</div>
+						</div>	
+						<div class="col-md-4">
+							<div class="form-group label-floating">
+								<label class="control-label" for="numberOfUnitsRequired">Number of units required</label>
+								<input type="text" class="form-control">
+								<span class="material-input"></span>
+							</div>
+						</div>	
+					</div>
+					<div class="formRow1 row">
+						<div class="header header-danger">
+							<h4>Patient Details</h4>
+						</div>					
+						<div class="col-md-4">
+							<div class="form-group label-floating">
+								<label class="control-label" for="pName">Patient name</label>
+								<input type="text" class="form-control" name="pName" id="pName">
+								<span class="material-input"></span>
+							</div>
+						</div>	
+						<div class="col-md-4">
+							<div class="form-group label-floating">
+								<label class="control-label" for="pAge">Patient age</label>
+								<input type="text" class="form-control" name="pAge" id="pAge">
+								<span class="material-input"></span>
+							</div>
+						</div>	
+						<div class="col-md-4">
+							<div class="togglebutton">
+								<label>
+								Male <input type="checkbox" checked=""> Female
+								</label>
+							</div>
+						</div>	
+
+					</div>
+
+
+
+
+
+
+
+
+
+
+						<div class="col-md-4">
+							<div class="form-group is-empty">
 								<button type="submit" class="btn btn-danger btn-just-icon">
 									<i class="fa fa-search" aria-hidden="true"></i>
 								</button>

@@ -19,6 +19,7 @@ class Contact extends CI_Controller {
 	*/
 	public function blood(){
 
+		$data['pageHeaderType'] = 'components-page';
 		$data['country_list'] = get_country_list();
 		$data['hospital_list'] = get_hospital_list_array();
 		//$data['reCaptcha_html'] =  $this->recaptcha->getWidget(['data-type' => 'image']);
@@ -28,6 +29,11 @@ class Contact extends CI_Controller {
 		$this->load->view('contact/bloodrequirement', $data);
 		$this->load->view('template/footer_main', $data);
 	}
+
+
+
+
+
 
 	public function login($errorArray = null){
 		if($this->session->has_userdata('donor_name')){

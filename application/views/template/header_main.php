@@ -46,7 +46,7 @@
         <link rel="apple-touch-icon-precomposed" href="<?php echo base_url('assets/ico/apple-touch-icon-57-precomposed.png'); ?>">
 
     </head>
-	<body class="index-page">
+	<body class="<?php echo isset($pageHeaderType) ? $pageHeaderType : 'components-page' ?>">
 <!-- Navbar -->
 <nav class="navbar navbar-danger navbar-transparent navbar-fixed-top navbar-color-on-scroll">
 	<div class="container">
