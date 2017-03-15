@@ -284,4 +284,7 @@ jQuery(document).ready(function() {
 	});
 	//enable carousels
 	setInterval(function(){ $('.carousel').find('.glyphicon-chevron-right').click(); }, 5000);		
+	$('.datepicker').datepicker({
+		weekStart:1
+	});
 });

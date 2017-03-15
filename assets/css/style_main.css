@@ -8,6 +8,18 @@
 	color:#fff;
 }
 
+.darkLabelFont{
+	color: #555555!important;
+}
+
+.radio input[type=radio]:checked ~ .check{
+	background-color: #f44336;
+}
+
+.form-group label.control-label{
+	color:#444;
+}
+
 .fullWidthImage{
     margin: 0;
     width: 100%;	

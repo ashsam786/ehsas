@@ -34,6 +34,11 @@ function get_hospital_list_array(){
 	return $hospital_array;
 }
 
+function validateDate($date)
+{
+    $d = DateTime::createFromFormat('m/d/Y', $date);
+    return $d && $d->format('m/d/Y') === $date;
+}
 
 function ddd($data){
 	echo '<pre>';

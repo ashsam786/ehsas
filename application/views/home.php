@@ -8,7 +8,7 @@
 					<h1>BRIDGING THE GAP BETWEEN NEEDY AND VOLUNTEER</h1>
 					<h3>Donate Blood</h3>
 					<button class="btn btn-danger anchor" data-target="<?php echo base_url('donor/register'); ?>"><?php echo $this->lang->line('top_register_today_button_title'); ?></button>
-					<button class="btn btn-danger anchor" data-target="<?php echo base_url('contact/blood'); ?>"><?php echo $this->lang->line('post_your_requirements_heading'); ?></button>
+					<button class="btn btn-danger anchor" data-target="<?php echo base_url('blood/requirement'); ?>"><?php echo $this->lang->line('post_your_requirements_heading'); ?></button>
 				</div>
 			</div>
 		</div>

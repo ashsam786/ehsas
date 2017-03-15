@@ -28,3 +28,5 @@ $lang['register_confirm_male_subject'] = 'Thankyou for registion with Ehsas';
 
 // non form
 $lang['error_unauthorised_access'] = 'Sorry you are not authorised to access this resource';
+$lang['blood_requirement_request_recieved'] = 'Blood requirement request recieved';
+$lang['blood_requirement_request_submitted'] = 'Blood requirement request submitted successfully';
