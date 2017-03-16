@@ -34,13 +34,13 @@ function get_hospital_list_array(){
 	return $hospital_array;
 }
 
-function validateDate($date){
+function get_page_detail($page){
     $CI =& get_instance();	
 	$data = $CI->db->get_where('cms', ['page' => $date]);
 	$data = $data->result_array();
 }
 
-function get_page_detail($page){
+function validateDate($date){
     $d = DateTime::createFromFormat('m/d/Y', $date);
     return $d && $d->format('m/d/Y') === $date;
 }

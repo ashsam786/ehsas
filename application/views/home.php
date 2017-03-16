@@ -80,6 +80,10 @@
 					</div>
 				</form>
 			</div>
+
+
+	
+			<?php if(count($current_blood_requirement) > 0){ ?>
 			<div class="tim-row" id="currentRequimentsTable">
 				<div class="title pageSectionTitle text-center">
 					<h3>Current Blood Requirements</h3>
@@ -99,15 +103,15 @@
 							</tr>
 						</thead>
 						<tbody>
-							<?php for($i=1;$i<6;$i++){ ?>
+							<?php foreach($current_blood_requirement as $i => $v){ ?>
 								<tr>
-									<td class="text-center"><?php echo $i; ?></td>
-									<td>Jammu &amp; Kashmir</td>
-									<td>Srinagar</td>
-									<td>A Positive</td>
-									<td class="text-center">23</td>
-									<td>S.M.H.S Hospital</td>
-									<td>09/03/2017</td>
+									<td class="text-center"><?php echo ++$i; ?></td>
+									<td><?php echo $v->state_name; ?></td>
+									<td><?php echo $v->city_name; ?></td>
+									<td><?php echo $v->blood_group; ?></td>
+									<td class="text-center"><?php echo $v->patient_age; ?></td>
+									<td><?php echo $v->hospital_name; ?></td>
+									<td><?php echo $v->added_at; ?></td>
 									<td class="td-actions">
 										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
 											Click
@@ -119,11 +123,12 @@
 					</table>
 				</div>
 				<div class="row text-center">
-					<button class="btn btn-danger anchor text-center" data-value="<?php echo base_url('blood/requirement'); ?>">
+					<button class="btn btn-danger anchor text-center" data-target="<?php echo base_url('blood/requirement_list'); ?>">
 						Show more
 					<div class="ripple-container"></div></button>					
 				</div>
 			</div>
+			<?php } ?>
 			<div class="tim-row" id="testimonail">
 				<div class="title pageSectionTitle text-center">
 					<h3>What People Say About Us?</h3>

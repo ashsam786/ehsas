@@ -12,6 +12,12 @@
 	color: #555555!important;
 }
 
+.paragraph p{
+    font-size: 17px;
+    letter-spacing: 1px;
+    line-height: 33px;
+}
+
 .radio input[type=radio]:checked ~ .check{
 	background-color: #f44336;
 }

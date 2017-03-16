@@ -82,5 +82,21 @@ class blood_model extends CI_Model{
 		}
 		return $data;
 	}
+
+	public function get_blood_requirement_list($num = null){
+		$this->db->order_by('added_at', 'DESC');
+		if($num != null){
+			$this->db->limit($num);
+		}
+		
+		$this->db->select($this->table.'.*, countries.country as country_name, states.state as state_name, cities.city as city_name');
+		$this->db->join('countries', $this->table.'.country = countries.id', 'left');
+		$this->db->join('states', $this->table.'.state = states.id', 'left');
+		$this->db->join('cities', $this->table.'.city = cities.id', 'left');
+
+		$data = $this->db->get_where($this->table, ['status !=' => '0']);
+		
+		return $data->result();
+	}
 }
 // end of file

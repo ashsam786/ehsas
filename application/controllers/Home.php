@@ -22,7 +22,7 @@ class Home extends CI_Controller {
 	function __construct(){
 		parent::__construct();
 		$this->load->model('home_model');
-		$this->load->model('donor_model');
+		$this->load->model('home_model');
 		$this->lang->load('home', 'english');
 	}
 
@@ -33,7 +33,8 @@ class Home extends CI_Controller {
 			header('Location: '.$url);
 		}*/
 		$data['title'] = MAIN_TITLE;
-		$data['country_list'] = $this->donor_model->get_country_list();
+		$data['country_list'] = get_country_list();
+		$data['current_blood_requirement'] = $this->home_model->get_current_blood_requirement(6); // 6 is nuber of entries required
 
 		$this->load->view('template/header_main', $data);
 		$this->load->view('home', $data);

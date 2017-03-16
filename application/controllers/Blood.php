@@ -14,6 +14,7 @@ class Blood extends CI_Controller {
 		$this->lang->load('form_errors', 'english');
 		$this->load->library('email');
 	}
+
 	/*
 	* blood requirement form
 	*/
@@ -28,6 +29,28 @@ class Blood extends CI_Controller {
 		$this->load->view('template/header_main', $data);
 		$this->load->view('blood/requirement', $data);
 		$this->load->view('template/footer_main', $data);
+	}
+
+	/*
+	* blood requirement list
+	*/
+	public function requirement_list(){
+		$data['title'] = 'Blood Requirement | '.MAIN_TITLE;
+		$data['pageHeaderType'] = 'components-page';
+
+		$this->load->view('template/header_main', $data);
+		$this->load->view('blood/requirement_list', $data);
+		$this->load->view('template/footer_main', $data);
+	}
+
+	/*
+	* provides list of blood requirememtns requests in json format
+	*/
+	public function requirement_data(){
+		$data['title'] = 'Blood Requirement | '.MAIN_TITLE;
+		$data['requirement_list'] = $this->blood_model->get_blood_requirement_list();
+
+		echo json_encode($data['requirement_list']); die;
 	}
 
 	/*
