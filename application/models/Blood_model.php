@@ -40,7 +40,7 @@ class blood_model extends CI_Model{
 				}				
 			}
 
-			if(!validateDate($data['required_before'])){die('in');
+			if(!validateDate($data['required_before'])){
 				$errors['required'][] = 'requiredOn';
 			}
 	
