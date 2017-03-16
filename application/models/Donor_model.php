@@ -60,6 +60,11 @@ class donor_model extends CI_Model{
 		return $data;
 	}
 
+	public function get_recent_donors($num = null){
+		
+		return true;
+	}
+
 	public function getStates(){
 		$country_id = $this->input->get('country_id');
 		$data =  $this->db->get_where('states', ['country_id' => $country_id]);
