@@ -283,8 +283,5 @@ jQuery(document).ready(function() {
 		location.href = $(this).data('target');
 	});
 	//enable carousels
-	setInterval(function(){ $('.carousel').find('.glyphicon-chevron-right').click(); }, 5000);		
-	$('.datepicker').datepicker({
-		weekStart:1
-	});
+	setInterval(function(){ $('.carousel').find('.glyphicon-chevron-right').click(); }, 5000);
 });
