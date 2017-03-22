@@ -23,7 +23,7 @@ $lang['error_profile_update_success'] = 'Profile updated successfully';
 $lang['error_password'] = 'Password and confirm password cannot be empty and must be same';
 $lang['error_no_email_provided'] = 'Please provide a valid registered email.';
 $lang['error_no_email_provided'] = 'Please provide a valid registered email.';
-
+$lang['error_no_recent_donor_found'] = 'No recent donor found';
 $lang['register_confirm_male_subject'] = 'Thankyou for registion with Ehsas';
 
 // non form

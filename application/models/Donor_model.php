@@ -61,8 +61,24 @@ class donor_model extends CI_Model{
 	}
 
 	public function get_recent_donors($num = null){
-		
-		return true;
+		try{
+			$this->db->select('donor_list.*, countries.country as country_name, states.state as state_name, cities.city as city_name');
+			$this->db->join('countries', 'donor_list.country = countries.id', 'left');
+			$this->db->join('states', 'donor_list.state = states.id', 'left');
+			$this->db->join('cities', 'donor_list.city = cities.id', 'left');
+			$this->db->where('donor_list.donated_with_ehsas !=', 0);
+			$this->db->order_by('donor_list.donated_with_ehsas', 'DESC');
+			if($num != null){
+				$this->db->limit($num);
+			}
+			$qry = $this->db->get($this->table);
+			if($qry->num_rows() <= 0){
+				throw new Exception($this->lang->line('error_no_recent_donor_found'));
+			}
+			return ['result' => true,  'data' => $qry->result()];
+		} catch(Exception $e){
+			return ['result' => false,  'msg' => $e->getMessage()];
+		}
 	}
 
 	public function getStates(){

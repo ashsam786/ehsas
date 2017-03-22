@@ -176,44 +176,47 @@
 					</div>
 				</div>	            
 			</div>	
-			<div class="tim-row" id="recentDonorsTable">
-				<div class="title pageSectionTitle text-center">
-					<h3><?php echo $this->lang->line('recent_donors_list'); ?></h3>
-				</div>
-				<div class="row bloodRequirementTable">
-					<table class="table">
-						<thead>
-							<tr>
-								<th class="text-center">#</th>
-								<th>Name</th>
-								<th>Blood Group</th>
-								<th>State</th>
-								<th>City</th>
-								<th>Donated On</th>
-								<th>Joined On</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php for($i=1;$i<6;$i++){ ?>
+			<?php if($recent_donors['result']){ ?>
+				<div class="tim-row" id="recentDonorsTable">
+					<div class="title pageSectionTitle text-center">
+						<h3><?php echo $this->lang->line('recent_donors_list'); ?></h3>
+					</div>
+					<div class="row bloodRequirementTable">
+						<table class="table">
+							<thead>
 								<tr>
-									<td class="text-center"><?php echo $i; ?></td>
-									<td>Yasir Rasool</td>
-									<td>B POSITIVE</td>
-									<td>Jammu and Kashmir</td>
-									<td>Srinagar</td>
-									<td>09/03/2017</td>
-									<td>09/03/2017</td>
+									<th class="text-center">#</th>
+									<th>Name</th>
+									<th>Blood Group</th>
+									<th>State</th>
+									<th>City</th>
+									<th>Donated On</th>
+									<th>Joined On</th>
 								</tr>
-							<?php } ?>
-						</tbody>
-					</table>
-				</div>	            
-				<div class="row text-center">
-					<button class="btn btn-danger anchor text-center" data-value="<?php echo base_url('recentdonors'); ?>">
-						Show more
-					<div class="ripple-container"></div></button>					
-				</div>					
-			</div>
+							</thead>
+							<tbody>
+								<?php foreach($recent_donors['data'] as  $i=>$v){ ?>
+									<tr>
+										<td class="text-center"><?php echo $i+1; ?></td>
+										<td><?php echo $v->name; ?></td>
+										<td><?php echo $v->blood_group; ?></td>
+										<td><?php echo $v->state_name; ?></td>
+										<td><?php echo $v->city_name; ?></td>
+										<td><?php echo $v->donated_with_ehsas; ?></td>
+										<td><?php echo $v->joined_on; ?></td>
+									</tr>
+								<?php } ?>
+							</tbody>
+						</table>
+					</div>	            
+					<div class="row text-center">
+						<button class="btn btn-danger anchor text-center" data-value="<?php echo base_url('recentdonors'); ?>">
+							Show more
+						<div class="ripple-container"></div></button>					
+					</div>					
+				</div>
+			<?php } ?>
+	
 			<!--div class="tim-row sliderImgBg" id="otherInitiatives">
 				<div class="title pageSectionTitle text-center">
 					<h3 class="whiteText">Other Initiatives</h3>
