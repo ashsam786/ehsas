@@ -45,6 +45,14 @@ function validateDate($date){
     return $d && $d->format('m/d/Y') === $date;
 }
 
+function hide_large_description($content, $size, $url){
+	$link = ' ...<a href="{$url}">more</a>';
+	if(strlen($content) >= $size){
+		$content = str_split($content, $size)[0].''.$link;
+	}
+	return $content;
+}
+
 function ddd($data){
 	echo '<pre>';
 	print_r($data); 

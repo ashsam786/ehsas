@@ -278,6 +278,7 @@
 					</div>
 				</div>
 			</div-->
+			<?php if(sizeOf($other_initiatives) > 0){ ?>
 			<div class="row sliderImgBg" id="otherInitiatives">
 				<div class="title pageSectionTitle text-center">
 					<h3 class="whiteText">Other Initiatives</h3>
@@ -285,71 +286,29 @@
 				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
-						<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="1"></li>
-						<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					<?php foreach($other_initiatives as $i => $v){ ?>
+						<li data-target="#carousel-example-generic" data-slide-to="<?php echo $i ?>" class="<?php echo $i == 0 ? 'active' : ''; ?>"></li>
+					<?php } ?>
 					</ol>
 
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
-						<div class="item active">
+					<?php foreach($other_initiatives as $ind => $val){ ?>
+						<div class="item <?php echo $ind == 0 ? 'active' : ''; ?>">
+						<?php foreach($val as $i => $v) { ?>
 							<div class="col-sm-6 col-md-3">
 								<div class="thumbnail">
-									<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
+									<?php $img = $v->image == '' ? 'initiative.jpg' : $v->image; ?>
+									<img class="fullWidthImage" src='<?php echo base_url("assets/img/initiatives/{$img}"); ?>' alt="">
 									<div class="caption">
-										<h3>Cancer sociaty of kashmir</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
+										<h3><?php echo $v->name ?></h3>
+										<p style="text-align: justify;"><?php echo hide_large_description($v->description, 100, '#'); ?></p>
 									</div>
 								</div>
-							</div>
-							<div class="col-sm-6 col-md-3">
-								<div class="thumbnail">
-									<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
-									<div class="caption">
-										<h3>Cancer sociaty of kashmir</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6 col-md-3">
-								<div class="thumbnail">
-									<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
-									<div class="caption">
-										<h3>Cancer sociaty of kashmir</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6 col-md-3">
-								<div class="thumbnail">
-									<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
-									<div class="caption">
-										<h3>Cancer sociaty of kashmir</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
-									</div>
-								</div>
-							</div>
+							</div>	
+						<?php } ?>
 						</div>
-						<div class="item">
-							<div class="col-sm-6 col-md-3">
-								<div class="thumbnail">
-									<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
-									<div class="caption">
-										<h3>Cancer sociaty of kashmir</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
-									</div>
-								</div>
-							</div>
-							<div class="col-sm-6 col-md-3">
-								<div class="thumbnail">
-									<img class="fullWidthImage" src="<?php echo base_url('assets/img/initiative.jpg'); ?>" alt="">
-									<div class="caption">
-										<h3>Cancer sociaty of kashmir</h3>
-										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam...<a href="#">more</a></p>
-									</div>
-								</div>
-							</div>
-						</div>
+					<?php } ?>	
 					</div>
 
 					<!-- Controls -->
@@ -362,7 +321,9 @@
 						<span class="sr-only">Next</span>
 					</a>
 				</div>
-			</div>				
+			</div>	
+			<?php } ?>
+			
 			
 			
 			
