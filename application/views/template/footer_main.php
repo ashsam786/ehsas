@@ -34,7 +34,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script-->
 		
-		<script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js'); ?>"></script>
+		<!--script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js'); ?>"></script-->
+		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></scrip>
         <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>

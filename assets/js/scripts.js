@@ -283,5 +283,10 @@ jQuery(document).ready(function() {
 		location.href = $(this).data('target');
 	});
 	//enable carousels
-	setInterval(function(){ $('.carousel').find('.glyphicon-chevron-right').click(); }, 5000);
+	setInterval(function(){ $('.carousel').find('.glyphicon-chevron-right').click(); }, 5000);	
+	
+/* 	$('.datepicker').datepicker({
+		format: 'mm/dd/yyyy',
+		startDate: '-3d'
+	}); */
 });
