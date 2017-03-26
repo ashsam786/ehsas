@@ -124,7 +124,7 @@
 								</div>
 							</div>	
 							<div class="col-md-4">
-								<div class="form-group label-floating">
+								<div class="form-group is-focused">
 									<label class="control-label" for="requiredOn">Required on/before</label>
 									<input type="text" class="datepicker form-control required" name="requiredOn" id="requiredOn"  value="<?php echo date('m/d/Y') ?>" required>
 									<span class="material-input"></span>
