@@ -1,1 +1,2 @@
-ALTER TABLE `blood_requirements` ADD `country` INT(11) UNSIGNED NOT NULL AFTER `state`;
+ALTER TABLE  `donor_list` ADD  `donated_with_ehsas` DATE NOT NULL AFTER  `last_time_donated` ;
+ALTER TABLE  `donor_list` ADD  `joined_on` DATE NOT NULL ;
