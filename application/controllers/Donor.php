@@ -14,6 +14,7 @@ class Donor extends CI_Controller {
 		$this->lang->load('form_errors', 'english');
 		$this->load->library('email');
 	}
+
 	/*
 	* Donor register function
 	*/
@@ -31,6 +32,24 @@ class Donor extends CI_Controller {
 		$this->load->view('template/header', $data);
 		$this->load->view('donor/register', $data);
 		$this->load->view('template/footer', $data);
+	}
+
+	/*
+	* Donor show donor list function
+	*/
+	public function donorlist(){
+		if(!$this->session->has_userdata('donor_name') && !$this->session->has_userdata('admin_name')){
+			$this->session->referal_url = getCurrentUrl();
+		}
+
+		$data['title'] = 'Available donor list | Ehsas ek zindagi bachane ka';
+		$data['country_list'] = $this->donor_model->get_country_list();
+		
+		$data['donor_list'] = $this->donor_model->getDonorList();
+
+		$this->load->view('template/header_main', $data);
+		$this->load->view('donor/donorlist', $data);
+		$this->load->view('template/footer_main', $data);
 	}
 
 	public function login($errorArray = null){

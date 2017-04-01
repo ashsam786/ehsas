@@ -76,7 +76,12 @@ die('done!');*/
 	}
 
 	public function donor_list() {
-        $results = $this->admin_model->get_donor_list();
-        echo json_encode($results);
+		if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest' ) )
+		{
+	        $results = $this->admin_model->get_donor_list();
+	        echo json_encode($results);
+		} else {
+		    show_404();
+		} 		
   	}
 }

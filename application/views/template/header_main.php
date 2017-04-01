@@ -25,8 +25,8 @@
         <link rel="stylesheet" href="<?php echo base_url('assets/css/material-kit.css'); ?>">
         <!--link rel="stylesheet" href="<?php echo base_url('assets/font-awesome/css/font-awesome.min.css'); ?>"-->
 		<!--link rel="stylesheet" href="<?php echo base_url('assets/css/jquery.dataTables.min.css'); ?>"-->
-		<!--link rel="stylesheet" href="<?php echo base_url('assets/css/dataTables.bootstrap.min.css'); ?>">
-		<link rel="stylesheet" href="<?php echo base_url('assets/css/form-elements.css'); ?>"-->
+		<link rel="stylesheet" href="<?php echo base_url('assets/css/dataTables.bootstrap.min.css'); ?>">
+		<!--link rel="stylesheet" href="<?php echo base_url('assets/css/form-elements.css'); ?>"-->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/demo.css'); ?>">
         <!--link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>"-->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/style_main.css'); ?>">
@@ -73,30 +73,29 @@
 	    <div class="collapse navbar-collapse" id="navigation-index">
 	    	<ul class="nav navbar-nav navbar-right">
 				<li>
-					<a href="<?php echo base_url('home'); ?>">
-						Home
-					</a>
+					<a href="<?php echo base_url('home'); ?>">Home</a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('/aboutus'); ?>">
-						About Us
-					</a>
+					<a href="<?php echo base_url('/aboutus'); ?>">About Us</a>
 				</li>
 				<li>
-					<a href="<?php echo base_url('/contact'); ?>">
-						Contact Us
-					</a>
+					<a href="<?php echo base_url('/contact'); ?>">Contact Us</a>
 				</li>
-				<li>
-					<a href="<?php echo base_url('donor/login'); ?>">
-						Login
-					</a>
-				</li>
-				<li>
-					<a href="<?php echo base_url('donor/register'); ?>">
-						Register
-					</a>
-				</li>
+        <?php if($this->session->has_userdata('donor_name')){ ?>
+          <li> 
+            <a href="<?php echo base_url("donor/edit/{$this->session->userid}"); ?>" title="Edit Profile">Edit</a>
+          </li> 
+          <li>
+            <a href="<?php echo base_url('donor/logout'); ?>">Logout</a>
+          </li>  
+        <?php } else{ ?>
+          <li>
+            <a href="<?php echo base_url('donor/login'); ?>">Login</a> 
+          </li>
+          <li>
+            <a href="<?php echo base_url('donor/register'); ?>">Register</a>
+          </li>
+        <?php } ?>        
 				<li class="topMenuSocial">
 					<a rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="#" target="_blank" class="btn btn-white btn-simple btn-just-icon">
 						<i class="fa fa-twitter"></i>

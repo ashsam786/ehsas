@@ -25,6 +25,39 @@ class donor_model extends CI_Model{
 		}
 	}
 
+	public function getDonorList(){
+		try{
+			$this->db->where('donor_list.status !=', 0);
+			if($this->input->get('f1-country')){
+				$this->db->where('donor_list.country', $this->input->get('f1-country'));
+			}
+
+			if($this->input->get('f1-state')){
+				$this->db->where('donor_list.state', $this->input->get('f1-state'));
+			}
+
+			if($this->input->get('f1-city')){
+				$this->db->where('donor_list.city', $this->input->get('f1-city'));
+			}
+
+			if($this->input->get('f1-blood-group')){
+				$this->db->where('donor_list.blood_group', $this->input->get('f1-blood-group'));
+			}
+
+			$this->db->select('donor_list.*, countries.country as country_name, states.state as state_name, cities.city as city_name');
+			$this->db->join('countries', 'donor_list.country = countries.id', 'left');
+			$this->db->join('states', 'donor_list.state = states.id', 'left');
+			$this->db->join('cities', 'donor_list.city = cities.id', 'left');
+			$qry = $this->db->get($this->table);
+			if($qry->num_rows() <= 0){
+				throw new Exception($this->lang->line('error_search_return_null'));
+			}
+			return ['result' => true, 'data' => $qry->result()];
+		} catch(Exception $e){
+			return ['result' => false, 'msg' => $e->getMessage()];
+		}
+	}
+
 	public function login(){
 		try{
 			$errors = [];

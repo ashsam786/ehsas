@@ -19,7 +19,7 @@
 	<div class="section section-basic">
 		<div class="container">
 			<div class="row">
-				<form class="form" method="get" action="#">
+				<form class="form" method="get" action="<?php echo base_url('donor/donorlist'); ?>">
 					<div class="header header-danger text-center">
 						<h4>Search For Dononrs</h4>
 					</div>

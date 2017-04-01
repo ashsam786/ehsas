@@ -1,2 +1,3 @@
 ALTER TABLE  `donor_list` ADD  `donated_with_ehsas` DATE NOT NULL AFTER  `last_time_donated` ;  L O R
 ALTER TABLE  `donor_list` ADD  `joined_on` DATE NOT NULL ;					L O R
+ALTER TABLE `donor_list` ADD `status` TINYINT(4) NOT NULL DEFAULT '1' COMMENT '0 means disabled, 1 enabled' AFTER `joined_on`;     L

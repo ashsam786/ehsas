@@ -37,8 +37,9 @@
 		<!--script src="<?php echo base_url('assets/js/jquery-1.11.1.min.js'); ?>"></script-->
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></scrip>
+        <script src="<?php echo base_url('assets/bootstrap/js/bootstrap.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/js/jquery.dataTables.min.js'); ?>"></script>
+        <script src="<?php echo base_url('assets/js/dataTables.bootstrap.min.js'); ?>"></script>
         <script src="<?php echo base_url('assets/js/material.min.js'); ?>"></script>
 		<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
         <script src="<?php echo base_url('assets/js/nouislider.min.js'); ?>"></script>

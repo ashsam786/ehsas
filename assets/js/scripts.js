@@ -102,7 +102,7 @@ jQuery(document).ready(function() {
 
     $("#f1-country").on('change', function(){
         var c_id = $(this).val();
-        $.get(base_url+'/getStates', {'country_id': c_id}, function(res){
+        $.get(base_url+'getStates', {'country_id': c_id}, function(res){
             res = $.parseJSON(res);
             $("#f1-state").html('<option value="" disabled="disabled" selected>State...</option>')
             $("#f1-city").html('<option value="" disabled="disabled" selected>City...</option>')
