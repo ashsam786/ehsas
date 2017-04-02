@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require_once('constants_config.php');
+require_once(__DIR__ .'/constants_config.php');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace
