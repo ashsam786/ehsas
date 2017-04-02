@@ -1,57 +1,117 @@
 <?php if (!defined('BASEPATH'))    exit('No direct script access allowed'); ?>
 
 <div class="header header-filter" style="background-image: url('<?php echo base_url('assets/img/bg.jpg'); ?>');">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 col-md-offset-2">
-				<div class="brand">
-					<h1 class="title text-center topheaderTitle">POST YOUR BLOOD REQUIREMENTS</h1>
-				</div>
-			</div>
-		</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="brand">
+                    <h1 class="title text-center topheaderTitle">CURRENT BLOOD REQUIREMENT</h1>
+                </div>
+            </div>
+        </div>
 
-	</div>
+    </div>
 </div>
 <div class="main main-raised">
-	<div class="section section-basic">
-		<div class="container">
-			<div class="tim-row" id="currentRequimentsTable">
-<?php ddd($requirement_list); ?>
-			</div>
-		</div>
-	</div>
-	<div class="section section-download">
-		<div class="container">
-			<div class="row sharing-area text-center noMargin">
-					<h3>Support us!</h3>
-					<a href="#" class="btn btn-twitter">
-						<i class="fa fa-twitter"></i>
-						Tweet
-					</a>
-					<a href="#" class="btn btn-facebook">
-						<i class="fa fa-facebook-square"></i>
-						Share
-					</a>
-					<a href="#" class="btn btn-google-plus">
-						<i class="fa fa-google-plus"></i>
-						Share
-					</a>
-			</div>
-		</div>
-	</div>
+    <div class="section section-basic">   
+        <div class="container">    
+            <div class="tim-row" id="recentDonorsTable">
+                <?php if(isset($requirement_list) && sizeof($requirement_list > 0)){ ?>
+                <div class="row bloodRequirementTable">
+                <table id="bloodDonorList" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th>State</th>
+                                <th>City</th>
+                                <th>Blood Group</th>
+                                <th>Patient Age</th>
+                                <th>Hospital</th>
+                                <th>Posted On</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th>State</th>
+                                <th>City</th>
+                                <th>Blood Group</th>
+                                <th>Patient Age</th>
+                                <th>Hospital</th>
+                                <th>Posted On</th>
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                        <?php foreach($requirement_list as  $i => $v){ ?>
+                            <tr>
+                                <td class="text-center"><?php echo $i+1; ?></td>
+                                <td><?php echo $v->state_name; ?></td>
+                                <td><?php echo $v->city_name; ?></td>
+                                <td><?php echo $v->blood_group; ?></td>
+                                <td><?php echo $v->patient_age; ?></td>
+                                <td><?php echo $v->hospital_name; ?></td>
+                                <td><?php echo date('d-M-Y', strtotime($v->added_at)); ?></td>
+                                <td>
+									<?php if($this->session->has_userdata('donor_id') && $v->donor_id == $this->session->donor_id){	?>
+										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs anchor" disabled="disabled">
+											Already Applied
+										</button>	
+									<?php } else { ?>
+										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/donate/'.$v->id); ?>">
+											Donate Blood
+										</button>
+									<?php } ?>                                	
+                                </td>
+                            </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>                
+                </div>
+
+                <?php } else { ?>
+                <div class="alert alert-danger">
+                     <div class="container-fluid">
+                         <div class="alert-icon">
+                            <i class="material-icons">error_outline</i>
+                        </div>
+                          No active blood requirement found.
+                    </div>
+                </div>
+                <?php }?>
+            </div>
+        </div>
+    </div>
+    <div class="section section-download">
+        <div class="container">
+            <div class="row sharing-area text-center noMargin">
+                    <h3>Support us!</h3>
+                    <a href="#" class="btn btn-twitter">
+                        <i class="fa fa-twitter"></i>
+                        Tweet
+                    </a>
+                    <a href="#" class="btn btn-facebook">
+                        <i class="fa fa-facebook-square"></i>
+                        Share
+                    </a>
+                    <a href="#" class="btn btn-google-plus">
+                        <i class="fa fa-google-plus"></i>
+                        Share
+                    </a>
+            </div>
+        </div>
+    </div>
 </div>
+
+
 <script>
 window.onload = function(){
-	var availableHospitals = <?php echo json_encode($hospital_list); ?>;
-	$( "#hospital" ).autocomplete({
-		  source: availableHospitals
-    });	
-	
-	var missingData = <?php echo json_encode($this->session->flashdata('required_data_missing')); ?>;
-	if(missingData != null){
-		$.each(missingData, function(i,v){
-			$('#'+v).closest('.form-group').addClass('has-error');
-		})
-	}
+    $("#bloodDonorList").DataTable();
 }
 </script>
+
+
+
+
+

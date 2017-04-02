@@ -8,6 +8,37 @@ class blood_model extends CI_Model{
 		parent::__construct();
 	}
 
+	public function donateBlood($requirement_id){
+		try{
+
+			$enq = $this->db->get_where('blood_requirements', ['id' => $requirement_id]);
+			if($enq->num_rows() == 0){
+				show_404();
+			}
+
+			$data = [
+				'donor_list_id' => $this->session->donor_id,
+				'blood_requirements_id' => $requirement_id,
+			];
+
+			$enq = $this->db->get_where('blood_donation', $data);
+			if($enq->num_rows() > 0){
+				throw new Exception('You have already registered for this requirement');
+			}
+
+			if(!$this->db->insert('blood_donation', $data)){
+				throw new Exception($this->lang->line('error_general'));
+			}
+
+			$data = ['result' => true];
+
+		} catch(Exception $e) { 
+			$data = ['result' => false, 'msg' => $e->getMessage()];
+		}
+
+		return $data;
+	}
+
 	public function save_blood_requirement(){
 		try{
 			$errors = [];
@@ -89,13 +120,16 @@ class blood_model extends CI_Model{
 			$this->db->limit($num);
 		}
 		
-		$this->db->select($this->table.'.*, countries.country as country_name, states.state as state_name, cities.city as city_name');
+		$where = ['status !=' => '0'];
+		
+		$this->db->select($this->table.'.*, countries.country as country_name, states.state as state_name, cities.city as city_name, blood_donation.donor_list_id as donor_id');
 		$this->db->join('countries', $this->table.'.country = countries.id', 'left');
 		$this->db->join('states', $this->table.'.state = states.id', 'left');
 		$this->db->join('cities', $this->table.'.city = cities.id', 'left');
+		$this->db->join('blood_donation', $this->table.'.id = blood_donation.blood_requirements_id', 'left');
+		$this->db->group_by($this->table.'.id');
 
-		$data = $this->db->get_where($this->table, ['status !=' => '0']);
-		
+		$data = $this->db->get_where($this->table, $where);	
 		return $data->result();
 	}
 }

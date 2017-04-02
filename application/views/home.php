@@ -18,6 +18,31 @@
 <div class="main main-raised">
 	<div class="section section-basic">
 		<div class="container">
+			<?php if($this->session->flashdata('error-message')){ ?>
+				<div class="alert alert-danger">
+				    <div class="container-fluid">
+					  <div class="alert-icon">
+					    <i class="material-icons">error_outline</i>
+					  </div>
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons">clear</i></span>
+					  </button>
+				      <b>Error Alert:</b> <?php echo $this->session->flashdata('error-message'); ?>
+				    </div>
+				</div>			
+			<?php } else if($this->session->flashdata('success-message')){ ?>
+				<div class="alert alert-success">
+				    <div class="container-fluid">
+					  <div class="alert-icon">
+						<i class="material-icons">check</i>
+					  </div>
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons">clear</i></span>
+					  </button>
+				      <b>Success Alert:</b> <?php echo $this->session->flashdata('success-message'); ?>
+				    </div>
+				</div>
+			<?php } ?>					
 			<div class="row">
 				<form class="form" method="get" action="<?php echo base_url('donor/donorlist'); ?>">
 					<div class="header header-danger text-center">
@@ -80,9 +105,6 @@
 					</div>
 				</form>
 			</div>
-
-
-	
 			<?php if(count($current_blood_requirement) > 0){ ?>
 			<div class="tim-row" id="currentRequimentsTable">
 				<div class="title pageSectionTitle text-center">
@@ -111,11 +133,17 @@
 									<td><?php echo $v->blood_group; ?></td>
 									<td class="text-center"><?php echo $v->patient_age; ?></td>
 									<td><?php echo $v->hospital_name; ?></td>
-									<td><?php echo $v->added_at; ?></td>
+									<td><?php echo $v->added_at; ?></td>						
 									<td class="td-actions">
-										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
-											Click
+									<?php if($this->session->has_userdata('donor_id') && $v->donor_id == $this->session->donor_id){	?>
+										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs anchor" disabled="disabled">
+											Already Applied
+										</button>	
+									<?php } else { ?>
+										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/donate/'.$v->id); ?>">
+											Donate Blood
 										</button>
+									<?php } ?>
 									</td>
 								</tr>
 							<?php } ?>

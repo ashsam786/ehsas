@@ -16,6 +16,33 @@ class Blood extends CI_Controller {
 	}
 
 	/*
+	* function to submit donor nomination for blood donation
+	*/
+	public function donate(){
+		$requirement_id = $this->uri->segment(3);
+		if(!$requirement_id){
+			show_404();
+		}
+
+		if(!$this->session->has_userdata('donor_name') && !$this->session->has_userdata('admin_name')){
+			$url = base_url('donor/login');
+			$url = base_url('donor/login');
+			$this->session->referal_url = getCurrentUrl();
+			header('Location: '.$url);
+		}
+
+		$res = $this->blood_model->donateBlood($requirement_id);
+
+		if(!$res['result']){
+			$this->session->set_flashdata('error-message', $res['msg']);
+		} else{
+			$this->session->set_flashdata('success-message', 'Thank you for you interest');	
+		}
+
+		header('Location: '.base_url('blood/requirement_list'));
+	}
+
+	/*
 	* blood requirement form
 	*/
 	public function requirement(){
@@ -37,6 +64,7 @@ class Blood extends CI_Controller {
 	public function requirement_list(){
 		$data['title'] = 'Blood Requirement | '.MAIN_TITLE;
 		$data['pageHeaderType'] = 'components-page';
+		$data['requirement_list'] = $this->blood_model->get_blood_requirement_list();
 
 		$this->load->view('template/header_main', $data);
 		$this->load->view('blood/requirement_list', $data);

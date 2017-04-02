@@ -13,13 +13,15 @@ class home_model extends CI_Model{
 	public function get_current_blood_requirement($num){
 		$defultBloodReqCount = $num;
 
-		$this->db->select($this->bloodRequirement.'.*, countries.country as country_name, states.state as state_name, cities.city as city_name');
+		$this->db->select($this->bloodRequirement.'.*, countries.country as country_name, states.state as state_name, cities.city as city_name, blood_donation.donor_list_id as donor_id');
 		$this->db->join('countries', $this->bloodRequirement.'.country = countries.id', 'left');
 		$this->db->join('states', $this->bloodRequirement.'.state = states.id', 'left');
 		$this->db->join('cities', $this->bloodRequirement.'.city = cities.id', 'left');
+		$this->db->join('blood_donation', $this->bloodRequirement.'.id = blood_donation.blood_requirements_id', 'left');
 		$this->db->order_by('added_at', 'DESC');
 		$this->db->where('status !=', '0');
 		$this->db->limit($defultBloodReqCount);
+		$this->db->group_by($this->bloodRequirement.'.id');
 		$data = $this->db->get($this->bloodRequirement);
 
 		return $data->result();
