@@ -90,12 +90,6 @@
                                 <th>State</th>
                                 <th>City</th>
                                 <th>Joined On</th>
-                                <?php if($this->session->has_userdata('donor_name')){ ?>
-                                    <th>Phone</th>
-                                    <th>Email</th>
-                                <?php } else{ ?>
-                                    <th></th>
-                                <?php } ?>
                             </tr>
                         </thead>
                         <tfoot>
@@ -106,12 +100,6 @@
                                 <th>State</th>
                                 <th>City</th>
                                 <th>Joined On</th>
-                                <?php if($this->session->has_userdata('donor_name')){ ?>
-                                    <th>Phone</th>
-                                    <th>Email</th>
-                                <?php } else{ ?>
-                                    <th></th>
-                                <?php } ?>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -123,12 +111,6 @@
                                 <td><?php echo $v->state_name; ?></td>
                                 <td><?php echo $v->city_name; ?></td>
                                 <td><?php echo $v->joined_on; ?></td>
-                                <?php if($this->session->has_userdata('donor_name')){ ?>
-                                    <td><?php echo $v->contact; ?></td>
-                                    <td><?php echo $v->email; ?></td>
-                                <?php } else{ ?>
-                                    <td><a href="<?php echo base_url('donor/login'); ?>">Login for details</a></td>
-                                <?php } ?>                                                                
                             </tr>
                         <?php } ?>
                         </tbody>
