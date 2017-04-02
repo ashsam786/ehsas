@@ -26,17 +26,16 @@ class Blood extends CI_Controller {
 
 		if(!$this->session->has_userdata('donor_name') && !$this->session->has_userdata('admin_name')){
 			$url = base_url('donor/login');
-			$url = base_url('donor/login');
 			$this->session->referal_url = getCurrentUrl();
-			header('Location: '.$url);
+			header('Location: '.$url); die();
 		}
-
+		
 		$res = $this->blood_model->donateBlood($requirement_id);
 
 		if(!$res['result']){
 			$this->session->set_flashdata('error-message', $res['msg']);
 		} else{
-			$this->session->set_flashdata('success-message', 'Thank you for you interest');	
+			$this->session->set_flashdata('success-message', $this->lang->line('success_blood_donation_nomination_success'));	
 		}
 
 		header('Location: '.base_url('blood/requirement_list'));

@@ -14,7 +14,32 @@
 </div>
 <div class="main main-raised">
     <div class="section section-basic">   
-        <div class="container">    
+        <div class="container"> 
+			<?php if($this->session->flashdata('error-message')){ ?>
+				<div class="alert alert-danger">
+				    <div class="container-fluid">
+					  <div class="alert-icon">
+					    <i class="material-icons">error_outline</i>
+					  </div>
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons">clear</i></span>
+					  </button>
+				      <b>Error Alert:</b> <?php echo $this->session->flashdata('error-message'); ?>
+				    </div>
+				</div>			
+			<?php } else if($this->session->flashdata('success-message')){ ?>
+				<div class="alert alert-success">
+				    <div class="container-fluid">
+					  <div class="alert-icon">
+						<i class="material-icons">check</i>
+					  </div>
+					  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+						<span aria-hidden="true"><i class="material-icons">clear</i></span>
+					  </button>
+				      <b>Success Alert:</b> <?php echo $this->session->flashdata('success-message'); ?>
+				    </div>
+				</div>
+			<?php } ?>					           
             <div class="tim-row" id="recentDonorsTable">
                 <?php if(isset($requirement_list) && sizeof($requirement_list > 0)){ ?>
                 <div class="row bloodRequirementTable">
