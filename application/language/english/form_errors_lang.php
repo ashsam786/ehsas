@@ -31,5 +31,7 @@ $lang['error_unauthorised_access'] = 'Sorry you are not authorised to access thi
 $lang['error_search_return_null'] = 'Sorry your search returned zero results';
 $lang['blood_requirement_request_recieved'] = 'Blood requirement request recieved';
 $lang['blood_requirement_request_submitted'] = 'Blood requirement request submitted successfully';
+$lang['blood_donation_request_recieved'] = 'Blood donation request recieved';
+$lang['blood_donation_request_submitted'] = 'Blood donation request submitted successfully';
 
 $lang['success_blood_donation_nomination_success'] = 'Thank you for your interest. We will get back to you soon. Please update your contact details in your profile';

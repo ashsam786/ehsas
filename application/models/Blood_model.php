@@ -29,8 +29,8 @@ class blood_model extends CI_Model{
 			if(!$this->db->insert('blood_donation', $data)){
 				throw new Exception($this->lang->line('error_general'));
 			}
-
-			$data = ['result' => true];
+				
+			$data = ['result' => true, 'id' => $this->db->insert_id()];
 
 		} catch(Exception $e) { 
 			$data = ['result' => false, 'msg' => $e->getMessage()];
@@ -121,6 +121,21 @@ class blood_model extends CI_Model{
 		}
 		
 		$where = ['status !=' => '0'];
+		
+		$this->db->select($this->table.'.*, countries.country as country_name, states.state as state_name, cities.city as city_name, blood_donation.donor_list_id as donor_id');
+		$this->db->join('countries', $this->table.'.country = countries.id', 'left');
+		$this->db->join('states', $this->table.'.state = states.id', 'left');
+		$this->db->join('cities', $this->table.'.city = cities.id', 'left');
+		$this->db->join('blood_donation', $this->table.'.id = blood_donation.blood_requirements_id', 'left');
+		$this->db->group_by($this->table.'.id');
+
+		$data = $this->db->get_where($this->table, $where);	
+		return $data->result();
+	}
+	
+	public function getBloodRequirementById($bloodRequirementId){
+		
+		$where = ['status !=' => '0', $this->table.'.id' => $bloodRequirementId];
 		
 		$this->db->select($this->table.'.*, countries.country as country_name, states.state as state_name, cities.city as city_name, blood_donation.donor_list_id as donor_id');
 		$this->db->join('countries', $this->table.'.country = countries.id', 'left');

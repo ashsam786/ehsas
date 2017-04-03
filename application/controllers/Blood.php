@@ -20,6 +20,8 @@ class Blood extends CI_Controller {
 	*/
 	public function donate(){
 		$requirement_id = $this->uri->segment(3);
+		$donor_id = $this->session->donor_id;
+
 		if(!$requirement_id){
 			show_404();
 		}
@@ -35,6 +37,15 @@ class Blood extends CI_Controller {
 		if(!$res['result']){
 			$this->session->set_flashdata('error-message', $res['msg']);
 		} else{
+		$bloodRequirementId = $res['id'];
+		$this->load->model('donor_model');
+		$data['bloor_donor'] = $this->donor_model->getDonorById($donor_id);
+		$data['blood_reciever'] = $this->blood_model->getBloodRequirementById($bloodRequirementId);
+		
+ddd($data);			
+			
+			
+			//$this->sendDonorNominationMail($data);
 			$this->session->set_flashdata('success-message', $this->lang->line('success_blood_donation_nomination_success'));	
 		}
 
@@ -129,6 +140,33 @@ class Blood extends CI_Controller {
 		$this->email->send();		
 	}
 
+	private function sendDonorNominationMail($data){
+		$sub = $this->lang->line('blood_donation_request_recieved');
+		$sub_user = $this->lang->line('blood_donation_request_submitted');
+		
+		$name = $data['name'];
+		
+		$message = $this->load->view('emails/bloodRequestInfo', $data, true);
+		$message_user = $this->load->view('emails/bloodRequestUser', $data, true);
+		$config['mailtype'] = 'html';
+		$config['wordwrap'] = TRUE;
 
+		//send to user 
+		$this->email->initialize($config);
+		$this->email->from(NOREPLY_EMAIL, MAIN_TITLE);
+		$this->email->to($data['email']);
+		//$this->email->cc(INFO_EMAIL);
+		//$this->email->bcc(INFO_EMAIL);
+		$this->email->subject($sub_user);
+		$this->email->message($message_user);
+		$this->email->send();
 
+		//send to ehsas admin
+		$this->email->initialize($config);
+		$this->email->from(NOREPLY_EMAIL, MAIN_TITLE);
+		$this->email->to(INFO_EMAIL);
+		$this->email->subject($sub);
+		$this->email->message($message);
+		$this->email->send();		
+	}
 }

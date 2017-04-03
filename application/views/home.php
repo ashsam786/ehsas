@@ -136,11 +136,11 @@
 									<td><?php echo $v->added_at; ?></td>						
 									<td class="td-actions">
 									<?php if($this->session->has_userdata('donor_id') && $v->donor_id == $this->session->donor_id){	?>
-										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs anchor" disabled="disabled">
+										<button type="button" class="btn btn-info btn-simple btn-xs anchor" disabled="disabled">
 											Already Applied
 										</button>	
 									<?php } else { ?>
-										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/donate/'.$v->id); ?>">
+										<button type="button" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/donate/'.$v->id); ?>">
 											Donate Blood
 										</button>
 									<?php } ?>
