@@ -72,6 +72,12 @@
 
 	    <div class="collapse navbar-collapse" id="navigation-index">
 	    	<ul class="nav navbar-nav navbar-right">
+        <?php if($this->require_role('admin')){ ?>
+          <li>
+            <a href="<?php echo base_url('home'); ?>">Admin Logout</a>
+          </li>
+        <?php  } ?>
+
 				<li>
 					<a href="<?php echo base_url('home'); ?>">Home</a>
 				</li>

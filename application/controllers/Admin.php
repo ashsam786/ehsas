@@ -75,6 +75,37 @@ die('done!');*/
 	
 	}
 
+	public function blooddonation(){
+		if($this->require_role('admin')){
+			$data['title'] = 'Blood Requirement | '.MAIN_TITLE;
+			$data['pageHeaderType'] = 'components-page';
+			$data['requirement_list'] = $this->admin_model->get_blood_requirement_list();
+			
+			$this->load->view('template/header_main', $data);
+			$this->load->view('admin/bloodrequirement_list', $data);
+			$this->load->view('template/footer_main', $data);
+		} else{
+			die('Sorry you are not authorised!');
+		}
+	}
+
+	public function viewdonors(){
+		if($this->require_role('admin')){
+			$uriData =  $this->uri->segment(3);
+			$donor_id_array = explode(',', $uriData);
+
+			$data['title'] = 'Admin donor list | Ehsas ek zindagi bachane ka';
+			
+			$data['donor_list'] = $this->admin_model->getDonorListByIdArray($donor_id_array);
+
+			$this->load->view('template/header_main', $data);
+			$this->load->view('admin/donorlist', $data);
+			$this->load->view('template/footer_main', $data);		
+		} else{
+			die('Sorry you are not authorised!');
+		}	
+	}
+
 	public function donor_list() {
 		if( isset( $_SERVER['HTTP_X_REQUESTED_WITH'] ) && ( $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest' ) )
 		{

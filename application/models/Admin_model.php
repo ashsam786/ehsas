@@ -177,5 +177,63 @@ class Admin_model extends CI_Model{
  
         return $output;
 	}
+
+
+    public function get_blood_requirement_list($num = null){
+        $this->db->order_by('added_at', 'DESC');
+        if($num != null){
+            $this->db->limit($num);
+        }
+        
+        $where = ['status !=' => '0'];
+        
+/*      if($this->session->has_userdata('donor_id')){
+            $where['blood_donation.donor_list_id'] = $this->session->donor_id;
+        }*/
+
+        $this->db->select('blood_requirements.*, countries.country as country_name, states.state as state_name, cities.city as city_name, blood_donation.donor_list_id as donor_id');
+        $this->db->join('countries', 'blood_requirements.country = countries.id', 'left');
+        $this->db->join('states', 'blood_requirements.state = states.id', 'left');
+        $this->db->join('cities', 'blood_requirements.city = cities.id', 'left');
+        $this->db->join('blood_donation', 'blood_requirements.id = blood_donation.blood_requirements_id', 'left');
+
+        $data = $this->db->get_where('blood_requirements', $where)->result_array(); 
+
+        $result = [];
+
+        foreach($data as $i => $v){
+            if(!array_key_exists($v['id'], $result)){
+                $result[$v['id']] = $v;
+                $result[$v['id']]['donor_id'] = [];
+            }
+
+            if(!empty($v['donor_id'])){
+                $result[$v['id']]['donor_id'][] = $v['donor_id'];
+            }
+        }
+
+        return $result;
+    } 
+
+
+   public function getDonorListByIdArray($donorIdArray = []){
+        try{
+            $this->db->where('donor_list.status !=', 0);
+            $this->db->where_in('donor_list.id', $donorIdArray);
+
+            $this->db->select('donor_list.*, countries.country as country_name, states.state as state_name, cities.city as city_name');
+            $this->db->join('countries', 'donor_list.country = countries.id', 'left');
+            $this->db->join('states', 'donor_list.state = states.id', 'left');
+            $this->db->join('cities', 'donor_list.city = cities.id', 'left');
+            $qry = $this->db->get($this->table);
+
+            if($qry->num_rows() <= 0){
+                throw new Exception($this->lang->line('error_search_return_null'));
+            }
+            return ['result' => true, 'data' => $qry->result()];
+        } catch(Exception $e){
+            return ['result' => false, 'msg' => $e->getMessage()];
+        }
+   }    
 }
 // end of file
