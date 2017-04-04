@@ -111,45 +111,62 @@
 					<h3>Current Blood Requirements</h3>
 				</div>
 				<div class="row bloodRequirementTable">
-					<table class="table">
-						<thead>
-							<tr>
-								<th class="text-center">#</th>
-								<th>State</th>
-								<th>City</th>
-								<th>Blood Group</th>
-								<th class="text-center">Patient Age</th>
-								<th>Hospital</th>
-								<th>Posted On</th>
-								<th>Details</th>
-							</tr>
-						</thead>
-						<tbody>
-							<?php foreach($current_blood_requirement as $i => $v){ ?>
-								<tr>
-									<td class="text-center"><?php echo ++$i; ?></td>
-									<td><?php echo $v->state_name; ?></td>
-									<td><?php echo $v->city_name; ?></td>
-									<td><?php echo $v->blood_group; ?></td>
-									<td class="text-center"><?php echo $v->patient_age; ?></td>
-									<td><?php echo $v->hospital_name; ?></td>
-									<td><?php echo $v->added_at; ?></td>						
-									<td class="td-actions">
-									<?php if($this->session->has_userdata('donor_id') && $v->donor_id == $this->session->donor_id){	?>
-										<button type="button" class="btn btn-info btn-simple btn-xs anchor" disabled="disabled">
+                	<table id="bloodDonorList" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th>State</th>
+                                <th>City</th>
+                                <th>Blood Group</th>
+                                <th>Patient Age</th>
+                                <th>Hospital</th>
+                                <th>Posted On</th>
+                                <th class="text-center">Interested Donors</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th class="text-center">#</th>
+                                <th>State</th>
+                                <th>City</th>
+                                <th>Blood Group</th>
+                                <th>Patient Age</th>
+                                <th>Hospital</th>
+                                <th>Posted On</th>
+                                <th class="text-center">Interested Donors</th>                                
+                                <th></th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                        <?php foreach($current_blood_requirement as  $i => $v){ ?>
+                            <tr>
+                                <td class="text-center"><?php echo $i+1; ?></td>
+                                <td><?php echo $v['state_name']; ?></td>
+                                <td><?php echo $v['city_name']; ?></td>
+                                <td><?php echo $v['blood_group']; ?></td>
+                                <td><?php echo $v['patient_age']; ?></td>
+                                <td><?php echo $v['hospital_name']; ?></td>
+                                <td><?php echo date('d-M-Y', strtotime($v['added_at'])); ?></td>
+                                <td class="text-center">
+									<button class="btn btn-<?php echo sizeof($v['donor_id']) > 0 ? 'success' : 'danger'; ?> btn-fab btn-fab-mini btn-round defaultCursor"><?php echo sizeof($v['donor_id']); ?></button>
+                                </td>
+                                <td>
+									<?php if($this->session->has_userdata('donor_id') && in_array($this->session->donor_id, $v['donor_id'])){	?>
+										<button type="button" rel="tooltip" title="Cancel donation" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/cancelDonation/'.$v['id']); ?>">
 											Already Applied
 										</button>	
 									<?php } else { ?>
-										<button type="button" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/donate/'.$v->id); ?>">
+										<button type="button" rel="tooltip" title="Click to donate blood" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/donate/'.$v['id']); ?>">
 											Donate Blood
 										</button>
-									<?php } ?>
-									</td>
-								</tr>
-							<?php } ?>
-						</tbody>
-					</table>
-				</div>
+									<?php } ?>                                	
+                                </td>
+                            </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>                
+                </div>		
 				<div class="row text-center">
 					<button class="btn btn-danger anchor text-center" data-target="<?php echo base_url('blood/requirement_list'); ?>">
 						Show more

@@ -21,10 +21,23 @@ class home_model extends CI_Model{
 		$this->db->order_by('added_at', 'DESC');
 		$this->db->where('status !=', '0');
 		$this->db->limit($defultBloodReqCount);
-		$this->db->group_by($this->bloodRequirement.'.id');
-		$data = $this->db->get($this->bloodRequirement);
+		//$this->db->group_by($this->bloodRequirement.'.id');
+		$data = $this->db->get($this->bloodRequirement)->result_array();
 
-		return $data->result();
+		$result = [];
+
+		foreach($data as $i => $v){
+			if(!array_key_exists($v['id'], $result)){
+				$result[$v['id']] = $v;
+				$result[$v['id']]['donor_id'] = [];
+			}
+
+			if(!empty($v['donor_id'])){
+				$result[$v['id']]['donor_id'][] = $v['donor_id'];
+			}
+		}
+
+		return $result;
 	}
 
 	public function get_other_initiatives_list($num=null){
