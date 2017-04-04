@@ -51,6 +51,11 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="top-navbar-1">
 					<ul class="nav navbar-nav navbar-right">
+          <?php if(isset($admin_logout)){ ?>
+          <li>
+            <a href="<?php echo base_url('admin/logout'); ?>">Admin Logout</a>
+          </li>
+        <?php  } ?>
 						<li>
 							<span class="li-social">
 								<a href="<?php echo base_url('home'); ?>" title="Home"><i class="fa fa-home"></i><span>Home</span></a> 

@@ -66,6 +66,9 @@ die('done!');*/
 		if($this->require_role('admin')){
 			//$data['donors'] = $this->admin_model->getDonorData();
 			$data['title'] = 'Ehsas | Donor list';
+
+			$data['admin_logout'] = '<li><a href="'. base_url("admin/logout").' ">Admin Logout</a></li>';
+
 			$this->load->view('template/header', $data);
 			$this->load->view('viewdata', $data);
 			$this->load->view('template/footer', $data);
@@ -81,6 +84,9 @@ die('done!');*/
 			$data['pageHeaderType'] = 'components-page';
 			$data['requirement_list'] = $this->admin_model->get_blood_requirement_list();
 			
+
+			$data['admin_logout'] = '<li><a href="'. base_url("admin/logout").' ">Admin Logout</a></li>';
+
 			$this->load->view('template/header_main', $data);
 			$this->load->view('admin/bloodrequirement_list', $data);
 			$this->load->view('template/footer_main', $data);
@@ -95,7 +101,7 @@ die('done!');*/
 			$donor_id_array = explode(',', $uriData);
 
 			$data['title'] = 'Admin donor list | Ehsas ek zindagi bachane ka';
-			
+		$data['admin_logout'] = '<li><a href="'. base_url("admin/logout").' ">Admin Logout</a></li>';			
 			$data['donor_list'] = $this->admin_model->getDonorListByIdArray($donor_id_array);
 
 			$this->load->view('template/header_main', $data);
@@ -115,4 +121,15 @@ die('done!');*/
 		    show_404();
 		} 		
   	}
+
+	public function logout()
+	{
+	    $this->authentication->logout();
+	 
+	    // Set redirect protocol
+	    $redirect_protocol = USE_SSL ? 'https' : NULL;
+	 
+	    redirect( site_url( LOGIN_PAGE . '?logout=1', $redirect_protocol ) );
+	}
+
 }
