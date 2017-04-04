@@ -29,9 +29,8 @@ class blood_model extends CI_Model{
 			if(!$this->db->insert('blood_donation', $data)){
 				throw new Exception($this->lang->line('error_general'));
 			}
-				
-			$data = ['result' => true, 'id' => $this->db->insert_id()];
 
+			$data = ['result' => true, 'id' => $this->db->insert_id()];
 		} catch(Exception $e) { 
 			$data = ['result' => false, 'msg' => $e->getMessage()];
 		}
@@ -122,17 +121,41 @@ class blood_model extends CI_Model{
 		
 		$where = ['status !=' => '0'];
 		
+		if($this->session->has_userdata('uaser_id')){
+			$where['blood_donation.donor_list_id'] = $this->session->uaser_id;
+		}
+
 		$this->db->select($this->table.'.*, countries.country as country_name, states.state as state_name, cities.city as city_name, blood_donation.donor_list_id as donor_id');
 		$this->db->join('countries', $this->table.'.country = countries.id', 'left');
 		$this->db->join('states', $this->table.'.state = states.id', 'left');
 		$this->db->join('cities', $this->table.'.city = cities.id', 'left');
 		$this->db->join('blood_donation', $this->table.'.id = blood_donation.blood_requirements_id', 'left');
-		$this->db->group_by($this->table.'.id');
 
 		$data = $this->db->get_where($this->table, $where);	
-		return $data->result();
+
+		$this->db->select('blood_donation.*, donor_list.name as donor_name');
+		$this->db->join('donor_list', 'blood_donation.donor_list_id = donor_list.id', 'left');
+		$bd = $this->db->get_where('blood_donation', ['donated_on' => 0]);
+		
+		$blood_donation_array = [];
+		foreach($bd->result_array() as $i => $v){
+			if(!isset($blood_donation_array[$v['blood_requirements_id']])){
+				$blood_donation_array[$v['blood_requirements_id']] = [];
+			}
+			$blood_donation_array[$v['blood_requirements_id']][] = $v;
+		}
+
+		$data_array = [];
+		foreach($data->result_array() as $i => $v){
+			if(isset($blood_donation_array[$v['id']])){
+				$v['donation_detail'] = $blood_donation_array[$v['id']];
+			}	
+			$data_array[] = $v;
+		}
+
+		return $data_array;
 	}
-	
+
 	public function getBloodRequirementById($bloodRequirementId){
 		
 		$where = ['status !=' => '0', $this->table.'.id' => $bloodRequirementId];
@@ -145,7 +168,7 @@ class blood_model extends CI_Model{
 		$this->db->group_by($this->table.'.id');
 
 		$data = $this->db->get_where($this->table, $where);	
-		return $data->result();
+		return $data->row();
 	}
 }
 // end of file

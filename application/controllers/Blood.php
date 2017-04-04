@@ -36,14 +36,11 @@ class Blood extends CI_Controller {
 
 		if(!$res['result']){
 			$this->session->set_flashdata('error-message', $res['msg']);
-		} else{
-		$bloodRequirementId = $res['id'];
-		$this->load->model('donor_model');
-		$data['bloor_donor'] = $this->donor_model->getDonorById($donor_id);
-		$data['blood_reciever'] = $this->blood_model->getBloodRequirementById($bloodRequirementId);
-		
-ddd($data);			
-			
+		} else {
+			$bloodRequirementId = $res['id'];
+			$this->load->model('donor_model');
+			$data['bloor_donor'] = $this->donor_model->getDonorById($donor_id);
+			$data['blood_reciever'] = $this->blood_model->getBloodRequirementById($requirement_id);
 			
 			//$this->sendDonorNominationMail($data);
 			$this->session->set_flashdata('success-message', $this->lang->line('success_blood_donation_nomination_success'));	
@@ -75,7 +72,7 @@ ddd($data);
 		$data['title'] = 'Blood Requirement | '.MAIN_TITLE;
 		$data['pageHeaderType'] = 'components-page';
 		$data['requirement_list'] = $this->blood_model->get_blood_requirement_list();
-
+		
 		$this->load->view('template/header_main', $data);
 		$this->load->view('blood/requirement_list', $data);
 		$this->load->view('template/footer_main', $data);

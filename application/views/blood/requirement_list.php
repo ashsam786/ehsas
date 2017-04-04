@@ -72,19 +72,19 @@
                         <?php foreach($requirement_list as  $i => $v){ ?>
                             <tr>
                                 <td class="text-center"><?php echo $i+1; ?></td>
-                                <td><?php echo $v->state_name; ?></td>
-                                <td><?php echo $v->city_name; ?></td>
-                                <td><?php echo $v->blood_group; ?></td>
-                                <td><?php echo $v->patient_age; ?></td>
-                                <td><?php echo $v->hospital_name; ?></td>
-                                <td><?php echo date('d-M-Y', strtotime($v->added_at)); ?></td>
+                                <td><?php echo $v['state_name']; ?></td>
+                                <td><?php echo $v['city_name']; ?></td>
+                                <td><?php echo $v['blood_group']; ?></td>
+                                <td><?php echo $v['patient_age']; ?></td>
+                                <td><?php echo $v['hospital_name']; ?></td>
+                                <td><?php echo date('d-M-Y', strtotime($v['added_at'])); ?></td>
                                 <td>
-									<?php if($this->session->has_userdata('donor_id') && $v->donor_id == $this->session->donor_id){	?>
+									<?php if($this->session->has_userdata('donor_id') && $v['donor_id'] == $this->session->donor_id){	?>
 										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs anchor" disabled="disabled">
 											Already Applied
 										</button>	
 									<?php } else { ?>
-										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/donate/'.$v->id); ?>">
+										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/donate/'.$v['id']); ?>">
 											Donate Blood
 										</button>
 									<?php } ?>                                	
