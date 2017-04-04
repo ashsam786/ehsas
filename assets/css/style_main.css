@@ -18,6 +18,10 @@
     line-height: 33px;
 }
 
+.defaultCursor{
+    cursor: default;
+}
+
 .radio input[type=radio]:checked ~ .check{
 	background-color: #f44336;
 }

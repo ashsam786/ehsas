@@ -53,6 +53,7 @@
                                 <th>Patient Age</th>
                                 <th>Hospital</th>
                                 <th>Posted On</th>
+                                <th class="text-center">Interested Donors</th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -65,6 +66,7 @@
                                 <th>Patient Age</th>
                                 <th>Hospital</th>
                                 <th>Posted On</th>
+                                <th class="text-center">Interested Donors</th>                                
                                 <th></th>
                             </tr>
                         </tfoot>
@@ -78,13 +80,16 @@
                                 <td><?php echo $v['patient_age']; ?></td>
                                 <td><?php echo $v['hospital_name']; ?></td>
                                 <td><?php echo date('d-M-Y', strtotime($v['added_at'])); ?></td>
+                                <td class="text-center">
+									<button class="btn btn-<?php echo sizeof($v['donor_id']) > 0 ? 'success' : 'danger'; ?> btn-fab btn-fab-mini btn-round defaultCursor"><?php echo sizeof($v['donor_id']); ?></button>
+                                </td>
                                 <td>
-									<?php if($this->session->has_userdata('donor_id') && $v['donor_id'] == $this->session->donor_id){	?>
-										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs anchor" disabled="disabled">
+									<?php if($this->session->has_userdata('donor_id') && in_array($this->session->donor_id, $v['donor_id'])){	?>
+										<button type="button" rel="tooltip" title="Cancel donation" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/cancelDonation/'.$v['id']); ?>">
 											Already Applied
 										</button>	
 									<?php } else { ?>
-										<button type="button" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/donate/'.$v['id']); ?>">
+										<button type="button" rel="tooltip" title="Click to donate blood" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/donate/'.$v['id']); ?>">
 											Donate Blood
 										</button>
 									<?php } ?>                                	

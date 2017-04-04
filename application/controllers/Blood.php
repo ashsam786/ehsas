@@ -26,7 +26,7 @@ class Blood extends CI_Controller {
 			show_404();
 		}
 
-		if(!$this->session->has_userdata('donor_name') && !$this->session->has_userdata('admin_name')){
+		if(!$this->session->has_userdata('donor_name')){
 			$url = base_url('donor/login');
 			$this->session->referal_url = getCurrentUrl();
 			header('Location: '.$url); die();
@@ -44,6 +44,40 @@ class Blood extends CI_Controller {
 			
 			//$this->sendDonorNominationMail($data);
 			$this->session->set_flashdata('success-message', $this->lang->line('success_blood_donation_nomination_success'));	
+		}
+
+		header('Location: '.base_url('blood/requirement_list'));
+	}
+
+	/*
+	* function to cancel donor nomination for blood donation
+	*/
+	public function cancelDonation(){
+		$requirement_id = $this->uri->segment(3);
+		$donor_id = $this->session->donor_id;
+
+		if(!$requirement_id){
+			show_404();
+		}
+
+		if(!$this->session->has_userdata('donor_name')){
+			$url = base_url('donor/login');
+			$this->session->referal_url = getCurrentUrl();
+			header('Location: '.$url); die();
+		}
+		
+		$res = $this->blood_model->donateBloodCancel($requirement_id);
+
+		if(!$res['result']){
+			$this->session->set_flashdata('error-message', $res['msg']);
+		} else {
+			$bloodRequirementId = $res['id'];
+			$this->load->model('donor_model');
+			$data['bloor_donor'] = $this->donor_model->getDonorById($donor_id);
+			$data['blood_reciever'] = $this->blood_model->getBloodRequirementById($requirement_id);
+			
+			//$this->sendDonorNominationMail($data);
+			$this->session->set_flashdata('success-message', $this->lang->line('success_blood_donation_nomination_cancellation'));	
 		}
 
 		header('Location: '.base_url('blood/requirement_list'));

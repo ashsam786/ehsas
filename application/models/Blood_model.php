@@ -38,6 +38,33 @@ class blood_model extends CI_Model{
 		return $data;
 	}
 
+	public function donateBloodCancel($requirement_id){
+		try{
+
+			$enq = $this->db->get_where('blood_requirements', ['id' => $requirement_id]);
+			if($enq->num_rows() == 0){
+				show_404();
+			}
+
+			$data = [
+				'donor_list_id' => $this->session->donor_id,
+				'blood_requirements_id' => $requirement_id,
+			];
+
+			$this->db->where($data);
+			$enq = $this->db->delete('blood_donation');
+			if($enq){
+				$data = ['result' => true];	
+			} else{
+				throw new Exception($this->lang->line('error_general'));
+			}
+		} catch(Exception $e) { 
+			$data = ['result' => false, 'msg' => $e->getMessage()];
+		}
+
+		return $data;
+	}
+
 	public function save_blood_requirement(){
 		try{
 			$errors = [];
@@ -121,9 +148,9 @@ class blood_model extends CI_Model{
 		
 		$where = ['status !=' => '0'];
 		
-		if($this->session->has_userdata('uaser_id')){
-			$where['blood_donation.donor_list_id'] = $this->session->uaser_id;
-		}
+/*		if($this->session->has_userdata('donor_id')){
+			$where['blood_donation.donor_list_id'] = $this->session->donor_id;
+		}*/
 
 		$this->db->select($this->table.'.*, countries.country as country_name, states.state as state_name, cities.city as city_name, blood_donation.donor_list_id as donor_id');
 		$this->db->join('countries', $this->table.'.country = countries.id', 'left');
@@ -131,29 +158,22 @@ class blood_model extends CI_Model{
 		$this->db->join('cities', $this->table.'.city = cities.id', 'left');
 		$this->db->join('blood_donation', $this->table.'.id = blood_donation.blood_requirements_id', 'left');
 
-		$data = $this->db->get_where($this->table, $where);	
+		$data = $this->db->get_where($this->table, $where)->result_array();	
 
-		$this->db->select('blood_donation.*, donor_list.name as donor_name');
-		$this->db->join('donor_list', 'blood_donation.donor_list_id = donor_list.id', 'left');
-		$bd = $this->db->get_where('blood_donation', ['donated_on' => 0]);
-		
-		$blood_donation_array = [];
-		foreach($bd->result_array() as $i => $v){
-			if(!isset($blood_donation_array[$v['blood_requirements_id']])){
-				$blood_donation_array[$v['blood_requirements_id']] = [];
+		$result = [];
+
+		foreach($data as $i => $v){
+			if(!array_key_exists($v['id'], $result)){
+				$result[$v['id']] = $v;
+				$result[$v['id']]['donor_id'] = [];
 			}
-			$blood_donation_array[$v['blood_requirements_id']][] = $v;
+
+			if(!empty($v['donor_id'])){
+				$result[$v['id']]['donor_id'][] = $v['donor_id'];
+			}
 		}
 
-		$data_array = [];
-		foreach($data->result_array() as $i => $v){
-			if(isset($blood_donation_array[$v['id']])){
-				$v['donation_detail'] = $blood_donation_array[$v['id']];
-			}	
-			$data_array[] = $v;
-		}
-
-		return $data_array;
+		return $result;
 	}
 
 	public function getBloodRequirementById($bloodRequirementId){

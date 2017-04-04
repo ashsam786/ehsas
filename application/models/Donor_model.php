@@ -220,7 +220,7 @@ class donor_model extends CI_Model{
 
 				if($emailCount && $emailCount > 0){
 					$errors['f1-contact-number'] = $this->lang->line('error_duplicate_email');
-					$errors['f1-contact-number'] = 'rough';
+					//$errors['f1-contact-number'] = 'rough';
 				}
 			}
 
