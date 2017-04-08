@@ -185,10 +185,23 @@ class blood_model extends CI_Model{
 		$this->db->join('states', $this->table.'.state = states.id', 'left');
 		$this->db->join('cities', $this->table.'.city = cities.id', 'left');
 		$this->db->join('blood_donation', $this->table.'.id = blood_donation.blood_requirements_id', 'left');
-		$this->db->group_by($this->table.'.id');
 
-		$data = $this->db->get_where($this->table, $where);	
-		return $data->row();
+		$data = $this->db->get_where($this->table, $where)->result_array();	
+
+		$result = [];
+
+		foreach($data as $i => $v){
+			if(empty($result)){
+				$result = $v;
+				$result['donor_id'] = [];
+			}
+
+			if(!empty($v['donor_id'])){
+				$result['donor_id'][] = $v['donor_id'];
+			}
+		}
+
+		return $result;
 	}
 }
 // end of file

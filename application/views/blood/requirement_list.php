@@ -43,7 +43,7 @@
             <div class="tim-row" id="recentDonorsTable">
                 <?php if(isset($requirement_list) && sizeof($requirement_list > 0)){ ?>
                 <div class="row bloodRequirementTable">
-                <table id="bloodDonorList" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                	<table id="bloodDonorList" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
                                 <th class="text-center">#</th>
@@ -84,15 +84,9 @@
 									<button class="btn btn-<?php echo sizeof($v['donor_id']) > 0 ? 'success' : 'danger'; ?> btn-fab btn-fab-mini btn-round defaultCursor"><?php echo sizeof($v['donor_id']); ?></button>
                                 </td>
                                 <td>
-									<?php if($this->session->has_userdata('donor_id') && in_array($this->session->donor_id, $v['donor_id'])){	?>
-										<button type="button" rel="tooltip" title="Cancel donation" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/cancelDonation/'.$v['id']); ?>">
-											Already Applied
-										</button>	
-									<?php } else { ?>
-										<button type="button" rel="tooltip" title="Click to donate blood" class="btn btn-info btn-simple btn-xs anchor" data-target="<?php echo base_url('blood/donate/'.$v['id']); ?>">
-											Donate Blood
-										</button>
-									<?php } ?>                                	
+									<a class="text-success" href="<?php echo base_url('blood/details/'.$v['id']); ?>">
+										Donate Blood
+									</a>
                                 </td>
                             </tr>
                         <?php } ?>

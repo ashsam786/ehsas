@@ -4,19 +4,25 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-		<link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-		<link rel="icon" type="image/png" href="assets/img/favicon.png">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
+        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="Author" content="amir samad hanga">
-		<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
-		
+        <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+
+        <meta property="og:url"                content="<?php echo isset($ogUrl) ? $ogUrl: BASE_URL; ?>" />
+        <meta property="og:type"               content="<?php echo isset($ogType) ? $ogType: 'article'; ?>" />
+        <meta property="og:title"              content="<?php echo isset($ogTitle) ? $ogTitle: PAGE_TITLE; ?>" />
+        <meta property="og:description"        content="<?php echo isset($ogDescription) ? $ogDescription: PAGE_TITLE; ?>" />
+        <meta property="og:image"              content="<?php echo isset($ogImage) ? $ogImage: LOGO_IMAGE_URL; ?>" />
+
         <title><?php echo isset($title)? $title : PAGE_TITLE; ?></title>
 
-		<!--     Fonts and icons     -->
-		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+        <!--     Fonts and icons     -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
 	
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -47,6 +53,14 @@
 
     </head>
 	<body class="<?php echo isset($pageHeaderType) ? $pageHeaderType : 'components-page' ?>">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>  
 <!-- Navbar -->
 <nav class="navbar navbar-danger navbar-transparent navbar-fixed-top navbar-color-on-scroll">
 	<div class="container">

@@ -46,7 +46,40 @@ class Blood extends CI_Controller {
 			$this->session->set_flashdata('success-message', $this->lang->line('success_blood_donation_nomination_success'));	
 		}
 
-		header('Location: '.base_url('blood/requirement_list'));
+		header('Location: '.base_url("blood/details/{$requirement_id}"));
+	}
+
+	/*
+	* detail page for each donation requirement
+	*/
+	public function details(){
+		$requirement_id = $this->uri->segment(3);
+		$donor_id = $this->session->donor_id;
+
+		if(!$requirement_id){
+			show_404();
+		}
+
+		if(!$this->session->has_userdata('donor_name')){
+			$url = base_url('donor/login');
+			$this->session->referal_url = getCurrentUrl();
+			header('Location: '.$url); die();
+		}
+		
+		$data['blood_requirement'] = $this->blood_model->getBloodRequirementById($requirement_id);
+
+		if(!$data['blood_requirement']){
+			show_404();
+		} else {
+			$data['ogUrl'] = getCurrentUrl();
+			$data['ogType'] = 'article';
+			$data['ogTitle'] = $data['blood_requirement']['blood_group'].' Blood Requirement | '.PAGE_TITLE;
+			$data['ogDescription'] = "Urgent {$data['blood_requirement']['blood_group']} blood requirement at {$data['blood_requirement']['hospital_name']}, {$data['blood_requirement']['city_name']}";
+
+			$this->load->view('template/header_main', $data);
+			$this->load->view('blood/requirement_details', $data);
+			$this->load->view('template/footer_main', $data);
+		}
 	}
 
 	/*
@@ -80,7 +113,7 @@ class Blood extends CI_Controller {
 			$this->session->set_flashdata('success-message', $this->lang->line('success_blood_donation_nomination_cancellation'));	
 		}
 
-		header('Location: '.base_url('blood/requirement_list'));
+		header('Location: '.base_url("blood/details/{$requirement_id}"));
 	}
 
 	/*
@@ -136,6 +169,7 @@ class Blood extends CI_Controller {
 			$data['recievedAt'] = date('M-d-Y');
 			$this->session->set_flashdata('formData', $_POST);
 			$this->session->set_flashdata('success-message', 'Requirement submitted successfully. ');
+
 			$this->sendRequestConfirmationMail($data);			
 		}
 		redirect('/blood/requirement');
@@ -174,7 +208,7 @@ class Blood extends CI_Controller {
 	private function sendDonorNominationMail($data){
 		$sub = $this->lang->line('blood_donation_request_recieved');
 		$sub_user = $this->lang->line('blood_donation_request_submitted');
-		
+
 		$name = $data['name'];
 		
 		$message = $this->load->view('emails/bloodRequestInfo', $data, true);

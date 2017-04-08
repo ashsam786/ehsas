@@ -101,7 +101,9 @@ defined('UNFIT_DONOR_PERIOD') 	OR define('UNFIT_DONOR_PERIOD', 60);
 defined('PROJECT_NAME')    OR define('PROJECT_NAME', 'Ehsas'); 
 defined('MAIN_TAGLINE')    OR define('MAIN_TAGLINE', 'ek zindagi bachane ka'); 
 defined('MAIN_TITLE')      OR define('MAIN_TITLE', 'Ehsas - ek zindagi bachane ka'); 
-defined('PAGE_TITLE')      OR define('PAGE_TITLE', 'Ehsas | Ehsas ek zindagi bachane ka');
+defined('PAGE_TITLE')      OR define('PAGE_TITLE', 'Ehsas ek zindagi bachane ka');
+defined('LOGO_IMAGE_URL')  OR define('LOGO_IMAGE_URL', BASE_URL.'/assets/img/logo.png');
+
 defined('FEMALE_ALERT_MESSAGE') 	OR define('FEMALE_ALERT_MESSAGE', "Dear Sister, We appreciate you enthusiasm! We don't want your personal details to be made public! We will Soon come up with different option. You still can be part of group, By creating awareness about our cause! Kindly Encourage your friends via social networkings site to participate."); 
 defined('FEMALE_ALERT_MESSAGE_TITLE') 	OR define('FEMALE_ALERT_MESSAGE_TITLE', "We Appreciate Your Enthusiasm - Jazakillahukhair."); 
 
