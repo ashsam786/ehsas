@@ -11,7 +11,7 @@
         <meta name="Author" content="amir samad hanga">
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 
-        <meta property="og:url"                content="<?php echo isset($ogUrl) ? $ogUrl: BASE_URL; ?>" />
+        <meta property="og:url" content="<?php echo isset($ogUrl) ? $ogUrl: BASE_URL; ?>" />
         <meta property="og:type"               content="<?php echo isset($ogType) ? $ogType: 'article'; ?>" />
         <meta property="og:title"              content="<?php echo isset($ogTitle) ? $ogTitle: PAGE_TITLE; ?>" />
         <meta property="og:description"        content="<?php echo isset($ogDescription) ? $ogDescription: PAGE_TITLE; ?>" />

@@ -130,9 +130,7 @@
                         <i class="fa fa-twitter"></i>
                         Tweet
                     </a>
-                    <div class="btn btn-facebook fb-share-button" data-href="<?php echo getCurrentUrl(); ?>" data-layout="button" data-size="small" data-mobile-iframe="true">
-                        <a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fehsas.local%2Fblood%2Fdetails%2F3%23&amp;src=sdkpreparse">Share</a>
-                    </div>
+                    <div class="btn btn-facebook fb-share-button" data-href="http://demo.ehsas.in/blood/details/9" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdemo.ehsas.in%2Fblood%2Fdetails%2F9&amp;src=sdkpreparse">Share</a></div>
                     <a href="#" class="btn btn-google-plus">
                         <i class="fa fa-google-plus"></i>
                         Share
