@@ -59,12 +59,6 @@ class Blood extends CI_Controller {
 		if(!$requirement_id){
 			show_404();
 		}
-
-		if(!$this->session->has_userdata('donor_name')){
-			$url = base_url('donor/login');
-			$this->session->referal_url = getCurrentUrl();
-			header('Location: '.$url); die();
-		}
 		
 		$data['blood_requirement'] = $this->blood_model->getBloodRequirementById($requirement_id);
 
