@@ -65,6 +65,7 @@ class Blood extends CI_Controller {
 		if(!$data['blood_requirement']){
 			show_404();
 		} else {
+			$data['pageCanonicalUrl'] = getCurrentUrl();
 			$data['ogUrl'] = getCurrentUrl();
 			$data['ogType'] = 'article';
 			$data['ogTitle'] = $data['blood_requirement']['blood_group'].' Blood Requirement | '.PAGE_TITLE;

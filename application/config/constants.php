@@ -93,6 +93,7 @@ defined('REGISTRATION_ADMIN_EMAIL')	OR define('REGISTRATION_ADMIN_EMAIL', 'info@
 defined('FB_LINK')      	OR define('FB_LINK', 'https://www.facebook.com/ehsas.in/?fref=ts'); 
 defined('TWITTER_LINK')     OR define('TWITTER_LINK', '#'); 
 defined('GOOGLEPLUS_LINK') 	OR define('GOOGLEPLUS_LINK', '#'); 
+defined('EHSAS_TWITTER_HANDLE')	OR define('EHSAS_TWITTER_HANDLE', 'ashsam786'); 
 
 //constants
 defined('MOBILE_NUMBER_REGEX') 	OR define('MOBILE_NUMBER_REGEX', '/^\d{10}$/'); 

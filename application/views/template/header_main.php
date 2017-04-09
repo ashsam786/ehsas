@@ -37,6 +37,9 @@
         <!--link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>"-->
         <link rel="stylesheet" href="<?php echo base_url('assets/css/style_main.css'); ?>">
 
+        <link rel="canonical" href="<?php isset($pageCanonicalUrl) ? $pageCanonicalUrl : BASE_URL; ?>" />
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
