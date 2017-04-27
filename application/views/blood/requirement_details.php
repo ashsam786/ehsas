@@ -135,7 +135,7 @@
                         >Tweet</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </span>
 
-                    <div class="btn btn-facebook fb-share-button" data-href="http://demo.ehsas.in/blood/details/9" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdemo.ehsas.in%2Fblood%2Fdetails%2F9&amp;src=sdkpreparse">Share</a></div>
+                    <div class="btn btn-facebook fb-share-button" data-href="http://ehsas.in/blood/details/<?php echo $blood_requirement['id']; ?>" data-layout="button_count" data-size="small" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdemo.ehsas.in%2Fblood%2Fdetails%2F9&amp;src=sdkpreparse">Share</a></div>
 
                     <span class="btn btn-google-plus">
                         <div class="g-plus" data-action="share" data-annotation="none" data-height="24" data-href="<?php echo $ogUrl; ?>"></div>
