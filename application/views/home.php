@@ -340,7 +340,15 @@
 									<?php $img = $v->image == '' ? 'initiative.jpg' : $v->image; ?>
 									<img class="fullWidthImage" src='<?php echo base_url("assets/img/initiatives/{$img}"); ?>' alt="">
 									<div class="caption">
-										<h3><?php echo $v->name ?></h3>
+										<center class="caption">
+										<a href="<?php echo base_url('otherinitiatives/'.$v->slug); ?>">
+											<button class="btn btn-danger btn-round">
+												<?php echo $v->name ?>
+												<div class="ripple-container"></div>
+											</button>
+											<p style="text-align: justify;"></p>
+										</a>	
+										</center>										
 										<p style="text-align: justify;"><?php echo hide_large_description($v->description, 100, '#'); ?></p>
 									</div>
 								</div>

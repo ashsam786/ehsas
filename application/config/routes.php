@@ -50,6 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route[LOGIN_PAGE] = 'examples/login';
+$route['otherinitiatives/(:any)'] = 'other_initiatives/category/$1';
 $route['getStates'] = 'donor/getStates';
 $route['getCities'] = 'donor/getCities';
 $route['process_form'] = 'donor/process_form';

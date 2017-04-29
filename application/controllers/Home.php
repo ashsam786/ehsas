@@ -36,7 +36,8 @@ class Home extends CI_Controller {
 		$data['country_list'] = get_country_list();
 		$data['current_blood_requirement'] = $this->home_model->get_current_blood_requirement(6); // 6 is nuber of entries required
 		$data['recent_donors'] = $this->donor_model->get_recent_donors(6); // 6 is nuber of entries required
-		$data['other_initiatives'] = array_chunk($this->home_model->get_other_initiatives_list(8), 4); // other initiatives
+		$data['other_initiatives'] = array_chunk($this->home_model->get_other_initiative_categories_list(8), 4); // other initiative categories
+		//$data['other_initiatives'] = array_chunk($this->home_model->get_other_initiatives_list(8), 4); // other initiatives
 
 		$this->load->view('template/header_main', $data);
 		$this->load->view('home', $data);

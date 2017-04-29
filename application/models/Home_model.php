@@ -5,6 +5,7 @@ class home_model extends CI_Model{
 	private $table = 'donor_list';
 	private $bloodRequirement = 'blood_requirements';
 	private $othInitiativesTable = 'other_initiatives';
+	private $othInitiativeCategoriesTable = 'other_initiative_categories';
 
 	public function __construct(){
 		parent::__construct();
@@ -38,6 +39,15 @@ class home_model extends CI_Model{
 		}
 
 		return $result;
+	}
+
+	public function get_other_initiative_categories_list($num=null){
+
+		$this->db->select($this->othInitiativeCategoriesTable.'.*');
+		$this->db->limit($num);
+		$data = $this->db->get($this->othInitiativeCategoriesTable);
+
+		return $data->result();
 	}
 
 	public function get_other_initiatives_list($num=null){

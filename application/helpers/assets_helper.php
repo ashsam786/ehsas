@@ -53,8 +53,11 @@ function hide_large_description($content, $size, $url){
 	return $content;
 }
 
-function ddd($data){
+function ddd($data, $die = true){
 	echo '<pre>';
 	print_r($data); 
-	echo '<pre>'; die;
+	echo '<pre>'; 
+	if($die){
+		die;
+	}
 }
