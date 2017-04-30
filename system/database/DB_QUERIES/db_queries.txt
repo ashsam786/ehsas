@@ -1,2 +1,2 @@
-ALTER TABLE `other_initiatives` ADD `category_id` INT(11) UNSIGNED NOT NULL AFTER `priority`;  L
-ALTER TABLE `other_initiatives` ADD INDEX(`category_id`);				       L
+ALTER TABLE `other_initiatives` ADD `category_id` INT(11) UNSIGNED NOT NULL AFTER `priority`;  L R
+ALTER TABLE `other_initiatives` ADD INDEX(`category_id`);				       L R
