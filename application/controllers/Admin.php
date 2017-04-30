@@ -63,7 +63,7 @@ die('done!');*/
 	}
 
 	public function view(){
-		if($this->require_role('admin')){
+		//if($this->require_role('admin')){
 			//$data['donors'] = $this->admin_model->getDonorData();
 			$data['title'] = 'Ehsas | Donor list';
 
@@ -72,9 +72,9 @@ die('done!');*/
 			$this->load->view('template/header', $data);
 			$this->load->view('viewdata', $data);
 			$this->load->view('template/footer', $data);
-		} else{
+		/*} else{
 			die('Sorry you are not authorised!');
-		}
+		}*/
 	
 	}
 
