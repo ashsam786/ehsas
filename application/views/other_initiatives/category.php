@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="brand">
-					<h1 class="title text-center topheaderTitle">OTHER INITIATIVES - <?php echo strtoupper($initiatives_list['category']) ?></h1>
+					<h1 class="title text-center topheaderTitle">Initiatives Around The Globe - <?php echo strtoupper($initiatives_list['category']) ?></h1>
 					<h3></h3>
 				</div>
 			</div>
