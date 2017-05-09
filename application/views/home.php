@@ -320,7 +320,7 @@
 			<?php if(sizeOf($other_initiatives) > 0){ ?>
 			<div class="row sliderImgBg" id="otherInitiatives">
 				<div class="title pageSectionTitle text-center">
-					<h3 class="whiteText">Other Initiatives</h3>
+					<h3 class="whiteText">Initiatives around the globe - Revival of humanity</h3>
 				</div>
 				<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 					<!-- Indicators -->
