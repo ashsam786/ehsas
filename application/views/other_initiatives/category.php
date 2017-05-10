@@ -34,7 +34,7 @@
 							<p>Email: <?php echo $v['email']? $v['email'] : 'NA'; ?></p>
 							<p>Address: <?php echo $v['address']? $v['address'] : 'NA'; ?></p>
 							<?php if(isset($v['url']) && !empty($v['url'])){ ?>
-								<p>Website: <?php echo $v['url']? $v['url'] : 'NA'; ?></p>
+								<p>Website: <?php echo $v['url']? '<a href="'.$v['url'].'" target="_blank">Click here</a>' : 'NA'; ?></p>
 							<?php } ?>
 						</address>
 					</div>
