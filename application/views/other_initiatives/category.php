@@ -5,7 +5,7 @@
 		<div class="row">
 			<div class="col-md-8 col-md-offset-2">
 				<div class="brand">
-					<h1 class="title text-center topheaderTitle">OTHER INITIATIVES - <?php echo strtoupper($initiatives_list['category']) ?></h1>
+					<h1 class="title text-center topheaderTitle">Initiatives Around The Globe - <?php echo strtoupper($initiatives_list['category']) ?></h1>
 					<h3></h3>
 				</div>
 			</div>
@@ -34,7 +34,7 @@
 							<p>Email: <?php echo $v['email']? $v['email'] : 'NA'; ?></p>
 							<p>Address: <?php echo $v['address']? $v['address'] : 'NA'; ?></p>
 							<?php if(isset($v['url']) && !empty($v['url'])){ ?>
-								<p>Website: <?php echo $v['url']? $v['url'] : 'NA'; ?></p>
+								<p>Website: <?php echo $v['url']? '<a href="'.$v['url'].'" target="_blank">Click here</a>' : 'NA'; ?></p>
 							<?php } ?>
 						</address>
 					</div>

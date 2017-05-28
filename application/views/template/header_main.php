@@ -89,12 +89,11 @@
 
 	    <div class="collapse navbar-collapse" id="navigation-index">
 	    	<ul class="nav navbar-nav navbar-right">
-        <?php if(isset($admin_logout)){ ?>
-          <li>
-            <a href="<?php echo base_url('admin/logout'); ?>">Admin Logout</a>
-          </li>
-        <?php  } ?>
-
+				<?php if(isset($admin_logout)){ ?>
+				  <li>
+					<a href="<?php echo base_url('admin/logout'); ?>">Admin Logout</a>
+				  </li>
+				<?php  } ?>
 				<li>
 					<a href="<?php echo base_url('home'); ?>">Home</a>
 				</li>
@@ -104,21 +103,24 @@
 				<li>
 					<a href="<?php echo base_url('/contact'); ?>">Contact Us</a>
 				</li>
-        <?php if($this->session->has_userdata('donor_name')){ ?>
-          <li> 
-            <a href="<?php echo base_url("donor/edit/{$this->session->userid}"); ?>" title="Edit Profile">Edit</a>
-          </li> 
-          <li>
-            <a href="<?php echo base_url('donor/logout'); ?>">Logout</a>
-          </li>  
-        <?php } else{ ?>
-          <li>
-            <a href="<?php echo base_url('donor/login'); ?>">Login</a> 
-          </li>
-          <li>
-            <a href="<?php echo base_url('donor/register'); ?>">Register</a>
-          </li>
-        <?php } ?>        
+				<?php if($this->session->has_userdata('donor_name')){ ?>
+				  <li> 
+					<a href="<?php echo base_url("donor/edit/{$this->session->userid}"); ?>" title="Edit Profile">Edit</a>
+				  </li> 
+				  <li>
+					<a href="<?php echo base_url('donor/logout'); ?>">Logout</a>
+				  </li>  
+				<?php } else{ ?>
+				  <li>
+					<a href="<?php echo base_url('donor/login'); ?>">Login</a> 
+				  </li>
+				  <li>
+					<a href="<?php echo base_url('donor/register'); ?>">Register</a>
+				  </li>
+				<?php } ?>        
+				<li>
+					<a href="http://blog.ehsas.in/">Blog</a>
+				</li>		
 				<li class="topMenuSocial">
 					<a rel="tooltip" title="Follow us on Twitter" data-placement="bottom" href="#" target="_blank" class="btn btn-white btn-simple btn-just-icon">
 						<i class="fa fa-twitter"></i>
