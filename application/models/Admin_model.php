@@ -15,24 +15,26 @@ class Admin_model extends CI_Model{
 
 	public function get_donor_list(){
 		$aColumns = array(
-			//'id',
-			'days_passed',
-			'last_time_donated',
-			'name',
-			'blood_group',
-			'gender',
-			'contact',
-			'alternate_contact',
-			'email',
-			'nearby_hospital',
-			'city',
-			'state',
-			'country',
-			'address',
-			'how_you_know_us'
+            //'id',
+            'edit',
+            'days_passed',
+            'last_time_donated',
+            'name',
+            'blood_group',
+            'gender',
+            'contact',
+            'alternate_contact',
+            'email',
+            'nearby_hospital',
+            'city',
+            'state',
+            'country',
+            'address',
+            'how_you_know_us'
         );
 
 		$sColumns = array(
+            'dl.id',
 			'dl.last_time_donated',
 			'dl.name',
 			'dl.blood_group',
@@ -159,7 +161,7 @@ class Admin_model extends CI_Model{
             "recordsFiltered" => $iFilteredTotal,
             "data" => array()
         );
- 
+
         foreach ($rResult->result_array() as $aRow) {
             $row = array();
             foreach ($aColumns as $col) {
@@ -170,11 +172,17 @@ class Admin_model extends CI_Model{
             		$row[] = '<span class="'. $class .'">'. $days .'</span>';
             	}
             	if($col == 'days_passed') continue;
-            	$row[] = $aRow[$col];
+                if($col == 'edit'){
+                    $edit = '<a href="'.base_url('admin/donor/edit/'.$aRow['id']).'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>';
+                    $edit .= ' | <a href="'.base_url('admin/donor/delete/'.$aRow['id']).'"><i class="fa fa-trash" aria-hidden="true"></i></a>';
+                    $row[] = $edit;
+                } else{
+                    $row[] = $aRow[$col];
+                }
+            	
             }
             $output['data'][] = $row;
         }
- 
         return $output;
 	}
 
@@ -234,6 +242,100 @@ class Admin_model extends CI_Model{
         } catch(Exception $e){
             return ['result' => false, 'msg' => $e->getMessage()];
         }
-   }    
+   } 
+
+
+
+    public function save_donor_form(){
+        try{
+            $errors = [];
+            $data = array(
+                'last_time_donated' => $this->input->post('f1-last-time-donated'),
+                'name'              => $this->input->post('f1-first-name'),
+                'address'           => $this->input->post('f1-address'),
+                'country'           => $this->input->post('f1-country'),
+                'state'             => $this->input->post('f1-state'),
+                'city'              => $this->input->post('f1-city'),
+                'contact'           => $this->input->post('f1-contact-number'),
+                'alternate_contact' => $this->input->post('f1-alternate-number'),
+                'blood_group'       => $this->input->post('f1-blood-group'),
+                'nearby_hospital'   => $this->input->post('f1-hospital-nearby'),
+                'how_you_know_us'   => $this->input->post('f1-how-know'),
+                'gender'            => $this->input->post('f1-gender'),
+                'email'             => $this->input->post('f1-email')
+            );
+
+            $contactCount = $this->db->get_where($this->table, ['contact' => $data['contact']]);
+            $contactdata = $contactCount->row();
+            $contactCount = $contactCount->num_rows();
+
+            $emailCount = $this->db->get_where($this->table, ['email' => $data['email']]);
+            $emaildata = $emailCount->row();
+            $emailCount = $emailCount->num_rows();
+
+            if(null !== $this->input->post('donor') && !empty($this->input->post('donor'))){
+                $id = base64_decode($this->input->post('donor'));
+                if($contactCount && $contactCount > 0 && $contactdata->id !== $id){
+                    throw new Exception($this->lang->line('error_duplicate_mobile'));
+                }
+
+                if($emailCount && $emailCount > 0 && $emaildata->id !== $id){
+                    throw new Exception($this->lang->line('error_duplicate_email'));
+                }
+                
+            } else{
+                if($contactCount && $contactCount > 0){
+                    $errors['f1-contact-number'] = $this->lang->line('error_duplicate_mobile');
+                }
+
+                if($emailCount && $emailCount > 0){
+                    $errors['f1-contact-number'] = $this->lang->line('error_duplicate_email');
+                    //$errors['f1-contact-number'] = 'rough';
+                }
+            }
+
+            if($data['name'] == "" || $data['gender'] == "" || $data['last_time_donated'] == "" || $data['country'] == "" || $data['state'] == "" || $data['city'] == "" || $data['contact'] == "" || $data['nearby_hospital'] == "" || $data['how_you_know_us'] == "" || $this->input->post('f1-email') == ""){
+                $errors['required'] = $this->lang->line('error_incomplete_form');
+            }
+
+            //if(!preg_match('/^(\+91-?|0?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/', $data['contact'])){
+            if(!preg_match(MOBILE_NUMBER_REGEX, $data['contact'])){
+                $errors['f1-contact-number'] = $this->lang->line('error_invalid_mobile');
+            }
+
+            if($data['alternate_contact'] != "" && !preg_match(MOBILE_NUMBER_REGEX, $data['alternate_contact'])){
+                $errors['f1-alternate-number'] = $this->lang->line('error_invalid_alternate_mobile');
+            }
+
+            if(!empty($errors)){
+                return ['result' => false, 'msg' => $errors];
+            }
+            
+            if(isset($id)){
+                $this->db->where('id', $id);
+                if(!$this->db->update($this->table, $data)){
+                    throw new Exception($this->lang->line('error_general'));
+                }
+
+                $data = ['result' => true, 'msg' => [$this->lang->line('error_profile_update_success')]];
+            } else {
+                if($this->input->post('f1-password') == "" || $this->input->post('f1-repeat-password') != $this->input->post('f1-password')){
+                    throw new Exception($this->lang->line('error_password'));
+                }
+
+                $data['pass'] = md5($this->input->post('f1-password'));
+                if(!$this->db->insert($this->table, $data)){
+                    throw new Exception($this->lang->line('error_general'));
+                }
+                $data = ['result' => true, 'msg' => [$this->lang->line('error_form_thanku_msg')]];
+            }
+        } catch(Exception $e){ 
+            $data = ['result' => false, 'msg' => [$e->getMessage()]];
+        }
+
+        return $data;
+    }
+
+
 }
 // end of file
