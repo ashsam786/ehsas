@@ -88,7 +88,7 @@ die('done!');*/
 			$data['pageHeaderType'] = 'components-page';
 			$data['requirement_list'] = $this->admin_model->get_blood_requirement_list();
 			
-
+			$data['can_edit'] = true;
 			$data['admin_logout'] = '<li><a href="'. base_url("admin/logout").' ">Admin Logout</a></li>';
 
 			$this->load->view('template/header_main', $data);
@@ -168,7 +168,13 @@ die('done!');*/
 				$this->load->view('admin/donor/edit', $data);
 				$this->load->view('template/footer', $data);
 			} elseif($action == 'delete'){
-
+				$response = $this->donor_model->deleteDonorById($id);
+				if($response['result']){
+					$this->session->set_flashdata('success-message', $response['msg']);
+				} else{
+					$this->session->set_flashdata('alert-message', $response['msg']);
+				}
+				redirect($this->agent->referrer());
 			}
 		} else{
 			die('Sorry you are not authorised!');

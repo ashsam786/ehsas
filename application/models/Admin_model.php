@@ -174,7 +174,7 @@ class Admin_model extends CI_Model{
             	if($col == 'days_passed') continue;
                 if($col == 'edit'){
                     $edit = '<a href="'.base_url('admin/donor/edit/'.$aRow['id']).'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>';
-                    $edit .= ' | <a href="'.base_url('admin/donor/delete/'.$aRow['id']).'"><i class="fa fa-trash" aria-hidden="true"></i></a>';
+                    $edit .= sprintf(' | <a onclick="return confirm(%s)" href="'.base_url('admin/donor/delete/'.$aRow['id']).'"><i class="fa fa-trash" aria-hidden="true"></i></a>', 'Are you sure?');
                     $row[] = $edit;
                 } else{
                     $row[] = $aRow[$col];

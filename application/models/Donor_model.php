@@ -270,6 +270,23 @@ class donor_model extends CI_Model{
 		return $data;
 	}
 
+	public function deleteDonorById($donor_id = null){
+		try{
+			if($donor_id == null){
+				throw new Exception('No donor selected to delete');
+			}
+
+			$this->db->where('id', $donor_id);
+			//if(!$this->db->update($this->table, ['status' => 0])){
+			/*if(!$this->db->delete($this->table)){
+				throw new Exception($this->lang->line('error_general'));
+			}*/
+			return ['result' => true, 'msg' => 'Donor deleted successfully'];
+		} catch(Exception $e){
+			return ['result' => false, 'msg' => $e->getMessage()];
+		}		
+	}
+
 	public function resetpassword(){
 		try{
 			$email = $this->input->post('f1-email');
