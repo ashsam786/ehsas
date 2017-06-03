@@ -100,10 +100,12 @@ class blood_model extends CI_Model{
 			if(!validateDate($data['required_before'])){
 				$errors['required'][] = 'requiredOn';
 			}
-	
+
 			if(!empty($errors['required'])){
 				return ['result' => false, 'msg' => 'Invalid form fields submitted. Please enter valid data', 'errors' => $errors];
 			}
+
+			$data['required_before'] = date('Y-m-d H-m-s', strtotime($data['required_before']));
 
 			//if(!preg_match('/^(\+91-?|0?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/', $data['contact'])){
 			if(!preg_match(MOBILE_NUMBER_REGEX, $data['mobile'])){
