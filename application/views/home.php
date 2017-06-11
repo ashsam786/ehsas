@@ -273,16 +273,34 @@ window.onload = function(){
 									<div class="item">
 										<div class="carousel-content">
 											<div>
-												<p class="whiteText">Noble mission means noble...this state needs a target mission like Late Abdul Satar Eidhi did for Islamic Republic of Pakistan...Like for others what U like for urself...Alhadith.....Survival for self is not any bravery or achievement but survival for others is a brave n satisfaction step...Live n let live n Charity has a permanent taste of real life....</p>
-												<p class="text-right whiteText"><cite>Er Malik Manzoor Ul-Haq</cite><br>Project Manager Civil</p>
+												<p class="whiteText">Sadqah is best form of ibadah it's erase your sins give you the hasnah and better jazah khair from Almighty Allah and make men of taqwah
+May Allah give hidayah to yaseer bhai and friends to uplift the society and wellfare of ummah May Allah give barakah afiyah to members of ehsas zindagi and others people who think for betterment of everybody</p>
+												<p class="text-right whiteText"><cite>Hammad Akhtar</cite></p>
 											</div>
 										</div>
 									</div>
 									<div class="item">
 										<div class="carousel-content">
 											<div>
-												<p class="whiteText">Noble mission means noble...this state needs a target mission like Late Abdul Satar Eidhi did for Islamic Republic of Pakistan...Like for others what U like for urself...Alhadith.....Survival for self is not any bravery or achievement but survival for others is a brave n satisfaction step...Live n let live n Charity has a permanent taste of real life....</p>
-												<p class="text-right whiteText"><cite>Er Malik Manzoor Ul-Haq</cite><br>Project Manager Civil</p>
+												<p class="whiteText">Kudos to team Ehsas.in for initiating such a great campaign aimed to save the precious lives. This is called the humanitarianism which can only be done by great humans. Please remember me for any assistence.</p>
+												<p class="text-right whiteText"><cite>Bilal Bashir Bhat</cite></p>
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="carousel-content">
+											<div>
+												<p class="whiteText">Great initiative, donate your blood to spread love for the sake of humanity</p>
+												<p class="text-right whiteText"><cite>Skiekh Mubashir</cite></p>
+											</div>
+										</div>
+									</div>
+									<div class="item">
+										<div class="carousel-content">
+											<div>
+												<p class="whiteText">Charity can aid you to get heaven and above all, charity doers are near to Allah! Donate your replenishable blood to do humanity a service and please your Lord and soul.
+AN initiative which need our full support. Let's do our little bit to propagate the cause.</p>
+												<p class="text-right whiteText"><cite>Wani Nusrat</cite></p>
 											</div>
 										</div>
 									</div>
