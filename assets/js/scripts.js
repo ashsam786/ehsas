@@ -90,7 +90,12 @@ jQuery(document).ready(function() {
     $('#top-navbar-1').on('hidden.bs.collapse', function(){
     	$.backstretch("resize");
     });
-    
+
+
+    $('body').on('click', '.getConfirmation', function(){
+        return confirm('Are you sure');
+    });
+ 
     /*
         Form
     */

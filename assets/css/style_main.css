@@ -12,6 +12,10 @@
 	color: #555555!important;
 }
 
+.scrollx{
+    overflow-x: auto;
+}
+
 .paragraph p{
     font-size: 17px;
     letter-spacing: 1px;
@@ -73,7 +77,7 @@ p.logoTagName {
     background-attachment: fixed;	
 }
 
-#text-carousel{
+#text-carousel, #text-carousel1{
     background: rgba(101, 47, 142, 0.64);
 }
 
@@ -95,13 +99,13 @@ p.logoTagName {
     align-items:center;
 }
 
-#text-carousel {
+#text-carousel{
   width: 100%;
   height: auto;
   padding: 50px;
 }
 
-#text-carousel .carousel-control{
+#text-carousel .carousel-control, #text-carousel1 .carousel-control{
 	width:20%!important;
 }
 
@@ -119,4 +123,8 @@ p.logoTagName {
 #otherInitiatives .carousel .carousel-control{
     width: inherit;
     color: #f44336;	
+}
+
+#recentDonorsTable {
+    overflow-x: auto;
 }

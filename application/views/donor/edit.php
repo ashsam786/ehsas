@@ -50,7 +50,7 @@
 						</div>
 						<div class="form-group">
 							<label class="" for="f1-contact-number">Contact Number</label>
-							<input type="text" name="f1-contact-number" placeholder="Contact Number(10 digits)..." class="f1-contact-number form-control required" id="f1-contact-number"  value="<?php echo $donor->contact; ?>"" maxlength="10" disabled>
+							<input type="text" name="f1-contact-number" placeholder="Contact Number(10 digits)..." class="f1-contact-number form-control required" id="f1-contact-number"  value="<?php echo $donor->contact; ?>"" maxlength="10">
 						</div>
 						<div class="form-group">
 							<label class="" for="f1-email">Email</label>

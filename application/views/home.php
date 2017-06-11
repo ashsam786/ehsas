@@ -17,6 +17,33 @@
 </div>
 <div class="main main-raised">
 	<div class="section section-basic">
+		<div class="bloodRequirementTicker">
+			<div id="text-carousel1" class="carousel slide" data-ride="carousel">
+				<!-- Wrapper for slides -->
+				<div class="row">
+					<div class="col-xs-offset-1 col-xs-10">
+						<div class="carousel-inner">
+
+							<?php foreach($current_blood_requirement as $i => $v){ ?>
+								<div class="item <?php echo array_values($current_blood_requirement)[0] == $v ? 'active' : '' ?>">
+									<center class="carousel-content" style="display:block">
+										<h4 class="whiteText">
+											<?php echo ($v['required_before'])."{$v['blood_group']} blood required {$v['hospital_name']}, {$v['city_name']}" ?> <a href="<?php echo base_url("blood/details/{$v['id']}"); ?>" class="whiteText"><u>Click here</u></a> to know more
+										</h4>
+									</center>
+								</div>
+							<?php } ?>
+						</div>
+					</div>
+				</div>
+				<!-- Controls --> <a class="left carousel-control" href="#text-carousel1" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+			  </a>
+			 <a class="right carousel-control" href="#text-carousel1" data-slide="next">
+				<span class="glyphicon glyphicon-chevron-right"></span>
+			  </a>
+			</div>
+		</div>
 		<div class="container">
 			<?php if($this->session->flashdata('error-message')){ ?>
 				<div class="alert alert-danger">
@@ -45,9 +72,66 @@
 			<?php } ?>					
 			<div class="row">
 				<form class="form" method="get" action="<?php echo base_url('donor/donorlist'); ?>">
-					<div class="header header-danger text-center">
-						<h4>Search For Dononrs</h4>
+					<div class="title pageSectionTitle text-center">
+						<h3>Search For Dononrs</h3>
 					</div>
+
+
+
+
+
+
+
+
+
+
+ <!--style>
+    .progress {
+        height: 200px;
+    }
+    .progress > svg {
+        height: 100%;
+        display: block;
+    }
+</style>
+
+<div class="content">
+	 <div class="progress" id="progress"></div>
+</div>
+					
+<script>
+window.onload = function(){
+  var circle = new ProgressBar.Circle('#progress', {
+        color: '#f44336',
+        duration: 3000,
+        easing: 'easeInOut',
+        trailColor: '#f4f4f4',
+ style: {
+            // Text color.
+            // Default: same as stroke color (options.color)
+            color: '#f00',
+            position: 'absolute',
+            left: '50%',
+            top: '50%',
+            padding: 0,
+            margin: 0,
+            // You can specify styles which will be browser prefixed
+            transform: {
+                prefix: true,
+                value: 'translate(-50%, -50%)'
+            }
+        },        
+    });
+
+    circle.animate(1);
+}
+</script-->
+
+
+
+
+
+
 					<div class="content">
 						<div class="col-md-3">
 							<div class="form-group is-empty">
@@ -110,7 +194,7 @@
 				<div class="title pageSectionTitle text-center">
 					<h3>Current Blood Requirements</h3>
 				</div>
-				<div class="row bloodRequirementTable">
+				<div class="row bloodRequirementTable scrollx">
                 	<table id="bloodDonorList" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
@@ -220,7 +304,7 @@
 					<div class="title pageSectionTitle text-center">
 						<h3><?php echo $this->lang->line('recent_donors_list'); ?></h3>
 					</div>
-					<div class="row bloodRequirementTable">
+					<div class="row bloodRequirementTable scrollx">
 						<table class="table">
 							<thead>
 								<tr>
@@ -369,24 +453,7 @@
 					</a>
 				</div>
 			</div>	
-			<?php } ?>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+			<?php } ?>	
 		</div>
 	</div>
 	<div class="section section-download">
@@ -397,7 +464,7 @@
 						<i class="fa fa-twitter"></i>
 						Tweet
 					</a>
-					<a href="#" class="btn btn-facebook">
+					<a id = "shareFbBtn" href="#" class="btn btn-facebook">
 						<i class="fa fa-facebook-square"></i>
 						Share
 					</a>
@@ -410,3 +477,13 @@
 	</div>
 </div>
 
+<script>
+document.getElementById('shareFbBtn').onclick = function(e) {
+	e.preventDefault();
+	FB.ui({
+		method: 'share',
+		display: 'popup',
+		href: 'https://developers.facebook.com/docs/',
+	}, function(response){});
+}
+</script>

@@ -152,13 +152,13 @@
 							<div class="col-md-4">
 								<div class="radio">
 									<label>
-										<input type="radio" name="dGender" required>
+										<input type="radio" name="dGender" value="male" required>
 										Male
 									</label>
 								</div>
 								<div class="radio">
 									<label>
-										<input type="radio" name="dGender" required>
+										<input type="radio" name="dGender" value="female" required>
 										Female
 									</label>
 								</div>

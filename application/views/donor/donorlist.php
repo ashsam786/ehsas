@@ -80,7 +80,7 @@
             </div>        
             <div class="tim-row" id="recentDonorsTable">
                 <?php if($donor_list['result']){ ?>
-                <div class="row bloodRequirementTable">
+                <div class="bloodRequirementTable">
                 <table id="bloodDonorList" class="table table-striped table-bordered" cellspacing="0" width="100%">
                         <thead>
                             <tr>
