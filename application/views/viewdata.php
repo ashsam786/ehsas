@@ -12,10 +12,16 @@ window.onload = function(){
 }
 </script>
 <div class="top-content" style="background:#fff;">
+        <?php if($this->session->flashdata('alert-message')){ ?>
+            <div class="row"><div class="alert alert-danger"><?php echo $this->session->flashdata('alert-message'); ?></div></div>
+        <?php } elseif($this->session->flashdata('success-message')){ ?>
+            <div class="row"><div class="alert alert-success"><?php echo $this->session->flashdata('success-message'); ?></div></div>
+        <?php } ?>
     <div class="container-fluid">
         <table id="cd-grid" class="display table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
+                    <td>Edit/Delete</td>
                     <td>Days Passed</td>
                     <td>Last Time Donated</td>
                     <td>Name</td>
@@ -34,6 +40,7 @@ window.onload = function(){
             </thead>
             <tfoot>
                 <tr>
+                    <td>Edit/Delete</td>
                     <td>Days Passed</td>
                     <td>Last Time Donated</td>
                     <td>Name</td>

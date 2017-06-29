@@ -54,6 +54,9 @@
                                 <th>Hospital</th>
                                 <th>Posted On</th>
                                 <th class="text-center">Interested Donors</th>
+                                <?php if($can_edit){ ?>
+                                    <th>Edit/Delete</th>
+                                <?php } ?>
                             </tr>
                         </thead>
                         <tfoot>
@@ -66,6 +69,9 @@
                                 <th>Hospital</th>
                                 <th>Posted On</th>
                                 <th class="text-center">Interested Donors</th>                                
+                                <?php if($can_edit){ ?>
+                                    <th>Edit/Delete</th>
+                                <?php } ?>
                             </tr>
                         </tfoot>
                         <tbody>
@@ -82,6 +88,9 @@
                                 <td class="text-center">
 									<button class="btn btn-<?php echo sizeof($v['donor_id']) > 0 ? 'success' : 'danger'; ?> btn-fab btn-fab-mini btn-round anchor" data-target="<?php echo base_url('admin/viewdonors/'.implode(',', $v['donor_id'])); ?>"><?php echo sizeof($v['donor_id']); ?></button>
                                 </td>
+                                <?php if($can_edit){ ?>
+                                    <th>Edit/Delete</th>
+                                <?php } ?>                                
                             </tr>
                         <?php } ?>
                         </tbody>

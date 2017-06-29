@@ -278,9 +278,9 @@ class donor_model extends CI_Model{
 
 			$this->db->where('id', $donor_id);
 			//if(!$this->db->update($this->table, ['status' => 0])){
-			/*if(!$this->db->delete($this->table)){
+			if(!$this->db->delete($this->table)){
 				throw new Exception($this->lang->line('error_general'));
-			}*/
+			}
 			return ['result' => true, 'msg' => 'Donor deleted successfully'];
 		} catch(Exception $e){
 			return ['result' => false, 'msg' => $e->getMessage()];

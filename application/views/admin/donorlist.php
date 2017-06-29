@@ -13,7 +13,11 @@
                 </div>
             </div>
         </div>
-
+        <?php if($this->session->flashdata('alert-message')){ ?>
+            <div class="row"><?php echo $this->session->flashdata('alert-message'); ?></div>
+        <?php } elseif($this->session->flashdata('success-message')){ ?>
+            <div class="row"><?php echo $this->session->flashdata('success-message'); ?></div>
+        <?php } ?>
     </div>
 </div>
 <div class="main main-raised">
